@@ -1,0 +1,393 @@
+% LaTeX Curriculum Vitae Template
+%
+% Copyright (C) 2004-2009 Jason Blevins <jrblevin@sdf.lonestar.org>
+% http://jblevins.org/projects/cv-template/
+%
+% You may use use this document as a template to create your own CV
+% and you may redistribute the source code freely. No attribution is
+% required in any resulting documents. I do ask that you please leave
+% this notice and the above URL in the source code if you choose to
+% redistribute this file.
+%
+% Edited by Pierre Kawak
+% Thu. Sep. 2 2021
+
+% ----------------- Preamble ----------------- 
+% {{{
+\documentclass[letterpaper,11pt]{article}
+
+% Packages
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{calc}
+
+% Colors
+\usepackage[usenames,dvipsnames]{xcolor}
+
+% Page Setup
+\usepackage[margin=0.6in]{geometry}
+
+% Font
+\usepackage[T1]{fontenc}
+\usepackage[sc]{mathpazo}
+
+% Bibliography
+% \usepackage[style=numeric-comp,sorting=ydnt,defernumbers,maxbibnames=20]{biblatex}
+\usepackage[backend=biber,sorting=mysort,style=numeric-comp,defernumbers,maxbibnames=20]{biblatex}
+\addbibresource[label=articles]{articles.bib}
+%\addbibresource[label=other]{other.bib}
+\addbibresource[label=talks]{talks.bib}
+
+  % This is the sorting scheme for the CV
+  \DeclareSortingScheme{mysort}{
+    \sort[direction=descending]{
+      \field{year}
+    }
+    \sort[direction=descending]{
+      \field[padside=left,padwidth=2,padchar=0]{month}
+      \literal{00}
+    }
+  }
+
+  % Use this for reversing the numbers (count down) in the bibliography
+  % Count total number of entries in each refsection
+  \AtDataInput{%
+  \csnumgdef{entrycount:\therefsection}{%
+  \csuse{entrycount:\therefsection}+1}}
+
+  % Print the labelnumber as the total number of entries in the
+  % current refsection, minus the actual labelnumber, plus one
+  \DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}    
+  \newrobustcmd*{\mkbibdesc}[1]{%
+  \number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
+
+ % fix header
+ \defbibheading{fix}[\refname]{\section*{#1}}
+ 
+ % supress the "in: " in articles
+ \renewbibmacro{in:}{}
+
+ % supress the month
+ \AtEveryBibitem{\clearfield{month}}
+
+ % underline person giving the talk using usera in the bib file
+ \usepackage{xpatch}
+ \newbibmacro*{name:emph}{%
+  \ifboolexpr{ test {\ifcurrentname{author}} and test {\ifbibliography}
+    and ( test {\ifentrytype{inproceedings}} 
+          or test {\ifentrytype{article}} 
+          or test {\ifentrytype{inbook}} )
+    and ( ( test {\iffieldundef{usera}} 
+            and test {\ifnumequal{\value{listcount}}{1}} )
+          or test {\ifnumequal{\thefield{usera}+0}{\value{listcount}} } ) }
+   {\bfseries}{}}
+
+ \xpretobibmacro{name:last}{\begingroup\usebibmacro{name:emph}}{}{}
+ \xpretobibmacro{name:first-last}{\begingroup\usebibmacro{name:emph}}{}{}
+ \xpretobibmacro{name:last-first}{\begingroup\usebibmacro{name:emph}}{}{}    
+ \xpretobibmacro{name:delim}{\begingroup\normalfont}{}{}    
+
+ \xapptobibmacro{name:last}{\endgroup}{}{}
+ \xapptobibmacro{name:first-last}{\endgroup}{}{}
+ \xapptobibmacro{name:last-first}{\endgroup}{}{}    
+ \xapptobibmacro{name:delim}{\endgroup}{}{} 
+
+% hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  urlcolor = RoyalBlue,
+  citecolor = Blue
+}
+
+% Commands
+\def\name{Pierre Kawak}
+\newcommand{\nestab}[1]{\begin{tabular}[t]{@{}p{0.75\textwidth}@{}}#1\end{tabular}}
+
+% Customize page headers
+\pagestyle{myheadings}
+\markright{\name}
+\thispagestyle{empty}
+
+% Custom sections
+\usepackage[]{titlesec}
+\titleformat{\section}{
+  \rmfamily\mdseries\large
+  }{}{}{}[\vspace{0.1ex}\titlerule]
+\titlespacing*{\section}{0ex}{3ex}{0.8ex}
+\titlespacing*{\therefsection}{0ex}{3ex}{0.8ex}
+\titlespacing*{\refsection}{0ex}{3ex}{0.8ex}
+
+% Don't indent paragraphs.
+\setlength\parindent{0em}
+
+% Lists
+\renewcommand{\labelitemi}{$-$}    % change bullet
+%\renewenvironment{itemize}{       % get rid of bullets
+%  \begin{list}{}{\setlength{\leftmargin}{1.5em}}
+%}{\end{list}}
+
+% }}}
+
+% ----------------- Body -----------------
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Personal Information %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{minipage}[t]{0.5\linewidth}
+%\vspace{0pt}
+%{\huge \name}
+%\end{minipage}
+%\begin{minipage}[t]{0.5\linewidth}
+% \vspace{0pt}
+% \begin{flushright}
+% \begin{tabular}{@{}r@{}}
+%  Materials Research Laboratory, MC 5121 \\
+%  University of California \\
+%  Santa Barbara, CA 93106\\
+%  (612) 598-0079 $\bullet$ \href{mailto:drt@mrl.ucsb.edu}{\tt drt@mrl.ucsb.edu} \\
+%  \href{https://sites.google.com/site/treedoug}{\tt https://sites.google.com/site/treedoug}
+% \end{tabular}
+% \end{flushright}
+%\end{minipage}
+
+\begin{center}
+  {\LARGE \textbf{Pierre Kawak} }\\[1ex]
+  Engineering Building, EB 312 \\
+  Brigham Young University, Provo, UT 84602 \\  
+  (801) 762-7999 $\bullet$ \href{mailto:pskawak@gmail.com}{\tt pskawak@gmail.com} \\
+\end{center}
+%\vspace{5ex}
+
+%%%%%%%%%%%%%%%
+%% Education %%
+%%%%%%%%%%%%%%%
+
+\section*{Education}
+\begin{tabular}{@{}p{0.45\textwidth} p{0.35\textwidth} r@{}}
+     Brigham Young University (BYU)           & Ph.D, Chemical Engineering & 2017 -- Apr 2022 \\
+     \multicolumn{1}{l}{\emph{Full Scholarship}}    & \emph{Advisor: Douglas R. Tree} & \\
+     \multicolumn{3}{l}{Thesis: Simulation of Crystal Nucleation in a Polymer Melt}\\
+     [4pt]
+
+     American University of Sharjah (AUS)     & M.S. Chemical Engineering & 2015 -- 2017 \\
+     \multicolumn{1}{l}{\emph{Full Scholarship; Only Graduate with 4.0 CGPA}}               & \emph{Advisor: Ghaleb A. Husseini} & \\
+     \multicolumn{3}{l}{Thesis: Ultrasound Triggered Release of Estrone- Targeted Liposomes}\\
+      [4pt]
+
+     American University of Sharjah (AUS)     & B.S. Chemical Engineering  & 2010 -- 2015 \\
+     \multicolumn{1}{l}{\emph{Partial Scholarship}}                  & Minor Economics
+\end{tabular}
+%\vspace{1ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% Biography          %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-0.2cm}
+\section*{Biography}
+I did my MS thesis work with Ghaleb A. Husseini in the Chemical Engineering department at the American University of Sharjah in the UAE, where I developed a nanoparticle carrier of the chemotherapeutic drug doxorubicin using dry film hydration, centrifugation, extrusion, membrane filtration and other lab methods.
+This smart drug delivery system was ultrasound sensitive with a functionalized surface with polyethylene glycol and estrone receptors optimized for targeted release at breast cancer sites.
+I studied the efficacy of the carrier and its release using Dynamic Light Scattering, an ultrasonic probe and a spectrofluorometer.
+I am currently completing my PhD thesis at the Brigham Young University with Douglas R. Tree, where I simulate coarse-grained bead-spring models to better understand nucleation in a dense polymer melt.
+My goal is to assess the range of applicability of classical nucleation theories to the problem of polymer crystallization using various molecular simulation methods employing advanced movesets and monte carlo methods.
+Going forward, I am interested in combining my knowledge in experimental and computational methods to attack a biomedical engineering problem.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Articles and Presentations %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{-0.2cm}
+%recompile from start if numbers aren't right
+\begin{refsection}[articles]
+  \nocite{*}
+  \setlength\bibitemsep{0pt}
+  \printbibliography[resetnumbers=true,type=article,title={Publications},heading=fix]
+\end{refsection}
+
+\vspace{-0.7cm}
+\begin{refsection}[talks]
+ \nocite{*}
+ \setlength\bibitemsep{0pt}
+ \printbibliography[resetnumbers=true,type=inproceedings,title={Presentations},heading=fix]
+\end{refsection}
+
+%%%%%%%%%%%%%%%%
+%% Experience %%
+%%%%%%%%%%%%%%%%
+%\vspace{-0.5cm}
+\section*{Teaching Experience}
+\begin{tabular}{@{}p{0.47\textwidth}p{0.33\textwidth}r@{}}
+     Graduate Teaching Assistant          & Separations Engineering                             & Fall 2021 \\
+     \textit{Brigham Young University}    & Process Dynamics \& Control                         & Fall 2018 \\
+                                          & Heat \& Mass Transfer                               & Spring 2018 \\[4pt]
+     Volunteer Course Instructor; \textit{University of the People} & College Algebra           & Spring 2018 \\[4pt]
+     Graduate Instructor; \textit{American University of Sharjah}   & Principles of ChemE       & 2016 -- 2017 (3x) \\[4pt]
+     Graduate Teaching Assistant          & Corrosion Lab                                       & 2016 -- 2017 (2x) \\
+     \textit{American University of Sharjah}                         
+                                          & ChemE Lab I                                         & 2015 -- 2016 (2x) \\
+                                          & Desalination (Grad.)                                & Spring 2015 \\
+                                          & Wastewater Treatment                                & Spring 2015 \\[4pt]
+     Undergraduate Teaching Assistant     & Mass Transfer                                       & 2014 -- 2015 (3x) \\
+     \textit{American University of Sharjah}
+                                          & Kinetics                                            & Fall 2014 \\
+                                          & Thermodynamics                                      & Spring 2014 \\[4pt]
+     Private Tutor                        & Maths, Engineering, Business, etc.                  & 2010 -- present
+\end{tabular}
+%\vspace{3ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Selected Research Experience %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section*{Selected Research Experience}
+% \begin{tabular}{@{}p{0.725\textwidth}r@{}}
+%              & Fall 2017 -- present \\
+%   \textit{Description}\\[4pt]
+%       & Spring 2015 -- Spring 2017 \\
+%   \textit{Description}\\
+
+%  Ethanol Enhanced Oil Recovery                                  & Description          & Spring 2014 -- Fall 2014
+% \end{tabular}
+% \vspace{3ex}
+
+%%%%%%%%%%%%%%%%
+%% Relevant Memberships %%
+%%%%%%%%%%%%%%%%
+
+%\vspace{-0.2cm}
+\section*{Memberships and Relevant Academic Activities}
+\begin{tabular}{@{}p{0.81\textwidth} p{0\textwidth} l@{}}
+  \textbf{Certified Reviewer} for American Chemical Society Journals                                  & & Fall 2021 \\[4pt]
+  \textbf{Member} of Delta Alpha Pi (DAPi) International Honor Society          & & 2021 -- present \\[4pt]
+  \textbf{Member} of Out in Science, Technology, Engineering, and Mathematics (oSTEM), Inc. & & 2021 -- present \\[4pt]
+  Attendance of the oSTEM Professional Development Summit                       & & Fall 2021 \\[4pt]
+  \textbf{Member} of the American Institute of Chemical Engineers (AIChE)       & & 2020 -- present \\[4pt]
+  Assistance in four peer-reviews of articles in the journal Macromolecules     & & 2019 -- present \\[4pt]
+  \textbf{Cofounder and president} of BYU ChemE Graduate Student Council           & & 2018 -- present \\[4pt]
+  \textbf{Member} of the American Physical Society (APS)                        & & 2018 -- present \\[4pt]
+  Attendance of the UCSD SDSC High Performance Computing Summer Institute       & & Summer 2018 \\[4pt]
+  \textbf{Member} of the Institute of Electrical and Electronics Engineering (IEEE) & & 2016 -- 2017 \\[4pt]
+  \textbf{Research coordinator} at AUS IEEE Engineering in Medicine and Biology Society chapter & & 2016 -- 2017 \\[4pt]
+  AUS Biomedical Engineering Symposium \textbf{Best Overall Talk Award}         & & Fall 2016 \\[4pt]
+  National Council of Examiners for Engineering and Surveying \textbf{Engineer in Training}                                                                     & & 2014 -- Present \\[4pt]
+  \textbf{Member} of the Society of Petroleum Engineers                         & & 2014 -- 2016 \\[4pt]
+  AUS Dean's List for Academic Excellence                                       & & 3 semesters \\[4pt]
+  \textbf{Cofounder and Vice President} of the AUS Student Economics Club       & & 2012 -- 2014\\
+\end{tabular}
+%\vspace{1ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Professional Societies %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section*{Professional Memberships}
+% \begin{tabular}{@{}p{0.81\textwidth} p{0\textwidth} l@{}}
+%   Delta Alpha Pi (DAPi) International Honor Society                   & & 2021 -- present \\[4pt]
+%   American Institute of Chemical Engineers (AIChE)                    & & 2020 -- present \\[4pt]
+%   American Physical Society (APS)                                     & & 2018 -- present \\[4pt]
+%   Institute of Electrical and Electronics Engineering (IEEE)          & & 2017 -- 2018 \\[4pt]
+%   Society of Petroleum Engineers (SPE)                                & & 2015 -- 2016 \\
+% \end{tabular}
+% \vspace{3ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Extracurricular Activities %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section*{Academic Club Experience}
+% \begin{tabular}{@{}p{0.5\textwidth}p{0.31\textwidth}p{0.2\textwidth}}
+%   BYU ChemE Graduate Student Council                                   & Cofounder                   & 2018 -- present \\[4pt]
+%   IEEE Engineering in Medicine and Biology Society AUS Student Chapter & ChemE research coordinator   & 2016 -- 2017 \\[18pt]
+%   AUS Student Economics Club                                           & Cofounder and Vice President & 2012 -- 2014 \\
+% \end{tabular}
+% \vspace{3ex}
+
+%%%%%%%%%%%%%%%%
+%% Work Experience %%
+%%%%%%%%%%%%%%%%
+
+% \section*{Work Experience}
+% \begin{tabular}{@{}p{0.4\textwidth}p{0.4\textwidth}r@{}}
+%     Private Tutor                       & Self Employed                  & 2010 -- present \\[4pt]
+%     Process Engineering Intern          &  Petrofac International Ltd.   & Jun -- Aug 2014 \\
+%     \textit{Sharjah, UAE} \\[4pt]
+%     Documenter and Translator           &  Khatib \& Alami               & Jun -- Aug 2010 \\
+%     \textit{Sharjah, UAE} \\
+% \end{tabular}
+% \vspace{3ex}
+
+%%%%%%%%%%%%
+%% Awards %%
+%%%%%%%%%%%%
+
+% \section*{Awards}
+% \begin{tabular}{@{}p{0.765\textwidth} p{0\textwidth} r@{}}
+%     AUS Biomedical Engineering Symposium Best Overall Talk Award            & & Fall 2016 \\[4pt]
+%     AUS Dean's List for Academic Excellence                                 & & Spring 2013 \& 2014 \\
+% \end{tabular}
+% \vspace{3ex}
+
+%%%%%%%%%%%%%%
+%% Outreach %%
+%%%%%%%%%%%%%%
+%
+%\section*{Public Outreach}
+%\begin{tabular}{@{}p{0.80\textwidth}p{0\textwidth} l@{}}
+%     Olson Middle School -- custom presentation to $7^{\mathrm{th}}$ graders     & & 2013 \\
+%     Energy and U  -- program through UMN Dept.\ of Chemistry                    & & 2011, 2013, 2014 \\
+%     Church Youth Workshops on Education and Employment                          & & 2010 \\
+%     Judge at Central Utah Science and Engineering Fair                          & & 2009 
+%\end{tabular}
+%\vspace{3ex}
+%
+
+%%%%%%%%%%%%%%%
+%% Community %%
+%%%%%%%%%%%%%%%
+%
+%\section*{Community Service}
+%\begin{tabular}{@{}p{0.35\textwidth}p{0.45\textwidth} l@{}}
+%     Como Student Community Coop.  & Finance Committee        & 2010 -- 2013 \\
+%                                   & Board of Directors       & 2011 -- 2012 \\   
+%                                   & Treasurer                & 2012 \\[4pt]
+%     LDS Church                    & Clerk                    & 2009 -- present \\
+%                                   & Full-Time Missionary     & 2004 -- 2006
+%\end{tabular}
+
+%%%%%%%%%%%%%%%%
+%% References %%
+%%%%%%%%%%%%%%%%
+
+%\vspace{-0.5cm}
+\section*{References}
+\begin{tabular}{@{}p{0.40\textwidth} p{0.27\textwidth} r@{}}
+
+    Douglas R. Tree            & +1 (801) 422-5162     & \href{mailto:tree.doug@byu.edu}{\tt tree.doug@byu.edu} \\
+    \multicolumn{2}{@{}l}{\quad \small Assistant Professor of Chemical Engineering; Brigham Young University} & \emph{PhD Advisor} \\[4pt]
+
+    Ghaleb A. Husseini         & +971 (6) 515-2970     & \href{mailto:ghusseini@aus.edu}{\tt ghusseini@aus.edu} \\
+    \multicolumn{2}{@{}l}{\quad \small Professor of Chemical Engineering; American University of Sharjah} & \emph{MS Advisor} \\[4pt]
+    
+    Thomas A. Knotts            & +1 (801) 422-9158     & \href{mailto:thomas.knotts@byu.edu}{\tt thomas.knotts@byu.edu} \\
+    \multicolumn{2}{@{}l}{\quad \small Professor of Chemical Engineering; Brigham Young University} & \emph{Dissertation Committee Member} \\[4pt]
+
+    John D. Hedengren           & +1 (801) 422-2590     & \href{mailto:john_hedengren@byu.edu}{\tt john\_hedengren@byu.edu} \\
+    \multicolumn{2}{@{}l}{\quad \small Associate Professor of Chemical Engineering; Brigham Young University} & \emph{Graduate Committee Head} \\[4pt]
+
+    William G. Pitt             & +1 (801) 422-2589     & \href{mailto:pitt@byu.edu}{\tt pitt@byu.edu} \\
+    \multicolumn{2}{@{}l}{\quad \small Professor of Chemical Engineering; Brigham Young University} & \emph{Dissertation Committee Member} \\[4pt]
+\end{tabular}
+
+%%%%%%%%%%%%
+%% Footer %%
+%%%%%%%%%%%%
+
+%\begin{center}
+%  \begin{footnotesize}
+%    Last updated: \today \\
+%  \end{footnotesize}
+%\end{center}
+
+\end{document}
