@@ -1,7 +1,7 @@
-main.aux
-main.bbl
-main.bcf
-main.blg
-main.log
-main.out
-main.run.xml
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
+*.out
+*.xml
