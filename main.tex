@@ -25,6 +25,7 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 
 % Page Setup
+%\usepackage[left=0.4in, right=0.4in, top=0.5in, bottom=0.5in,headsep=.2in]{geometry}
 \usepackage[margin=0.6in]{geometry}
 
 % Font
@@ -103,6 +104,9 @@
 % Commands
 \def\name{Pierre Kawak}
 \newcommand{\nestab}[1]{\begin{tabular}[t]{@{}p{0.75\textwidth}@{}}#1\end{tabular}}
+\usepackage{enumitem}
+\newlist{tabitemize}{itemize}{1}
+\setlist[tabitemize]{label=\textbullet,nosep,after=\strut,align=parleft,leftmargin=*,}
 
 % Customize page headers
 \pagestyle{myheadings}
@@ -153,6 +157,7 @@
 % \end{flushright}
 %\end{minipage}
 
+%\vspace*{-3\baselineskip}
 \begin{center}
   {\LARGE \textbf{Pierre Kawak} }\\[1ex]
   Engineering Building, EB 312 \\
@@ -160,11 +165,13 @@
   (801) 762-7999 $\bullet$ \href{mailto:pskawak@gmail.com}{\tt pskawak@gmail.com} \\
 \end{center}
 %\vspace{5ex}
+%\vspace*{-1.5\baselineskip}
 
 %%%%%%%%%%%%%%%
 %% Education %%
 %%%%%%%%%%%%%%%
 
+%\vspace{-1.0cm}
 \section*{Education}
 \begin{tabular}{@{}p{0.45\textwidth} p{0.35\textwidth} r@{}}
      Brigham Young University (BYU)           & Ph.D, Chemical Engineering & 2017 -- Apr 2022 \\
@@ -185,14 +192,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%
 %% Biography          %%
 %%%%%%%%%%%%%%%%%%%%%%%%
-\vspace{-0.2cm}
-\section*{Biography}
-I did my MS thesis work with Ghaleb A. Husseini in the Chemical Engineering department at the American University of Sharjah in the UAE, where I developed a nanoparticle carrier of the chemotherapeutic drug doxorubicin using dry film hydration, centrifugation, extrusion, membrane filtration and other lab methods.
-This smart drug delivery system was ultrasound sensitive with a functionalized surface with polyethylene glycol and estrone receptors optimized for targeted release at breast cancer sites.
-I studied the efficacy of the carrier and its release using Dynamic Light Scattering, an ultrasonic probe and a spectrofluorometer.
-I am currently completing my PhD thesis at the Brigham Young University with Douglas R. Tree, where I simulate coarse-grained bead-spring models to better understand nucleation in a dense polymer melt.
-My goal is to assess the range of applicability of classical nucleation theories to the problem of polymer crystallization using various molecular simulation methods employing advanced movesets and monte carlo methods.
-Going forward, I am interested in combining my knowledge in experimental and computational methods to attack a biomedical engineering problem.
+%\vspace{-0.2cm}
+%\section*{Biography}
+%I did my MS thesis work with Ghaleb A. Husseini in the Chemical Engineering department at the American University of Sharjah in the UAE, where I developed a nanoparticle carrier of the chemotherapeutic drug doxorubicin using dry film hydration, centrifugation, extrusion, membrane filtration and other lab methods.
+%This smart drug delivery system was ultrasound sensitive with a functionalized surface with polyethylene glycol and estrone receptors optimized for targeted release at breast cancer sites.
+%I studied the efficacy of the carrier and its release using Dynamic Light Scattering, an ultrasonic probe and a spectrofluorometer.
+%I am currently completing my PhD thesis at the Brigham Young University with Douglas R. Tree, where I simulate coarse-grained bead-spring models to better understand nucleation in a dense polymer melt.
+%My goal is to assess the range of applicability of classical nucleation theories to the problem of polymer crystallization using various molecular simulation methods employing advanced movesets and monte carlo methods.
+%Going forward, I am interested in combining my knowledge in experimental and computational methods to attack a biomedical engineering problem.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Research Experience %%
@@ -207,11 +214,36 @@ Going forward, I am interested in combining my knowledge in experimental and com
 %     Graduate Teaching Assistant          & Corrosion Lab                                       & 2016 -- 2017 (2x) \\
 %\end{tabular}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Selected Research Experience %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{-0.2cm}
+\section*{Selected Research Experience}
+\begin{tabular}{@{}p{0.775\textwidth}l@{}}
+  Polymer Crystal Simulation with Douglas Tree & Fall 2017 -- present \\
+  \multicolumn{2}{p{\textwidth}}{
+    \begin{tabitemize} 
+      \item Simulated coarse-grained bead-spring models using a multitude of molecular simulation methods
+      \item Coded in C++, CUDA, Python, Bash and R and scientific illustration using VMD, Adobe Suite, etc.
+      \item Utilized Molecular Dynamics and Monte Carlo methods to answer complex polymer questions 
+    \end{tabitemize}
+  } \\
+  Ultrasound-sensitive smart drug delivery systems with Ghaleb Husseini & Fall 2014 -- Spring 2017 \\
+  \multicolumn{2}{p{\textwidth}}{
+    \begin{tabitemize} 
+      \item Synthesis, validation and testing of novel nanoparticle carrier for treatment of breast cancer cells
+      \item Mastery of lab methods including film hydration, centrifugation, extrusion, membrane filtration, etc.
+      \item Analysis of release of nanoparticle carrier using NMR, DLS, ultrasound probe, spectrofluorometer, etc.
+      \item Development of lab protocols used till today
+    \end{tabitemize}}\\
+\end{tabular} \\
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Articles and Presentations %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\vspace{-0.2cm}
+\vspace{-0.8cm}
 %recompile from start if numbers aren't right
 \begin{refsection}[articles]
   \nocite{*}
@@ -223,7 +255,7 @@ Going forward, I am interested in combining my knowledge in experimental and com
 \begin{refsection}[talks]
  \nocite{*}
  \setlength\bibitemsep{0pt}
- \printbibliography[resetnumbers=true,type=inproceedings,title={Presentations},heading=fix]
+ \printbibliography[resetnumbers=true,type=inproceedings,title={Selected Presentations},heading=fix]
 \end{refsection}
 
 %%%%%%%%%%%%%%%%
@@ -250,53 +282,35 @@ Going forward, I am interested in combining my knowledge in experimental and com
 \end{tabular}
 %\vspace{3ex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Selected Research Experience %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \section*{Selected Research Experience}
-% \begin{tabular}{@{}p{0.725\textwidth}r@{}}
-%   Polymer Crystal Simulation with Douglas Tree & Fall 2017 -- present \\
-%   \vspace{-5mm}
-%   \begin{itemize}
-%   \setlength\itemsep{0.1em}
-%     \item Simulated coarse-grained bead-spring models using a multitude of molecular simulation methods
-%     \item Coded in C++, CUDA, Python, Bash and R
-%     \item Illustrated and presented scientific findings with graphics software including Visual Molecular Dynamics, Adobe Suite (Photoshop, Premiere Pro, Illustrator), etc.
-%     \item Utilized Molecular Dynamics and Monte Carlo methods to answer complex polymer questions 
-%     \item kk
-%   \end{itemize}\\%[4pt]
-%       & Spring 2015 -- Spring 2017 \\
-%   \textit{Description}\\
-%
-%  Ethanol Enhanced Oil Recovery                                  & Description          & Spring 2014 -- Fall 2014
-% \end{tabular}
-% \vspace{3ex}
-
 %%%%%%%%%%%%%%%%
 %% Relevant Memberships %%
 %%%%%%%%%%%%%%%%
 
 %\vspace{-0.2cm}
-\section*{Memberships and Relevant Academic Activities}
+\section*{Selected Miscellaneous Memberships and Academic Activities}
 \begin{tabular}{@{}p{0.81\textwidth} p{0\textwidth} l@{}}
-  \textbf{Recipient} of the BYU GSS Professional Presentation Award             & & Fall 2021 \\[4pt]
-  \textbf{Certified Reviewer} for American Chemical Society Journals                                  & & Fall 2021 \\[4pt]
-  \textbf{Member} of Delta Alpha Pi (DAPi) International Honor Society          & & 2021 -- present \\[4pt]
-  \textbf{Member} of Out in Science, Technology, Engineering, and Mathematics (oSTEM), Inc. & & 2021 -- present \\[4pt]
-  Attendance of the oSTEM Professional Development Summit                       & & Fall 2021 \\[4pt]
-  \textbf{Member} of the American Institute of Chemical Engineers (AIChE)       & & 2020 -- present \\[4pt]
-  Assistance in four peer-reviews of articles in the journal Macromolecules     & & 2019 -- present \\[4pt]
-  \textbf{Cofounder and president} of BYU ChemE Graduate Student Council           & & 2018 -- present \\[4pt]
-  \textbf{Member} of the American Physical Society (APS)                        & & 2018 -- present \\[4pt]
-  Attendance of the UCSD SDSC High Performance Computing Summer Institute       & & Summer 2018 \\[4pt]
-  \textbf{Member} of the Institute of Electrical and Electronics Engineering (IEEE) & & 2016 -- 2017 \\[4pt]
-  \textbf{Research coordinator} at AUS IEEE Engineering in Medicine and Biology Society chapter & & 2016 -- 2017 \\[4pt]
-  AUS Biomedical Engineering Symposium \textbf{Best Overall Talk Award}         & & Fall 2016 \\[4pt]
-  National Council of Examiners for Engineering and Surveying \textbf{Engineer in Training}                                                                     & & 2014 -- Present \\[4pt]
-  \textbf{Member} of the Society of Petroleum Engineers                         & & 2014 -- 2016 \\[4pt]
-  AUS Dean's List for Academic Excellence                                       & & 3 semesters \\[4pt]
-  \textbf{Cofounder and Vice President} of the AUS Student Economics Club       & & 2012 -- 2014\\
+  \textbf{Recipient} of the BYU GSS Professional Presentation Award                                       & & Fall 2021 \\[4pt]
+  AUS Biomedical Engineering Symposium \textbf{Best Overall Talk Award}                                   & & Fall 2016 \\[4pt]
+  \textbf{Recipient} of three AUS dean's list awards for academic excellence                              & & 2010 -- 2014 \\[4pt]
+  \textbf{Certified Reviewer} for American Chemical Society Journals (4 completed)                        & & Fall 2021 \\[4pt]
+  Attendance of the oSTEM Professional Development Summit                                                 & & Fall 2021 \\[4pt]
+  Attendance of the UCSD SDSC High Performance Computing Summer Institute                                 & & Summer 2018 \\[4pt]
+  Two time \textbf{Volunteer} science fair judge at local schools                                         & & 2021 -- 2022 \\[4pt]
+  \textbf{Member and Volunteer} of Out in Science, Technology, Engineering, and Mathematics (oSTEM), Inc. & & 2021 -- present \\[4pt]
+  \textbf{Cofounder and president} of BYU ChemE Graduate Student Council                                  & & 2018 -- present \\[4pt]
+  \textbf{Cofounder} of three successful student clubs                                                    & & 2012 -- 2018 \\[4pt]
+  Current \textbf{Member} of APS, AIChE and DAPi Honor Society                                            & & present \\[4pt]
+  Past \textbf{Member} of various other scientific clubs and soceities (IEEE, SPE, EMBS)                  & & 2012 -- 2017 \\[4pt]
+  %\textbf{Member} of the American Physical Society (APS)                                                  & & 2018 -- present \\[4pt]
+  %\textbf{Member} of the American Institute of Chemical Engineers (AIChE)                                 & & 2020 -- present \\[4pt]
+  %\textbf{Member} of Delta Alpha Pi (DAPi) International Honor Society                                    & & 2021 -- present \\[4pt]
+%  \textbf{Member} of the Institute of Electrical and Electronics Engineering (IEEE)                      & & 2016 -- 2017 \\[4pt]
+%  \textbf{Research coordinator} at AUS IEEE Engineering in Medicine and Biology Society chapter          & & 2016 -- 2017 \\[4pt]
+%  Assistance in four peer-reviews of articles in the journal Macromolecules                               & & 2019 -- present \\[4pt]
+%  National Council of Examiners for Engineering and Surveying \textbf{Engineer in Training}              & & 2014 -- Present \\[4pt]
+%  \textbf{Member} of the Society of Petroleum Engineers                                                  & & 2014 -- 2016 \\[4pt]
+%  AUS Dean's List for Academic Excellence                                                                & & 3 semesters \\[4pt]
+%  \textbf{Cofounder and Vice President} of the AUS Student Economics Club                                & & 2012 -- 2014\\
 \end{tabular}
 %\vspace{1ex}
 
@@ -382,7 +396,7 @@ Going forward, I am interested in combining my knowledge in experimental and com
 %% References %%
 %%%%%%%%%%%%%%%%
 
-%\vspace{-0.5cm}
+%\vspace{-1.5ex}
 \section*{References}
 \begin{tabular}{@{}p{0.40\textwidth} p{0.27\textwidth} r@{}}
 
