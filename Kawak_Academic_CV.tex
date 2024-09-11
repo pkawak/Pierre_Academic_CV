@@ -65,6 +65,22 @@
   \newrobustcmd*{\mkbibdesc}[1]{%
   \number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
 
+%  % bold my name
+%  \newcommand{\makeauthorbold}[1]{%
+%  \DeclareNameFormat{author}{%
+%    \ifthenelse{\value{listcount}=1}
+%    {%
+%      {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\namepartfamily\addcomma\addspace \namepartgiveni}}{\namepartfamily\addcomma\addspace \namepartgiveni}}
+%      %
+%    }{\ifnumless{\value{listcount}}{\value{liststop}}
+%        {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni}}{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni}}
+%        {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni\addcomma\isdot}}{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni\addcomma\isdot}}%
+%      }
+%    \ifthenelse{\value{listcount}<\value{liststop}}
+%    {\addcomma\space}{}
+%  }
+%  }
+
  % fix header
  \defbibheading{fix}[\refname]{\section*{#1}}
  
@@ -286,12 +302,14 @@
 \vspace{-0.5\baselineskip}
 %\begin{longtable}{@{}p{0.25\textwidth} p{0.25\textwidth} p{0.25\textwidth} p{0.25\textwidth}}
 \begin{longtable}{ c c c c c }
-  Alyna Williams        & Amanda Sharrer        & Luiz Zepeda          & Harshad Bhapkar       & Peijing Yue         \\
-  USF UG                & USF Ph.D.             & USF Ph.D.            & USF Ph.D.             & USF Ph.D.           \\[4pt]
-  Makayla Branham       & William F. Drayer     & Bao Ma               & Annelise Curtin       & Austin Hartley      \\      
-  USF Ph.D.             & USF Ph.D.             & USF Ph.D.            & USF M.S.              & USF UG              \\[4pt]
-  Dakota S. Banks       & Christopher Akiki     & Beverly S. Delgado   & Andrew S. Gibson      & Paul Kawak          \\
-  BYU UG                & BYU UG                & BYU UG               & BYU UG                & AUS UG              \\[4pt]
+  Tianna Virgo          & Alyna Williams        & Amanda Sharrer       & Luiz Zepeda           \\
+  USF Undergraduate                & USF Undergraduate                & USF Ph.D. Candidate            & USF Ph.D. Candidate             \\[4pt]
+  Harshad Bhapkar       & Peijing Yue           & Makayla Branham      & William F. Drayer     \\
+  USF Ph.D. Candidate             & USF Ph.D. Candidate             & USF Ph.D. Candidate            & USF Ph.D. Candidate             \\[4pt]
+  Bao Ma                & Annelise Curtin       & Austin Hartley       & Dakota S. Banks       \\
+  USF Ph.D. Candidate             & USF M.S. Student              & USF Undergraduate               & BYU Undergraduate                \\[4pt]
+  Christopher Akiki     & Beverly S. Delgado    & Andrew S. Gibson     & Paul Kawak            \\
+  BYU Undergraduate                & BYU Undergraduate                & BYU Undergraduate               & AUS Undergraduate                \\[4pt]
 \end{longtable}
 
 \vspace{+1.0cm}
@@ -326,7 +344,7 @@
 %%%%%%%%%%%%%%%%
 %% Teaching Experience %%
 %%%%%%%%%%%%%%%%
-\vspace{-0.7\baselineskip}
+\vspace{-1.3\baselineskip}
 \section*{Teaching Experience}
 \vspace{-0.5cm}
 \begin{longtable}{@{}p{0.47\textwidth}p{0.33\textwidth}r@{}}
@@ -347,7 +365,7 @@
 \end{longtable}
 %\vspace{3ex}
 
-\vspace{-0.5\baselineskip}
+\vspace{-1.1\baselineskip}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Community and Service %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -372,7 +390,7 @@
   \multicolumn{2}{l}{\hspace{-3mm} \bf{University of South Florida (USF) Postdoctoral Scholar Association (PSA)}}                                                                                                                    \\
   \hspace{3mm} Founded and Chaired PSA executive committee at USF                                                                                                                                                 & 2023 -- present  \\
   \hspace{3mm} Organized Initiatives for Postdocs (Postdoc Highlight Interviews, Socials, Orientations)                                                                                                       & 2023 -- present  \\
-  \hspace{3mm} Organized Inaugural ELEVATE Talk Series (6 Talks from Local Postdocs on Research Skills, e.g., Writing With AI, Networking Best Practices, etc.)                                                   & 2024 -- 2025     \\ [4pt]
+  \hspace{3mm} Organized Inaugural ELEVATE Talk Series (6 Talks from Local Postdocs on Research Skills, e.g., Ethics in AI, Publishing Best Practices, etc.)                                                   & 2024 -- 2025     \\ [4pt]
   \multicolumn{2}{l}{\hspace{-3mm} \bf{American Society for Engineering Education (ASEE)}}                                                                                                                                           \\
   \hspace{3mm} Member of ASEE LGBTQ+ Advocacy in STEM \href{https://lgbtq.asee.org/our-community/}{Virtual Community of Practice}                                                                                 & 2022 -- present  \\
   \hspace{3mm} Facilitator of \href{https://lgbtq.asee.org/ally-training/online-workshops/#:~:text=Safe\%20Zone\%20Ally\%20Training\%3A\%20Tans\%20Allyship}{Trans Allyship Safe Zone Ally Training Workshop}     & Mar. 2023        \\ [4pt]
@@ -419,7 +437,7 @@
 % \end{tabular}
 % \vspace{3ex}
 
-\vspace{-0.5\baselineskip}
+\vspace{-1.2\baselineskip}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %% Outreach Activities %%
@@ -434,7 +452,7 @@
   Frequent science/engineering fair judge at local elementary schools                                                                                       & & 2021 -- present \\
 \end{longtable}
 
-\vspace{-0.5\baselineskip}
+\vspace{-1.3\baselineskip}
 \begin{refsection}[talks]
  \nocite{*}
  \setlength\bibitemsep{0pt}
@@ -446,10 +464,10 @@
 %%%%%%%%%%%%%%%%
 %\vspace{-1.0cm}
 \section*{References}
-\begin{tabular}{@{}p{0.40\textwidth} p{0.27\textwidth} r@{}}
+\begin{tabular}{@{}p{0.43\textwidth} p{0.34\textwidth} r@{}}
 
     David S. Simmons            & +1 (813) 974-4988     & \href{mailto:dssimmons@usf.edu}{\tt dssimmons@usf.edu} \\
-    \multicolumn{2}{@{}l}{\quad \small Associate Professor of Chemical Engineering; University of South Florida} & \emph{Postdoc Advisor} \\[4pt]
+    \multicolumn{2}{@{}l}{\quad \small Professor of Chemical, Biological, \& Materials Engineering; University of South Florida} & \emph{Postdoc Advisor} \\[4pt]
 
     Douglas R. Tree             & +1 (801) 422-5162     & \href{mailto:tree.doug@byu.edu}{\tt tree.doug@byu.edu} \\
     \multicolumn{2}{@{}l}{\quad \small Assistant Professor of Chemical Engineering; Brigham Young University} & \emph{PhD Advisor} \\[4pt]
