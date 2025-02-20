@@ -14,7 +14,7 @@
 
 % ----------------- Preamble ----------------- 
 % {{{
-\documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper,12pt]{article}
 
 % Packages
 \usepackage{tabularx}
@@ -28,7 +28,7 @@
 
 % Page Setup
 %\usepackage[left=0.4in, right=0.4in, top=0.5in, bottom=0.5in,headsep=.2in]{geometry}
-\usepackage[margin=0.6in, headsep=20pt, top=0.54in]{geometry}
+\usepackage[margin=0.75in, headsep=20pt, top=0.54in]{geometry}
 %\usepackage[margin=0.6in]{geometry}
 
 % Font
@@ -122,12 +122,12 @@
 }
 
 % Commands
-\def\name{Pierre Kawak}
+\def\name{Pierre Kawak, Ph.D.}
 \newcommand{\nestab}[1]{\begin{tabular}[t]{@{}p{0.75\textwidth}@{}}#1\end{tabular}}
 \usepackage{enumitem}
 \newlist{tabitemize}{itemize}{1}
 %\setlist[tabitemize]{label=\textbullet,nosep,align=parleft,leftmargin=*,}
-\setlist[tabitemize]{label=\textbullet,nosep,after=\strut,align=parleft,leftmargin=*,}
+\setlist[tabitemize]{label=\textbullet,itemsep=1pt,after=\strut,align=parleft,leftmargin=*,}
 
 % Customize page headers
 \pagestyle{myheadings}
@@ -180,10 +180,12 @@
 
 %\vspace*{-1.5\baselineskip}
 \begin{center}
-  {\LARGE \textbf{Pierre Kawak} }\\[1ex]
+  {\LARGE \textbf{Pierre Kawak, Ph.D.} }\\[1ex]
 %  Interdisciplinary Research Building, Office 211 \\
 %  University of South Florida, Tampa, FL 33613 \\  
-  Tampa, FL $\bullet$ +1 (801) 762-7999 $\bullet$ \href{mailto:pskawak@gmail.com}{\tt pskawak@gmail.com} $\bullet$ \href{https://linktr.ee/pkawak}{\tt linktr.ee/pkawak}\\
+%  Tampa, FL $\bullet$ +1 (801) 762-7999 $\bullet$ \href{mailto:pskawak@gmail.com}{\tt pskawak@gmail.com} $\bullet$ \href{https://linktr.ee/pkawak}{\tt linktr.ee/pkawak}\\
+%  +1 (801) 762-7999 $\bullet$ \href{mailto:pskawak@gmail.com}{\tt pskawak@gmail.com} $\bullet$ \href{https://linktr.ee/pkawak}{\tt linktr.ee/pkawak}\\
+  $\bullet$ +1 (801) 762-7999 $\bullet$ pskawak@gmail.com $\bullet$ linktr.ee/pkawak $\bullet$ \\
 \end{center}
 %\vspace{5ex}
 %\vspace*{-1.5\baselineskip}
@@ -192,11 +194,130 @@
 % Professional Summary          %%
 %%%%%%%%%%%%%%%%%%%%%%%
 \vspace{-0.5cm}
-\section*{Professional Summary}
-Computational scientist with expertise in \textbf{molecular modeling, scientific computing, crystallization, and mechanical deformation}.
-Skilled in \textbf{Python, C++, HPC, ML, and molecular simulations} for materials science and engineering.
-Strong background in \textbf{material modeling and characterization, free energy simulations, and computational chemistry}.
-Passionate about applying computational methods to solve real-world challenges in pharma and biotech.
+\section*{Key Skills \& Achievements}
+\begin{tabitemize}
+  \item 7 years of computational expertise in \textbf{molecular modeling, material characterization, free energy analysis, computational chemistry, crystallization, and mechanical deformation}.
+  \item 4 years of experimental expertise in \textbf{breast cancer treatment, liposomal formulations, surface functionalization, passive \& active targeting, drug delivery kinetics, and sonification}.
+  \item Authored \& edited $5$ peer-reviewed articles, contributing to advancements in copolymer theory, polymer dynamics modeling, filled rubber mechanics, and cancer drug delivery.
+  \item Presented $27$ times at institutional, national, and international conferences (e.g., APS, ACS, AIChE, USF, AUS, GRC, IoP, etc.)
+  \item BS, MS, PhD, \& postdoc in Chemical Engineering from the Middle East to the USA.
+%  \item Skilled in \textbf{Python, C++, HPC, ML, and molecular simulations} for materials science and engineering.
+  \item Passionate about using computational methods to solve challenges in pharma \& biotech.
+\end{tabitemize}
+
+%Strong background in \textbf{material modeling and characterization, free energy simulations, and computational chemistry}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Research Experience %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-1.5\baselineskip}
+\section*{Professional Experience}
+%  \setlength\extrarowheight{-3pt}
+%\def\arraystretch{1.5}%  1 is the default, change whatever you need
+\vspace{-0.7\baselineskip}
+\begin{longtable}{@{\extracolsep{\fill}}p{0.40\textwidth} p{0.40\textwidth} r }
+  \textbf{Postdoctoral Researcher} & \textbf{University of South Florida} & \textbf{2022 -- Present}\\
+\end{longtable}
+\vspace{-1.2\baselineskip}
+
+\begin{tabitemize}
+  \item Developed and implemented large-scale molecular dynamics simulations using LAMMPS, GROMACS, Gaussian, AMBER, and OPLS, achieving high-throughput insights into nanoscale deformation, relaxation, and stress distribution in polymer composites.
+  \item Created novel analysis techniques for nonlinear rheology, identifying nanoscale toughening factors overlooked by previous literature that guide rubber advancements.
+
+%  \item Designed and simulated atomistic copolymers with controlled sequences at constant composition, identifying novel sequences with enhanced glass transition temperatures ($\bm{T_{g}}$), thereby improving stability with minimal process or feedstock change.
+%  \item Developed guidance to enhance copolymer thermal stability of copolymers at constant composition via chemical sequence control.
+  \item Optimized copolymer thermal stability by simulating coarse-grained and atomistic sequences at constant composition, identifying novel sequences with enhanced glass transition temperatures $\bm{T_{g}}$ without changing feedstock or processing conditions.
+  \item Leveraged high-performance and parallel computing to conduct multi-TB molecular simulations on supercomputing clusters, securing an NSF Discover ACCESS Compute Resource Grant (2023).
+%  \item Researched nanoscale material behavior to enhance durability and performance of polymer composites.
+%  \item Designed and implemented molecular dynamics simulations to model nanoscale deformation, relaxation, and stress distribution, improving understanding of material toughening mechanisms.
+%  \item Developed novel analysis methods to analyze nonlinear rheology, identifying key nanoscale factors that enhance material resilience.
+%  \item Applied advanced simulation techniques to quantify stress response and reinforcement behavior in nanocomposites, informing strategies for improved material design.
+  \item Developed Python, C++, bash, Slurm, Open MPI, and R automation tools for molecular modeling of polymer dynamics and mechanics, accelerating team-wide computational workflows, streamlining multi-TB data analysis, and improving research efficiency.
+
+%  \item Analyzed molecular dynamics \& phase behavior, determining sequences with superior thermal stability.
+  \item Mentored and trained 11 researchers in HPC, version control, and molecular simulations, boosting collaboration, productivity, and technical skill development and earning the APS Career Mentor Fellowship (2023).
+
+  \item Presented findings at 17 institutional, industrial, and academic conferences, highlighting advancements in rubber and copolymer technology, as well as polymer theory, and earning the USF Annual Postdoctoral Research Symposium Best Poster Award (2023) and the Outstanding Poster Award at the Gordon Research Conference (2024).
+  \item Founded and led the USF Postdoctoral Scholar Association (PSA), serving 200+ postdocs through career programming, networking events, and advocacy, including the ELEVATE Talk Series, funded by the prestigious NPA IMPACT Fellowship (2023–2024, 1 of 6 out of 100 selected globally).
+\end{tabitemize}
+
+\vspace{-0.7\baselineskip}
+\begin{longtable}{@{\extracolsep{\fill}}p{0.40\textwidth} p{0.40\textwidth} r }
+  \textbf{Doctoral Researcher} & \textbf{Brigham Young University} & \textbf{2017 -- 2022}\\
+\end{longtable}
+\vspace{-1.2\baselineskip}
+
+\begin{tabitemize}
+  \item Developed, optimized, and deployed GPU-accelerated Monte Carlo simulations in C++/CUDA, achieving a $100\times$ speedup in crystallization property computations, enabling direct comparison with experiments.
+%  \item Developed computational models to predict polymer crystallization behavior, improving material characterization, accelerating simulation workflows, and resolving long-standing scientific debate.
+%  \item Implemented high-performance Monte Carlo simulations in C++/CUDA to model polymer crystallization, achieving 100$\times$ speedup in property computation and enabling experimental comparison.
+  \item Automated high-throughput molecular simulations using Python, C++, bash, MATLAB, and R, optimizing multi-dimensional parameter sweeps and accelerating polymer crystallization studies.
+%  \item Automated molecular simulation workflows by developing Python/C++ tools, significantly increasing efficiency in large-scale molecular studies sweeping large multi-dimensional parameter spaces.
+  \item Constructed the first-ever 3D free energy landscapes for polymer crystallization, differentiating order-formation pathways previously inaccessible to classical simulations and resolving a long-standing theoretical controversy on polymer crystallization pathways.
+%  \item Mapped multi-dimensional phase transitions using \textbf{first-of-their-kind} 3D free energy landscapes, enabling differentiation of order-formation pathways that are inaccessible to classical simulation.
+%  \item Resolved a long-standing theoretical controversy on polymer crystallization pathways, providing insights that shaped ongoing research in the field.
+%  \item Resolved long-standing debates in polymer crystallization theory by distinguishing competing mechanisms of phase transitions, advancing scientific understanding.
+  \item Developed advanced phase diagrams and applied order parameters for crystalline and orientational order, quantifying phase transitions in complex molecular landscapes.
+%  \item Applied advanced molecular characterization techniques to distinguish complex phase transitions, enabling insights into controlling parameters.
+  \item Visualized and analyzed multi-TB datasets of 3D molecular configurations using VMD and OVITO, extracting key structural and kinetic insights.
+  \item Published 2 peer-reviewed articles with 2 mentored undergraduates, supporting their entry into research careers.
+  \item Secured multiple research and travel awards, including the APS Forum on International Physics Distinguished Student Award (2022), and the BYU Graduate Student Society Professional Presentation Award (2021).
+  \item Presented at six conferences and directly contributed to securing an NSF CAREER Award (\$500,000) for continued polymer crystallization research by producing critical preliminary findings.
+%  \item Published findings in peer-reviewed journals and presented at six conferences, supporting a funded NSF CAREER proposal for continued research.
+
+  \item Founded and led the BYU Chemical Engineering Graduate Student Council (GSC), organizing recruitment, social events, and financial well-being initiatives for graduate students.
+  \item Organized \& led department-wide recruitment and outreach events, including the Department Recruitment Poster Event (2019–2021) and Department BBQ Socials (2018–2021).
+  \item Administered a financial health survey to assess graduate student well-being, influencing department policy discussions.
+  \item Managed department social media accounts, boosting student engagement and networking.
+\end{tabitemize}
+
+\vspace{-0.7\baselineskip}
+\begin{longtable}{@{\extracolsep{\fill}}p{0.40\textwidth} p{0.40\textwidth} r }
+  \textbf{Masters Researcher} & \textbf{American University of Sharjah} & \textbf{2015 -- 2017}\\
+\end{longtable}
+\vspace{-1.2\baselineskip}
+
+\begin{tabitemize}
+  \item Developed ultrasound-sensitive drug delivery systems to improve targeted chemotherapy efficiency, winning the AUS Biomedical Engineering Symposium Best Overall Talk Award (2016).
+  \item Designed and synthesized tumor-targeting liposomal drug carriers by functionalizing phospholipids with estrone ligands, improving breast cancer drug delivery precision.
+  \item Formulated and optimized self-assembling chemotherapy nanoparticles using the dry film method, enhancing drug stability and controlled release kinetics.
+  \item Validated encapsulation efficiency and nanoparticle integrity through NMR and DLS assays, ensuring high drug-loading capacity and structural robustness.
+  \item Characterized and optimized ultrasound-triggered drug release kinetics, determining the ideal US frequency \& intensity for future clinical applications.
+  \item Standardized lab protocols to improve reproducibility, collaboration, and data integrity, increasing research efficiency across teams.
+  \item Published findings in a peer-reviewed journal and presented at three conferences, disseminating contributions to biomedical engineering and drug delivery research.
+
+
+%  \item Engineered ultrasound (US) sensitive drug delivery systems to enhance breast cancer treatment efficacy.
+%  \item Designed and synthesized targeted liposomal drug carriers by functionalizing phospholipids with estrone ligands, improving tumor-specific drug delivery.
+%  \item Formulated and optimized self-assembling liposomal chemotherapy systems with enhanced stability and controlled drug release using the dry film method.
+%  \item Validated drug encapsulation and nanoparticle integrity through NMR and DLS assays.
+%  \item Characterized drug release kinetics, optimizing US frequency \& intensity for future clinical application.
+%  \item Standardized lab protocols to improve reproducibility, collaboration, and data integrity across teams.
+%  \item Published findings in a peer-reviewed journal and presented at three conferences.
+\end{tabitemize}
+
+%%%%%%%%%%%%%%%
+%% Education %%
+%%%%%%%%%%%%%%%
+\vspace{-2\baselineskip}
+\section*{Education}% \& Training}
+\begin{tabular}{@{}p{0.23\textwidth} p{0.31\textwidth} p{0.34\textwidth} r@{}}
+  Doctorate Philosophy    & Chemical Engineering        & Brigham Young University       & 2022 \\ %2017 -- 2022 \\
+  Master of Science       & Chemical Engineering        & American University of Sharjah & 2017 \\ %2015 -- 2017 \\
+  Bachelor of Science     & Chemical Eng.~(Econ. Minor) & American University of Sharjah & 2015 \\ %2010 -- 2015 \\
+%     \multicolumn{1}{l}{Minor Economics}                                                          & \emph{Partial Scholarship}               &              \\
+\end{tabular}
+
+\vspace{-0.8\baselineskip}
+%%%%%%%%%%%%
+%% Footer %%
+%%%%%%%%%%%%
+\begin{center}
+  \begin{footnotesize}
+    Last updated: \today \\
+  \end{footnotesize}
+\end{center}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%
 % Technical Skills    %
@@ -204,123 +325,13 @@ Passionate about applying computational methods to solve real-world challenges i
 \vspace{-0.3cm}
 \section*{Technical Skills}
 \begin{tabitemize}
-  \item \textbf{Programming \& Computing}: Python, C++, R, bash, CUDA, Open MPI, High-performance computing, Machine learning
+  \item \textbf{Programming \& Computing}: Python, C++, R, bash, CUDA, Slurm, Open MPI, High-performance computing, Machine learning
   \item \textbf{Computational Chemistry \& Modeling}: Molecular dynamics, Atomistic simulations, Statistical mechanics, Phase behavior, Free energy calculations and analysis
   \item \textbf{Software \& Tools}: Linux/UNIX, LAMMPS, Ovito, VMD, MATLAB, Gaussian, GROMACS, AMBER
   \item \textbf{Polymer Physics}: Viscoelasticity, Copolymers, Vitrification, Rouse Modes Analysis, Nucleation Theory
   \item \textbf{Drug Delivery}: Liposomes, Chemotherapy, Surface functionalization, Breast cancer, Ultrasound
     % IDEAS: Sci. Communication, 
 \end{tabitemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Research Experience %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\vspace{-0.3cm}
-\section*{Research Experience}
-%  \setlength\extrarowheight{-3pt}
-%\def\arraystretch{1.5}%  1 is the default, change whatever you need
-\vspace{-0.8\baselineskip}
-\begin{longtable}{@{\extracolsep{\fill}}p{0.40\textwidth} p{0.42\textwidth} r }
-%\begin{longtable}{@{}p{0.46\textwidth} p{0.38\textwidth} r@{}}
-  \textbf{Postdoctoral Researcher} & \textbf{University of South Florida} & \textbf{2022 -- Present}\\ [4pt]
-
-  \multicolumn{3}{p{0.99\textwidth}}{Researched nanoscale material behavior to enhance durability and performance of polymer composites.}\\
-  %  \multicolumn{3}{p{\textwidth}}{\hspace{1mm} $\bullet$ \hspace{1mm} Developed molecular dynamics simulations to model nanoscale behavior (deformation, relaxation, etc.).}\\
-  %  \multicolumn{3}{p{\textwidth}}{\hspace{1mm} $\bullet$ \hspace{1mm} Analyzed nonlinear rheology via novel local metrics to identify nanoscale toughness origins.}\\
-  %  %  \multicolumn{3}{p{\textwidth}}{\hspace{1mm} $\bullet$ \hspace{1mm} Identified nanoscale toughness origins via novel locally resolved measurements of stress response.}\\
-  %  \multicolumn{3}{p{\textwidth}}{\hspace{1mm} $\bullet$ \hspace{1mm} Investigated nanoscale origins of reinforcement via novel local measurements of stress response.}\\
-  %  \multicolumn{3}{p{\textwidth}}{\hspace{1mm} $\bullet$ \hspace{1mm} Communicated results via two peer-reviewed publications and 11 conference talks and posters.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Designed and implemented molecular dynamics simulations} to model nanoscale deformation, relaxation, and stress distribution, improving understanding of material toughening mechanisms.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Developed novel analysis methods} to analyze nonlinear rheology, identifying key nanoscale factors that enhance material resilience.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Applied advanced simulation techniques} to quantify stress response and reinforcement behavior in nanocomposites, informing strategies for improved material design.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Published findings in peer-reviewed journals} and presented at 11 conferences, contributing to advancements in filled rubber mechanics and computational materials science.}\\ [18pt]
-
-  \multicolumn{3}{p{0.99\textwidth}}{Developed guidance to enhance thermal stability of copolymers via chemical sequence control.}\\
-  %  \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Identified, created, and simulated atomistic copolymer with specified sequences to tune $T_{g}$.}\\
-  %  \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Analyzed segmental and chain dynamics of automated quench simulations to calculate $T_{g}$.}\\
-  %%  \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Developed simulation/analysis software suites, boosting team-wide collaboration and productivity.}\\
-  %  \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Created Python/C++ automation tools for molecular modeling and free energy calculations, improving efficiency in molecular interaction studies.}\\
-  %  \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Mentored 11 students in high-performance coding, version control, and molecular simulations.}\\
-  %  \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Communicated findings via a conference talk and poster.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Designed and simulated atomistic copolymers} with controlled sequences to fine-tune glass transition temperature ($\bm{T_{g}}$) at constant composition, improving stability with minimal process or feedstock change.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Analyzed molecular dynamics \& phase behavior}, determining sequences with superior thermal stability.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Developed Python/C++ automation tools} for molecular modeling and free energy calculations, streamlining team-wide computational workflows and improving research efficiency.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Trained and mentored 11 researchers} in high-performance computing, version control, and molecular simulations, boosting collaboration, productivity, and technical skill development.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Presented findings at institutional and academic conferences,} highlighting advancements in copolymer theory and polymer dynamics modeling.}\\ [20pt]
-  %  \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}}\\
-
-  \textbf{Doctoral Researcher} & \textbf{Brigham Young University} & \textbf{2017 -- 2022}\\ [4pt]
-
-%  \multicolumn{3}{p{0.99\textwidth}}{GPU Accelerated Polymer Crystal Simulation with Dr. Douglas R. Tree} \rule{0pt}{2.5ex}\\
-%  \multicolumn{3}{p{0.99\textwidth}}{Accelerated polymer crystal phase predictions via targeted free energy simulations and GPU computation} \rule{0pt}{2.5ex}\\
-  \multicolumn{3}{p{0.99\textwidth}}{Developed computational models to predict polymer crystallization behavior, improving material characterization, accelerating simulation workflows, and resolving long-standing scientific debate.}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Implemented rapid \& targeted Monte Carlo simulations in C++/CUDA to study crystallization.}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Designed predictive models to enhance material characterization and experimental comparison.}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Developed customized Python/C++ scripts for molecular simulations and automated data analysis.}\\
-%%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Characterized material phases using crystalline (structure factor, Steinhardt) and orientational (Maier-Saupe, Legendre Polynomial) order parameters.}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Applied molecular characterization techniques to differentiate complex yet similar phases.}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Communicated results via two peer-reviewed publications and six conference talks and posters.}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Develop and maintain 2 molecular simulators to study coarse-grained polymers}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Evaluate progress of and exposed trends in crystallization by employing varied order parameters}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Constructed accelerated, efficient and novel codes using C++, CUDA, Python, Bash, JSON, R, etc.}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Illustrated scientific results using VMD, Adobe Suite, etc.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Implemented high-performance Monte Carlo simulations in C++/CUDA} to model polymer crystallization, achieving 100$\times$ speedup in property computation and enabling experimental comparison.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Automated molecular simulation workflows} by developing Python/C++ tools, significantly increasing efficiency in large-scale molecular studies sweeping large multi-dimensional parameter spaces.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Applied advanced molecular characterization techniques} to distinguish complex phase transitions, enabling insights into controlling parameters.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Mapped multi-dimensional phase transitions} using \textbf{first-of-their-kind} 3D free energy landscapes, enabling differentiation of order-formation pathways that are inaccessible to classical simulation.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Resolved long-standing debates in polymer crystallization theory} by distinguishing competing mechanisms of phase transitions, advancing scientific understanding.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Published findings in peer-reviewed journals} and presented at six conferences, supporting a funded NSF CAREER proposal for continued research.}\\ [20pt]
-
-%\vspace*{-3\baselineskip}\mbox{}
-  \textbf{Masters Researcher} & \textbf{American University of Sharjah} & \textbf{2015 -- 2017}\\ [4pt]
-
-%  \multicolumn{3}{p{0.99\textwidth}}{Improved breast cancer targeting via ultrasound-sensitive smart drug delivery liposomal systems.}\\
-  \multicolumn{3}{p{0.99\textwidth}}{Engineered ultrasound (US) sensitive drug delivery systems to enhance breast cancer treatment efficacy.}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Synthesized phospholipids reacted with estrone ligands for active breast cancer targeting.}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Created self-assembled liposomal chemotherapy formulations via dry film method.}\\
-%%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Validated functionalization, structural integrity, and encapsulation via NMR assays, DLS, and lysis.}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Performed NMR \& DLS assays to validate drug encapsulation \& nanoparticle structural integrity.}\\% for targeted chemotherapy.}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Characterized release efficacy of novel nanoparticle carrier via sonification in a spectrofluorometer.}\\
-%%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Synthesized, validated and tested novel nanoparticle carrier for treatment of breast cancer cells.}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Developed/modernized team-wide lab protocols, encouraging collaboration \& effective record taking.}\\
-%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Communicated results via a peer-reviewed publication and three conference talks.}\\
-%%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Mastered lab methods including film hydration, centrifugation, extrusion, membrane filtration, etc.
-%%    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}Analyzed release of nanoparticle carrier using NMR, DLS, ultrasound probe, spectrofluorometer, etc.
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Designed and synthesized targeted liposomal drug carriers} by functionalizing phospholipids with estrone ligands, improving tumor-specific drug delivery.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Formulated and optimized self-assembling liposomal chemotherapy systems} with enhanced stability and controlled drug release using the dry film method.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Validated drug encapsulation and nanoparticle integrity} through NMR and DLS assays.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Characterized drug release kinetics}, optimizing US frequency \& intensity for future clinical application.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Standardized lab protocols} to improve reproducibility, collaboration, and data integrity across teams.}\\
-    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Published findings in a peer-reviewed journal} and presented at three conferences.}\\
-\end{longtable}
-%  \multicolumn{3}{p{\textwidth}}{\textit{Expertise}: Atomistic Simulations, Vitrification, Copolymer Theory}\\
-%  \multicolumn{3}{p{\textwidth}}{\textit{Expertise}: Nonequilibrium MD, Rouse Modes Analysis, Polymer Viscoelasticity, Stress Dissipation}\\
-%  \multicolumn{3}{p{\textwidth}}{\textit{Expertise}: Free Energy Analysis, Morphology Analysis, Nucleation Theory, High Performance Computing}\\
-
-%  \multicolumn{3}{p{\textwidth}}{\textit{Expertise}: Liposomes, Chemotherapy, Drug Delivery, Surface Modification, Breast Cancer, Ultrasound}\\
-
-%%%%%%%%%%%%%%%
-%% Education %%
-%%%%%%%%%%%%%%%
-\vspace{-1.5\baselineskip}
-\section*{Education}% \& Training}
-\begin{tabular}{@{}p{0.46\textwidth} p{0.38\textwidth} r@{}}
-%     University of South Florida                                                                  & Postdoctoral Scholarship                 & 2022 -- 2025 \\
-%     \multicolumn{1}{l}{\emph{Advisor: David S. Simmons}}                                         & \multicolumn{1}{l}{}                     &              \\ [4pt]
-%
-     Brigham Young University (BYU)                                                               & Ph.D. Chemical Engineering               & 2017 -- 2022 \\
-     \multicolumn{1}{l}{\emph{Advisor: Douglas R. Tree}}                                          & \emph{Funded Assistantship; 3.81 GPA}    &              \\ [4pt]
-%     \multicolumn{3}{l}{Dissertation: Simulation of Crystal Nucleation in a Polymer Melt}                                                                   \\ [4pt]
-
-     American University of Sharjah (AUS)                                                         & M.S. Chemical Engineering                & 2015 -- 2017 \\
-     \multicolumn{1}{l}{\emph{Advisor: Ghaleb A. Husseini}}                                       & \emph{Full Scholarship; 4.0 GPA}         &              \\ [4pt]
-%     \multicolumn{3}{l}{Dissertation: Ultrasound Triggered Release of Estrone-Targeted Liposomes}                                                           \\ [4pt]
-
-     American University of Sharjah (AUS)                                                         & B.S. Chemical Engineering                & 2010 -- 2015 \\
-     \multicolumn{1}{l}{Minor Economics}                                                          & \emph{Partial Scholarship}               &              \\
-\end{tabular}
-%\vspace{1ex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Articles and Presentations %%
@@ -343,19 +354,24 @@ Passionate about applying computational methods to solve real-world challenges i
 \section*{Honors, Awards, \& Service}
 \vspace{-0.8\baselineskip}
 \begin{longtable}{@{}p{0.86\textwidth}r@{}}
-  Elected to American Physical Society (APS) Committee on International Freedom of Scientists                                                                                                                                        & 2025 -- 2026 \\ [0pt]
-  Founded USF Postdoctoral Scholar Association \& chaired executive committee                                                                                                                                                        & 2023 -- \\ [0pt]
-  Awarded National Postdoctoral Association (NPA) \href{https://www.nationalpostdoc.org/general/custom.asp?page=IMPACTProgram}{IMPACT Fellowship}                                                                                            & 2023 -- 2024 \\ [0pt]
-%  Outstanding Poster Award at Gordon Research Conference on Polymer Physics                                                                                                                                                          & July 2024    \\ [0pt]
-  Inducted to AUS \href{https://www.aus.edu/cen/community-hub/alumni-hall-of-fame#:~:text=Dr.\%20Pierre-,Kawak,-BS\%27\%2015\%20\%2D\%20Chemical}{College of Engineering Hall of Fame}                                                  & 2023         \\ [0pt]
-  Awarded American Physical Society (APS) \href{https://www.aps.org/careers/guidance/mentoring.cfm}{Career Mentor Fellowship}                                                                                                                & 2023         \\ [0pt]
-  Granted National Science Foundation (NSF) Discover \href{https://access-ci.org/}{ACCESS} Compute Resource Grant                                                                                                                            & Nov. 2023    \\ [0pt]
-  Organized \& Fundraised for 2023 Virtual Polymer Physics Symposium (150 attendees)                                                                                                                                                                   & Aug. 2023 \\ [0pt]
-%  USF Annual Postdoctoral Research Symposium \href{https://www.usf.edu/postdoctoral-affairs/postdoc-services/postdoc-spotlight.aspx#:~:text=BEST\%20POSTERS\%3A-,Pierre\%20Kawak,-Exploring\%20Mechanisms\%20of}{Best Poster Award}  & Mar. 2023    \\ [0pt]
-  Awarded APS Forum on International Physics \href{https://engage.aps.org/fip/honors/prizes-awards/ds-program}{Distinguished Student Award}                                                                                                  & Fall 2022    \\ [0pt] %300
-  Facilitated 550-member \href{https://sites.google.com/view/polymerphysics/}{Early Career Researchers in Polymer Physics} online community                                                                                          & 2021 -- \\ [0pt]
-%  Peer-reviewed 15 manuscript and proposal submissions                                                                                                                                                                               & 2021 -- \\ [0pt]
+  Elected to American Physical Society (APS) Committee on International Freedom of Scientists         & 2025 -- 2026 \\ [0pt]
+  Founded USF Postdoctoral Scholar Association \& chaired executive committee                         & 2023 -- \\ [0pt]
+  Awarded National Postdoctoral Association (NPA) IMPACT Fellowship                                   & 2023 -- 2024 \\ [0pt]
+  Inducted to AUS College of Engineering Hall of Fame                                                 & 2023         \\ [0pt]
+  Awarded American Physical Society (APS) Career Mentor Fellowship                                    & 2023         \\ [0pt]
+  Granted National Science Foundation (NSF) Discover ACCESS Compute Resource Grant                    & Nov. 2023    \\ [0pt]
+  Organized \& Fundraised for 2023 Virtual Polymer Physics Symposium (150 attendees)                  & Aug. 2023 \\ [0pt]
+  Awarded APS Forum on International Physics Distinguished Student Award                              & Fall 2022    \\ [0pt] %300
+  Facilitated 550-member Early Career Researchers in Polymer Physics online community                 & 2021 -- \\ [0pt]
   Served oSTEM as scholarship coordinator, conference volunteer, representative, and mentor                                                                                                                                          & 2021 -- 2023 \\ [0pt]
+%  Awarded National Postdoctoral Association (NPA) \href{https://www.nationalpostdoc.org/general/custom.asp?page=IMPACTProgram}{IMPACT Fellowship}                                                                                            & 2023 -- 2024 \\ [0pt]
+%  Outstanding Poster Award at Gordon Research Conference on Polymer Physics                                                                                                                                                          & July 2024    \\ [0pt]
+%  Inducted to AUS \href{https://www.aus.edu/cen/community-hub/alumni-hall-of-fame#:~:text=Dr.\%20Pierre-,Kawak,-BS\%27\%2015\%20\%2D\%20Chemical}{College of Engineering Hall of Fame}                                                  & 2023         \\ [0pt]
+%  Granted National Science Foundation (NSF) Discover \href{https://access-ci.org/}{ACCESS} Compute Resource Grant                                                                                                                            & Nov. 2023    \\ [0pt]
+%  USF Annual Postdoctoral Research Symposium \href{https://www.usf.edu/postdoctoral-affairs/postdoc-services/postdoc-spotlight.aspx#:~:text=BEST\%20POSTERS\%3A-,Pierre\%20Kawak,-Exploring\%20Mechanisms\%20of}{Best Poster Award}  & Mar. 2023    \\ [0pt]
+%  Awarded APS Forum on International Physics \href{https://engage.aps.org/fip/honors/prizes-awards/ds-program}{Distinguished Student Award}                                                                                                  & Fall 2022    \\ [0pt] %300
+%  Facilitated 550-member \href{https://sites.google.com/view/polymerphysics/}{Early Career Researchers in Polymer Physics} online community                                                                                          & 2021 -- \\ [0pt]
+%  Peer-reviewed 15 manuscript and proposal submissions                                                                                                                                                                               & 2021 -- \\ [0pt]
 %  BYU Chemical Engineering Department Graduate Student of the Month                                                                                                                                                                  & Sept. 2022   \\ [0pt]
 %  Inducted to Delta Alpha Pi (DAPi) International Honor Society                                                                                                                                                                         & 2021         \\ [0pt]
 %  Awarded BYU University Accessibility Center Banquet Scholarship                                                                                                                                                                      & Fall 2021    \\ [0pt] %1500
@@ -378,17 +394,69 @@ Passionate about applying computational methods to solve real-world challenges i
 %  \multicolumn{2}{l}{\hspace{-3mm} \bf{Relevant Program Acceptance \& Participation}} 	                                                                                                                                                                                \\ [5pt]
 \end{longtable}
 
-\vspace{-0.8\baselineskip}
-%%%%%%%%%%%%
-%% Footer %%
-%%%%%%%%%%%%
-\begin{center}
-  \begin{footnotesize}
-    Last updated: \today \\
-  \end{footnotesize}
-\end{center}
-
 \end{document}
+
+\vspace{-0.3cm}
+\section*{Research Experience}
+%  \setlength\extrarowheight{-3pt}
+%\def\arraystretch{1.5}%  1 is the default, change whatever you need
+\vspace{-0.8\baselineskip}
+\begin{longtable}{@{\extracolsep{\fill}}p{0.40\textwidth} p{0.42\textwidth} r }
+%\begin{longtable}{@{}p{0.46\textwidth} p{0.38\textwidth} r@{}}
+  \textbf{Postdoctoral Researcher} & \textbf{University of South Florida} & \textbf{2022 -- Present}\\ [4pt]
+
+  \multicolumn{3}{p{0.99\textwidth}}{Researched nanoscale material behavior to enhance durability and performance of polymer composites.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Designed and implemented molecular dynamics simulations} to model nanoscale deformation, relaxation, and stress distribution, improving understanding of material toughening mechanisms.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Developed novel analysis methods} to analyze nonlinear rheology, identifying key nanoscale factors that enhance material resilience.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Applied advanced simulation techniques} to quantify stress response and reinforcement behavior in nanocomposites, informing strategies for improved material design.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Published findings in peer-reviewed journals} and presented at 11 conferences, contributing to advancements in filled rubber mechanics and computational materials science.}\\ [18pt]
+
+  \multicolumn{3}{p{0.99\textwidth}}{Developed guidance to enhance thermal stability of copolymers via chemical sequence control.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Designed and simulated atomistic copolymers} with controlled sequences to fine-tune glass transition temperature ($\bm{T_{g}}$) at constant composition, improving stability with minimal process or feedstock change.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Analyzed molecular dynamics \& phase behavior}, determining sequences with superior thermal stability.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Developed Python/C++ automation tools} for molecular modeling and free energy calculations, streamlining team-wide computational workflows and improving research efficiency.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Trained and mentored 11 researchers} in high-performance computing, version control, and molecular simulations, boosting collaboration, productivity, and technical skill development.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Presented findings at institutional and academic conferences,} highlighting advancements in copolymer theory and polymer dynamics modeling.}\\ [20pt]
+
+  \textbf{Doctoral Researcher} & \textbf{Brigham Young University} & \textbf{2017 -- 2022}\\ [4pt]
+
+  \multicolumn{3}{p{0.99\textwidth}}{Developed computational models to predict polymer crystallization behavior, improving material characterization, accelerating simulation workflows, and resolving long-standing scientific debate.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Implemented high-performance Monte Carlo simulations in C++/CUDA} to model polymer crystallization, achieving 100$\times$ speedup in property computation and enabling experimental comparison.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Automated molecular simulation workflows} by developing Python/C++ tools, significantly increasing efficiency in large-scale molecular studies sweeping large multi-dimensional parameter spaces.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Applied advanced molecular characterization techniques} to distinguish complex phase transitions, enabling insights into controlling parameters.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Mapped multi-dimensional phase transitions} using \textbf{first-of-their-kind} 3D free energy landscapes, enabling differentiation of order-formation pathways that are inaccessible to classical simulation.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Resolved long-standing debates in polymer crystallization theory} by distinguishing competing mechanisms of phase transitions, advancing scientific understanding.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Published findings in peer-reviewed journals} and presented at six conferences, supporting a funded NSF CAREER proposal for continued research.}\\ [20pt]
+
+  \textbf{Masters Researcher} & \textbf{American University of Sharjah} & \textbf{2015 -- 2017}\\ [4pt]
+
+  \multicolumn{3}{p{0.99\textwidth}}{Engineered ultrasound (US) sensitive drug delivery systems to enhance breast cancer treatment efficacy.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Designed and synthesized targeted liposomal drug carriers} by functionalizing phospholipids with estrone ligands, improving tumor-specific drug delivery.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Formulated and optimized self-assembling liposomal chemotherapy systems} with enhanced stability and controlled drug release using the dry film method.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Validated drug encapsulation and nanoparticle integrity} through NMR and DLS assays.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Characterized drug release kinetics}, optimizing US frequency \& intensity for future clinical application.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Standardized lab protocols} to improve reproducibility, collaboration, and data integrity across teams.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Published findings in a peer-reviewed journal} and presented at three conferences.}\\
+\end{longtable}
+
+%%\vspace{-1.5\baselineskip}
+%\section*{Education}% \& Training}
+%\begin{tabular}{@{}p{0.46\textwidth} p{0.38\textwidth} r@{}}
+%%     University of South Florida                                                                  & Postdoctoral Scholarship                 & 2022 -- 2025 \\
+%%     \multicolumn{1}{l}{\emph{Advisor: David S. Simmons}}                                         & \multicolumn{1}{l}{}                     &              \\ [4pt]
+%%
+%     Brigham Young University (BYU)                                                               & Ph.D. Chemical Engineering               & 2017 -- 2022 \\
+%     \multicolumn{1}{l}{\emph{Advisor: Douglas R. Tree}}                                          & \emph{Funded Assistantship; 3.81 GPA}    &              \\ [4pt]
+%%     \multicolumn{3}{l}{Dissertation: Simulation of Crystal Nucleation in a Polymer Melt}                                                                   \\ [4pt]
+%
+%     American University of Sharjah (AUS)                                                         & M.S. Chemical Engineering                & 2015 -- 2017 \\
+%     \multicolumn{1}{l}{\emph{Advisor: Ghaleb A. Husseini}}                                       & \emph{Full Scholarship; 4.0 GPA}         &              \\ [4pt]
+%%     \multicolumn{3}{l}{Dissertation: Ultrasound Triggered Release of Estrone-Targeted Liposomes}                                                           \\ [4pt]
+%
+%     American University of Sharjah (AUS)                                                         & B.S. Chemical Engineering                & 2010 -- 2015 \\
+%     \multicolumn{1}{l}{Minor Economics}                                                          & \emph{Partial Scholarship}               &              \\
+%\end{tabular}
+%%\vspace{1ex}
 
 \section*{Selected Synergistic Activities}
 \vspace{-0.6\baselineskip}
