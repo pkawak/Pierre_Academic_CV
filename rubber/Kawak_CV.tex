@@ -1,0 +1,626 @@
+% LaTeX Curriculum Vitae Template
+%
+% Copyright (C) 2004-2009 Jason Blevins <jrblevin@sdf.lonestar.org>
+% http://jblevins.org/projects/cv-template/
+%
+% You may use use this document as a template to create your own CV
+% and you may redistribute the source code freely. No attribution is
+% required in any resulting documents. I do ask that you please leave
+% this notice and the above URL in the source code if you choose to
+% redistribute this file.
+%
+% Edited by Pierre Kawak
+% Thu. Sep. 2 2021
+
+% ----------------- Preamble ----------------- 
+% {{{
+\documentclass[letterpaper,12pt]{article}
+
+% Packages
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{calc}
+\usepackage{bm}
+
+% Colors
+\usepackage[usenames,dvipsnames]{xcolor}
+
+% Page Setup
+%\usepackage[left=0.4in, right=0.4in, top=0.5in, bottom=0.5in,headsep=.2in]{geometry}
+%\usepackage[margin=0.75in, headsep=20pt, top=0.54in, bottom=0.5in]{geometry}
+\usepackage[margin=1.00in, top=0.5in, bottom=0.5in, headsep=20pt]{geometry}
+%\usepackage[margin=0.6in]{geometry}
+
+% Font
+\usepackage[T1]{fontenc}
+\usepackage[sc]{mathpazo}
+
+% Bibliography
+% \usepackage[style=numeric-comp,sorting=ydnt,defernumbers,maxbibnames=20]{biblatex}
+\usepackage[backend=biber,sorting=mysort,style=numeric-comp,defernumbers,maxbibnames=20]{biblatex}
+\addbibresource[label=articles]{articles.bib}
+%\addbibresource[label=nopeer]{nopeer_articles.bib}
+%\addbibresource[label=other]{other.bib}
+\addbibresource[label=talks]{talks.bib}
+
+  % This is the sorting scheme for the CV
+  \DeclareSortingScheme{mysort}{
+    \sort[direction=descending]{
+      \field{year}
+    }
+    \sort[direction=descending]{
+      \field[padside=left,padwidth=2,padchar=0]{month}
+      \literal{00}
+    }
+  }
+
+  % Use this for reversing the numbers (count down) in the bibliography
+  % Count total number of entries in each refsection
+  \AtDataInput{%
+  \csnumgdef{entrycount:\therefsection}{%
+  \csuse{entrycount:\therefsection}+1}}
+
+  % Print the labelnumber as the total number of entries in the
+  % current refsection, minus the actual labelnumber, plus one
+  \DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}    
+  \newrobustcmd*{\mkbibdesc}[1]{%
+  \number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
+
+%  % bold my name
+%  \newcommand{\makeauthorbold}[1]{%
+%  \DeclareNameFormat{author}{%
+%    \ifthenelse{\value{listcount}=1}
+%    {%
+%      {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\namepartfamily\addcomma\addspace \namepartgiveni}}{\namepartfamily\addcomma\addspace \namepartgiveni}}
+%      %
+%    }{\ifnumless{\value{listcount}}{\value{liststop}}
+%        {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni}}{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni}}
+%        {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni\addcomma\isdot}}{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni\addcomma\isdot}}%
+%      }
+%    \ifthenelse{\value{listcount}<\value{liststop}}
+%    {\addcomma\space}{}
+%  }
+%  }
+
+ % fix header
+ \defbibheading{fix}[\refname]{\section*{#1}}
+ 
+ % supress the "in: " in articles
+ \renewbibmacro{in:}{}
+
+ % supress the month
+ \AtEveryBibitem{\clearfield{month}}
+
+ % underline person giving the talk using usera in the bib file
+ \usepackage{xpatch}
+ \newbibmacro*{name:emph}{%
+  \ifboolexpr{ test {\ifcurrentname{author}} and test {\ifbibliography}
+    and ( test {\ifentrytype{inproceedings}} 
+          or test {\ifentrytype{article}} 
+          or test {\ifentrytype{inbook}} )
+    and ( ( test {\iffieldundef{usera}} 
+            and test {\ifnumequal{\value{listcount}}{1}} )
+          or test {\ifnumequal{\thefield{usera}+0}{\value{listcount}} } ) }
+   {\bfseries}{}}
+
+ \xpretobibmacro{name:last}{\begingroup\usebibmacro{name:emph}}{}{}
+ \xpretobibmacro{name:first-last}{\begingroup\usebibmacro{name:emph}}{}{}
+ \xpretobibmacro{name:last-first}{\begingroup\usebibmacro{name:emph}}{}{}    
+ \xpretobibmacro{name:delim}{\begingroup\normalfont}{}{}    
+
+ \xapptobibmacro{name:last}{\endgroup}{}{}
+ \xapptobibmacro{name:first-last}{\endgroup}{}{}
+ \xapptobibmacro{name:last-first}{\endgroup}{}{}    
+ \xapptobibmacro{name:delim}{\endgroup}{}{} 
+
+% hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  urlcolor = RoyalBlue,
+  citecolor = Blue
+}
+
+% Commands
+\def\name{Pierre Kawak, Ph.D.}
+\newcommand{\nestab}[1]{\begin{tabular}[t]{@{}p{0.75\textwidth}@{}}#1\end{tabular}}
+\usepackage{enumitem}
+\newlist{tabitemize}{itemize}{1}
+%\setlist[tabitemize]{label=\textbullet,nosep,align=parleft,leftmargin=*,}
+\setlist[tabitemize]{label=\textbullet,itemsep=1pt,after=\strut,align=parleft,leftmargin=*,}
+
+%% Customize page headers
+%\pagestyle{myheadings}
+%\markright{\name}
+%\thispagestyle{empty}
+\usepackage[]{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+%\fancyhead[RO,LE]{Pierre Kawak, Ph.D.}
+\fancyfoot{}
+\fancyfoot[LO,CE]{\thepage}
+\fancyfoot[RO,LE]{Pierre Kawak, Ph.D.}
+
+% Custom sections
+\usepackage[]{titlesec}
+\titleformat{\section}{
+  \rmfamily\mdseries\Large\bfseries
+  }{}{}{}[\vspace{0.1ex}\titlerule]
+\titlespacing*{\section}{0ex}{3ex}{0.8ex}
+\titlespacing*{\therefsection}{0ex}{3ex}{0.8ex}
+\titlespacing*{\refsection}{0ex}{3ex}{0.8ex}
+
+% Don't indent paragraphs.
+\setlength\parindent{0em}
+
+% Lists
+\renewcommand{\labelitemi}{$-$}    % change bullet
+%\renewenvironment{itemize}{       % get rid of bullets
+%  \begin{list}{}{\setlength{\leftmargin}{1.5em}}
+%}{\end{list}}
+
+% }}}
+
+% ----------------- Body -----------------
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Personal Information %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{minipage}[t]{0.5\linewidth}
+%\vspace{0pt}
+%{\huge \name}
+%\end{minipage}
+%\begin{minipage}[t]{0.5\linewidth}
+% \vspace{0pt}
+% \begin{flushright}
+% \begin{tabular}{@{}r@{}}
+%  Materials Research Laboratory, MC 5121 \\
+%  University of California \\
+%  Santa Barbara, CA 93106\\
+%  (612) 598-0079 $\bullet$ \href{mailto:drt@mrl.ucsb.edu}{\tt drt@mrl.ucsb.edu}\\
+%  \href{https://sites.google.com/site/treedoug}{\tt https://sites.google.com/site/treedoug}
+% \end{tabular}
+% \end{flushright}
+%\end{minipage}
+
+%\vspace*{-1.5\baselineskip}
+\begin{center}
+  {\LARGE \textbf{Pierre Kawak, Ph.D.} }\\[1ex]
+%  Interdisciplinary Research Building, Office 211 \\
+%  University of South Florida, Tampa, FL 33613 \\  
+%  Tampa, FL $\bullet$ +1 (801) 762-7999 $\bullet$ \href{mailto:pskawak@gmail.com}{\tt pskawak@gmail.com} $\bullet$ \href{https://linktr.ee/pkawak}{\tt linktr.ee/pkawak}\\
+%  +1 (801) 762-7999 $\bullet$ \href{mailto:pskawak@gmail.com}{\tt pskawak@gmail.com} $\bullet$ \href{https://linktr.ee/pkawak}{\tt linktr.ee/pkawak}\\
+  $\bullet$ (801) 762-7999 $\bullet$ pskawak@gmail.com $\bullet$ linktr.ee/pkawak $\bullet$ \\
+\end{center}
+%\vspace{5ex}
+%\vspace*{-1.5\baselineskip}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Professional Summary          %%
+%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-0.5cm}
+%\section*{Key Skills \& Achievements}
+\begin{tabitemize}
+%  \item Computational scientist specializing in rubber mechanics, material durability, and high-performance molecular modeling. 
+%  \item Expertise in molecular dynamics, polymer physics, nonlinear rheology, and multiscale simulations to enhance rubber formulations, composite reinforcement, and viscoelastic properties.
+  \item 7+ years of computational materials expertise in rubber mechanics, polymer reinforcement, free energy analysis, high-performance molecular modeling, nonlinear rheology, and material degradation modeling.
+  \item Authored 5 peer-reviewed articles on filled rubber mechanics, polymer dynamics, and material performance optimization.
+  \item Developed \& optimized large-scale molecular simulations (LAMMPS, GROMACS, AMBER) to analyze stress-strain behavior, failure, \& reinforcement mechanisms.
+  \item Awarded NSF Discover ACCESS Compute Grant (2023) for large-scale simulation studies on rubber durability \& reinforcement.
+  \item Presented at 27+ conferences (APS, ACS, AIChE, GRC, etc.) to industry, government, and academic audiences.
+  \item Proficient in Python, C++, CUDA, bash, HPC, Slurm, Open MPI, MATLAB, R, and advanced molecular visualization tools (VMD, OVITO).
+%  \item 4 years of experimental expertise in breast cancer treatment, liposomal formulations, surface functionalization, active targeting, drug delivery kinetics, \& ultrasonification.
+%  \item Authored $5$ peer-reviewed articles, contributing to advancements in copolymer theory, polymer dynamics modeling, filled rubber mechanics, \& cancer drug delivery.
+%  \item Presented at $27$ institutional, national, \& intl. conferences (e.g., APS, ACS, AIChE, USF, AUS, GRC, IoP, etc.) to diverse audiences from industry, govt., \& academia.
+%  \item BS, MS, PhD, \& postdoc in Chemical Engineering from the Middle East to the USA.
+%  \item Skilled in \textbf{Python, C++, HPC, ML, \& molecular simulations} for materials science \& engineering.
+%  \item Passionate about using computational methods to solve challenges in pharma \& biotech.
+\end{tabitemize}
+
+%Strong background in \textbf{material modeling \& characterization, free energy simulations, \& computational chemistry}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Research Experience %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-1.5\baselineskip}
+\section*{Research Experience}
+%  \setlength\extrarowheight{-3pt}
+%\def\arraystretch{1.5}%  1 is the default, change whatever you need
+\vspace{-0.7\baselineskip}
+\begin{longtable}{@{\extracolsep{\fill}}p{0.34\textwidth} p{0.445\textwidth} r }
+  \textbf{Postdoctoral Researcher} & \textbf{University of South Florida (USF)} & \textbf{2022 -- Present}\\
+\end{longtable}
+\vspace{-0.7\baselineskip}
+
+\begin{tabitemize}
+  \item Developed \& implemented large-scale molecular dynamics (MD) simulations in LAMMPS, GROMACS, AMBER, and OPLS to analyze rubber deformation \& relaxation.
+  \item Created novel nonlinear rheology analysis techniques, identifying nanoscale reinforcement mechanisms that improve rubber toughness and energy dissipation.
+  \item Optimized copolymer thermal stability by simulating coarse-grained \& atomistic sequences, identifying novel sequences with enhanced glass transition temperatures $\bm{T_{g}}$ without changing feedstock or processing conditions.
+  \item Leveraged HPC \& parallel computing to perform multi-terabyte MD simulations, securing an NSF Discover ACCESS Compute Resource Grant (2023).
+  \item Developed Python, C++, bash, Slurm, Open MPI, \& R automation tools for molecular modeling of polymer dynamics \& mechanics, accelerating team-wide computational workflows, streamlining multi-terabyte data analysis, \& improving research efficiency.
+
+  \item Mentored \& trained 11 researchers in HPC, version control, \& molecular simulations, boosting collaboration, productivity, \& technical skill development \& earning the APS Career Mentor Fellowship (2023).
+
+  \item Presented findings at 17+ institutional, industrial, \& academic conferences, highlighting advancements in rubber \& copolymer technology, as well as polymer theory, \& earning the Outstanding Poster Award at the Gordon Research Conference (2024) \& the USF Annual Postdoctoral Research Symposium Best Poster Award (2023).
+\end{tabitemize}
+
+\vspace{-1.0\baselineskip}
+\begin{longtable}{@{\extracolsep{\fill}}p{0.34\textwidth} p{0.478\textwidth} r }
+  \textbf{Doctoral Researcher} & \textbf{Brigham Young University} & \textbf{2017 -- 2022}\\
+\end{longtable}
+\vspace{-1.2\baselineskip}
+
+\begin{tabitemize}
+  \item Developed, optimized, \& deployed GPU-accelerated Monte Carlo simulations in C/CUDA, achieving $100\times$ speedup in property computes, enabling experimental comparison.
+  \item Automated high-throughput simulations using Python, C++, bash, MATLAB, \& R, sweeping multi-dimensional parameters \& accelerating studies of polymer crystals.
+  \item Constructed the first-ever 3D free energy landscapes for polymer crystallization, differentiating order-formation pathways inaccessible to classical simulations.% \& resolving a long-standing theoretical controversy on polymer crystallization pathways.
+  \item Developed advanced phase diagrams \& applied order parameters for crystalline \& orientational order, quantifying phase transitions in complex molecular landscapes.
+  \item Visualized \& analyzed large datasets of 3D molecular configurations using VMD \& OVITO, extracting key structural \& kinetic insights.
+  \item Wrote 2 journal articles with 2 mentored undergraduates, supporting their careers.
+  \item Secured research awards, e.g., APS Forum on Intl.~Physics Distinguished Student Award (2022) \& BYU Grad.~Student Society Professional Presentation Award (2021).
+  \item Presented at 6 hybrid conferences, communicating findings through pandemic.
+  \item Directly contributed to an NSF CAREER Award (\$500,000) for continued crystallization research by producing critical preliminary findings.
+\end{tabitemize}
+
+\vspace{-1.0\baselineskip}
+\begin{longtable}{@{\extracolsep{\fill}}p{0.34\textwidth} p{0.48\textwidth} r }
+  \textbf{Masters Researcher} & \textbf{American University of Sharjah} & \textbf{2015 -- 2017}\\
+\end{longtable}
+\vspace{-1.5\baselineskip}
+
+\begin{tabitemize}
+%  \item Developed ultrasound-sensitive drug delivery systems to improve chemotherapy efficiency, winning the AUS Biomedical Engineering Symposium Best Talk Award (2016).
+%  \item Designed \& synthesized tumor-targeting liposomal drug carriers by functionalizing phospholipids with estrone ligands, improving breast cancer drug delivery precision.
+%  \item Formulated \& optimized self-assembling chemotherapy nanoparticles using the dry film method, enhancing drug stability \& controlled release kinetics.
+%  \item Validated encapsulation efficiency \& nanoparticle integrity through NMR \& DLS assays, ensuring high drug-loading capacity \& structural robustness.
+%  \item Characterized \& optimized ultrasound-triggered drug release kinetics, determining the ideal US frequency \& intensity for future clinical applications.
+%  \item Published findings in a peer-reviewed journal \& presented at 3 conferences, disseminating contributions to biomedical engineering \& drug delivery research.
+  \item Developed \& characterized polymer-based nanoparticles, applying NMR and DLS assays to validate mechanical stability and crosslinking efficiency.
+  \item Optimized self-assembling polymer formulations for controlled molecular interactions and phase behavior.
+  \item Standardized lab protocols to improve reproducibility, collaboration, \& data integrity, increasing research efficiency across teams.
+  \item Published findings in a peer-reviewed journal and presented at three conferences, winning the AUS Biomedical Engineering Symposium Best Talk Award (2016).
+\end{tabitemize}
+
+\vspace{-1.5\baselineskip}
+\section*{Leadership \& Community Engagement}
+\vspace{-0.7\baselineskip}
+\begin{longtable}{@{\extracolsep{\fill}}p{0.20\textwidth} p{0.585\textwidth} r }
+  \textbf{President} & \textbf{Early Career Researchers in Polymer Physics} & \textbf{2022 -- Present}\\
+\end{longtable}
+\vspace{-0.5\baselineskip}
+\begin{tabitemize}
+  \item Led a 550-member global Slack community, organizing networking, technical, self-development, \& conference prep events, improving belonging of polymer researchers.
+  \item Organized the 2023 Virtual Polymer Physics Symposium, a 2-day intl.~event with 150+ attendees, 4 technical sessions, a DEI discussion, \& a diverse career panel.% Prioritized financially constrained \& intl.~speakers, ensuring equitable research exposure.
+\end{tabitemize}
+
+\vspace{-1.0\baselineskip}
+\begin{longtable}{@{\extracolsep{\fill}}p{0.28\textwidth} p{0.505\textwidth} r }
+  \textbf{President and Founder} & \textbf{USF Postdoctoral Scholar Association} & \textbf{2023 -- Present}\\
+\end{longtable}
+\vspace{-1.5\baselineskip}
+\begin{tabitemize}
+  \item Served 200+ postdocs through career programming, networking events, \& advocacy, e.g., ELEVATE Talk Series, funded by NPA IMPACT Fellowship (2023, 6\% acc.~rate).
+\end{tabitemize}
+
+\vspace{-1.0\baselineskip}
+\begin{longtable}{@{\extracolsep{\fill}}p{0.28\textwidth} p{0.538\textwidth} r }
+  \textbf{President and Founder} & \textbf{BYU Chem.~Eng.~Graduate Student Council} & \textbf{2019 -- 2022}\\
+\end{longtable}
+\vspace{-1.5\baselineskip}
+
+\begin{tabitemize}
+  \item Organized dept. recruitment, social \& outreach events, social content, \& financial well-being initiatives, e.g., Recruitment Poster Event (2019–2021) \& BBQ Socials (2018–2021).
+  \item Administered a financial health survey to assess graduate student well-being, influencing department policy discussions (2021).
+%  \item Organized \& led department-wide recruitment \& outreach events, including the Department Recruitment Poster Event (2019–2021) \& Department BBQ Socials (2018–2021).
+%  \item Managed department social media accounts, boosting student engagement \& networking.
+\end{tabitemize}
+
+%%%%%%%%%%%%%%%
+%% Education %%
+%%%%%%%%%%%%%%%
+\vspace{-2\baselineskip}
+\section*{Education}% \& Training}
+\vspace{-0.3\baselineskip}
+\begin{tabular}{@{}p{0.08\textwidth} p{0.42\textwidth} p{0.37\textwidth} r@{}}
+  Ph.D.   & Chemical Engineering        & Brigham Young University       & 2022 \\ %2017 -- 2022 \\
+  M.S.    &  Chemical Engineering       & American University of Sharjah & 2017 \\ %2015 -- 2017 \\
+  B.S.    & Chemical Engineering (Econ.~Minor) & American University of Sharjah & 2015 \\ %2010 -- 2015 \\
+%     \multicolumn{1}{l}{Minor Economics}                                                          & \emph{Partial Scholarship}               &              \\
+\end{tabular}
+%  Ph.D., Chemical Engineering, Brigham Young University, 2022 \\ %2017 -- 2022 \\
+%  M.S., Chemical Engineering, American University of Sharjah, 2017 \\ %2015 -- 2017 \\
+%  B.S., Chemical Eng.~(Econ. Minor), American University of Sharjah, 2015 \\ %2010 -- 2015 \\
+
+%\vspace{-0.8\baselineskip}
+%%%%%%%%%%%%%
+%%% Footer %%
+%%%%%%%%%%%%%
+%\begin{center}
+%  \begin{footnotesize}
+%    Last updated: \today \\
+%  \end{footnotesize}
+%\end{center}
+%
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Technical Skills    %
+%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-0.3cm}
+\section*{Technical Skills}
+\begin{tabitemize}
+  \item \textbf{Programming \& Computing}: Python, C++, R, bash, CUDA, Slurm, Open MPI, High-performance computing, Machine learning
+  \item \textbf{Computational Chemistry \& Modeling}: Molecular dynamics, Atomistic simulations, Statistical mechanics, Phase behavior, Free energy calculations \& analysis
+  \item \textbf{Software \& Tools}: Linux/UNIX, LAMMPS, Ovito, VMD, MATLAB, Gaussian, GROMACS, AMBER
+  \item \textbf{Polymer Physics}: Viscoelasticity, Copolymers, Vitrification, Rouse Modes Analysis, Nucleation Theory
+  \item \textbf{Drug Delivery}: Liposomes, Chemotherapy, Surface functionalization, Breast cancer, Ultrasound
+    % IDEAS: Sci. Communication, 
+\end{tabitemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Articles and Presentations %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace{-0.2cm}
+%\vspace{-0.7\baselineskip}
+%
+%%recompile from start if numbers aren't right
+%\begin{refsection}[articles]
+%  \nocite{*}
+%  \setlength\bibitemsep{6pt}
+%  \printbibliography[resetnumbers=true,type=article,title={Selected Peer-Reviewed Publications},heading=fix]
+%\end{refsection}
+%
+%\vspace{-1.3\baselineskip}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Honors and Awards %%
+%%%%%%%%%%%%%%%%%%%%%%%
+%\section*{Selected Synergistic Activities}
+\section*{Honors, Awards, \& Service}
+\vspace{-0.8\baselineskip}
+\begin{longtable}{@{}p{0.86\textwidth}r@{}}
+  Elected to American Physical Society (APS) Committee on International Freedom of Scientists         & 2025 -- 2026 \\ [0pt]
+  Founded USF Postdoctoral Scholar Association \& chaired executive committee                         & 2023 -- \\ [0pt]
+  Awarded National Postdoctoral Association (NPA) IMPACT Fellowship                                   & 2023 -- 2024 \\ [0pt]
+  Inducted to AUS College of Engineering Hall of Fame                                                 & 2023         \\ [0pt]
+  Awarded American Physical Society (APS) Career Mentor Fellowship                                    & 2023         \\ [0pt]
+  Granted National Science Foundation (NSF) Discover ACCESS Compute Resource Grant                    & Nov. 2023    \\ [0pt]
+  Organized \& Fundraised for 2023 Virtual Polymer Physics Symposium (150 attendees)                  & Aug. 2023 \\ [0pt]
+  Awarded APS Forum on International Physics Distinguished Student Award                              & Fall 2022    \\ [0pt] %300
+  Facilitated 550-member Early Career Researchers in Polymer Physics online community                 & 2021 -- \\ [0pt]
+  Served oSTEM as scholarship coordinator, conference volunteer, representative, and mentor                                                                                                                                          & 2021 -- 2023 \\ [0pt]
+%  Awarded National Postdoctoral Association (NPA) \href{https://www.nationalpostdoc.org/general/custom.asp?page=IMPACTProgram}{IMPACT Fellowship}                                                                                            & 2023 -- 2024 \\ [0pt]
+%  Outstanding Poster Award at Gordon Research Conference on Polymer Physics                                                                                                                                                          & July 2024    \\ [0pt]
+%  Inducted to AUS \href{https://www.aus.edu/cen/community-hub/alumni-hall-of-fame#:~:text=Dr.\%20Pierre-,Kawak,-BS\%27\%2015\%20\%2D\%20Chemical}{College of Engineering Hall of Fame}                                                  & 2023         \\ [0pt]
+%  Granted National Science Foundation (NSF) Discover \href{https://access-ci.org/}{ACCESS} Compute Resource Grant                                                                                                                            & Nov. 2023    \\ [0pt]
+%  USF Annual Postdoctoral Research Symposium \href{https://www.usf.edu/postdoctoral-affairs/postdoc-services/postdoc-spotlight.aspx#:~:text=BEST\%20POSTERS\%3A-,Pierre\%20Kawak,-Exploring\%20Mechanisms\%20of}{Best Poster Award}  & Mar. 2023    \\ [0pt]
+%  Awarded APS Forum on International Physics \href{https://engage.aps.org/fip/honors/prizes-awards/ds-program}{Distinguished Student Award}                                                                                                  & Fall 2022    \\ [0pt] %300
+%  Facilitated 550-member \href{https://sites.google.com/view/polymerphysics/}{Early Career Researchers in Polymer Physics} online community                                                                                          & 2021 -- \\ [0pt]
+%  Peer-reviewed 15 manuscript and proposal submissions                                                                                                                                                                               & 2021 -- \\ [0pt]
+%  BYU Chemical Engineering Department Graduate Student of the Month                                                                                                                                                                  & Sept. 2022   \\ [0pt]
+%  Inducted to Delta Alpha Pi (DAPi) International Honor Society                                                                                                                                                                         & 2021         \\ [0pt]
+%  Awarded BYU University Accessibility Center Banquet Scholarship                                                                                                                                                                      & Fall 2021    \\ [0pt] %1500
+%  BYU Graduate Student Society Professional Presentation Award                                                                                                                                                                       & Fall 2021    \\ [0pt] %500
+%  BYU Chemical Engineering Department Travel Award                                                                                                                                                                                   & Fall 2021    \\ [0pt] %500
+%  Participated in \href{https://ostem.org/page/professional-development-summit}{oSTEM Professional Development Summit}                                                                                                                   & Mar. 2021    \\ [0pt]
+%  AUS Biomedical Engineering Symposium Best Overall Talk Award                                                                                                                                                                       & Fall 2016    \\ [0pt]
+%  Frequently served K-12 schools (science fair judge, visiting scholar, teacher mentorship)                                                                                                                                        & 2019 -- \\ [0pt]
+
+%  \hspace{3mm} AUS $3\times$ Dean's List for Academic Excellence                                                                                                                                                                                         & 2013 -- 2014 \\ [4pt]
+%  \hspace{3mm} \href{http://sbpleaders.org/SitePages/Foundations.aspx}{Torrey Pines Foundations of Leadership Development Program} Participant                                                                                                           & 2024 -- 2025 \\ [4pt]
+%  \hspace{3mm} \href{https://www.sacnas.org/professional-programs#:~:text=NSF\%20\%26\%20SACNAS\%20GRANT\%20WRITING\%20AND\%20PEER\%20REVIEW\%20WORKSHOP}{NSF \& SACNAS Grant Writing \& Peer Review Workshop} Attendance                                & Aug. 2023    \\ [4pt]
+%  \hspace{3mm} \href{https://sites.udel.edu/future-faculty-workshop/}{Future Faculty Workshop Diverse Leaders for the Future Workshop} Attendance                                                                                                        & June 2023    \\ [4pt]
+%  \hspace{3mm} \href{https://www.sdsc.edu/education_and_training/summer_institute.html}{UCSD SDSC High Performance Computing Summer Institute} Attendee                                                                                                  & Jul. 2018    \\ [10pt]
+%  \multicolumn{2}{l}{\hspace{-3mm} \bf{Conference Awards}} 	                                                                                                                                                                                                            \\ [5pt]
+%  \multicolumn{2}{l}{\hspace{-3mm} \bf{Excellence, Leadership \& Service Awards}} 	                                                                                                                                                                                    \\ [5pt]
+%    \multicolumn{2}{l}{\hspace{4mm} One of six selected out of 100 applicants nationwide for funding \& mentorship of proposed project.}                                                                                                                                \\ [6pt]
+%    \multicolumn{2}{l}{\hspace{4mm} Awarded NSF funding for access to high performance computing resources.}                                                                                                                                                            \\ [6pt]
+%    \multicolumn{2}{l}{\hspace{4mm} Received mentorship training, administered career talk at USF, \& judged young trainee talks.}                                                                                                                                      \\ [10pt]
+%  \multicolumn{2}{l}{\hspace{-3mm} \bf{Relevant Program Acceptance \& Participation}} 	                                                                                                                                                                                \\ [5pt]
+\end{longtable}
+
+
+\vspace{-0.3cm}
+\section*{Research Experience}
+%  \setlength\extrarowheight{-3pt}
+%\def\arraystretch{1.5}%  1 is the default, change whatever you need
+\vspace{-0.8\baselineskip}
+\begin{longtable}{@{\extracolsep{\fill}}p{0.40\textwidth} p{0.42\textwidth} r }
+%\begin{longtable}{@{}p{0.46\textwidth} p{0.38\textwidth} r@{}}
+  \textbf{Postdoctoral Researcher} & \textbf{University of South Florida} & \textbf{2022 -- Present}\\ [4pt]
+
+  \multicolumn{3}{p{0.99\textwidth}}{Researched nanoscale material behavior to enhance durability and performance of polymer composites.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Designed and implemented molecular dynamics simulations} to model nanoscale deformation, relaxation, and stress distribution, improving understanding of material toughening mechanisms.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Developed novel analysis methods} to analyze nonlinear rheology, identifying key nanoscale factors that enhance material resilience.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Applied advanced simulation techniques} to quantify stress response and reinforcement behavior in nanocomposites, informing strategies for improved material design.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Published findings in peer-reviewed journals} and presented at 11 conferences, contributing to advancements in filled rubber mechanics and computational materials science.}\\ [18pt]
+
+  \multicolumn{3}{p{0.99\textwidth}}{Developed guidance to enhance thermal stability of copolymers via chemical sequence control.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Designed and simulated atomistic copolymers} with controlled sequences to fine-tune glass transition temperature ($\bm{T_{g}}$) at constant composition, improving stability with minimal process or feedstock change.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Analyzed molecular dynamics \& phase behavior}, determining sequences with superior thermal stability.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Developed Python/C++ automation tools} for molecular modeling and free energy calculations, streamlining team-wide computational workflows and improving research efficiency.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Trained and mentored 11 researchers} in high-performance computing, version control, and molecular simulations, boosting collaboration, productivity, and technical skill development.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Presented findings at institutional and academic conferences,} highlighting advancements in copolymer theory and polymer dynamics modeling.}\\ [20pt]
+
+  \textbf{Doctoral Researcher} & \textbf{Brigham Young University} & \textbf{2017 -- 2022}\\ [4pt]
+
+  \multicolumn{3}{p{0.99\textwidth}}{Developed computational models to predict polymer crystallization behavior, improving material characterization, accelerating simulation workflows, and resolving long-standing scientific debate.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Implemented high-performance Monte Carlo simulations in C++/CUDA} to model polymer crystallization, achieving 100$\times$ speedup in property computation and enabling experimental comparison.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Automated molecular simulation workflows} by developing Python/C++ tools, significantly increasing efficiency in large-scale molecular studies sweeping large multi-dimensional parameter spaces.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Applied advanced molecular characterization techniques} to distinguish complex phase transitions, enabling insights into controlling parameters.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Mapped multi-dimensional phase transitions} using \textbf{first-of-their-kind} 3D free energy landscapes, enabling differentiation of order-formation pathways that are inaccessible to classical simulation.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Resolved long-standing debates in polymer crystallization theory} by distinguishing competing mechanisms of phase transitions, advancing scientific understanding.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Published findings in peer-reviewed journals} and presented at six conferences, supporting a funded NSF CAREER proposal for continued research.}\\ [20pt]
+
+  \textbf{Masters Researcher} & \textbf{American University of Sharjah} & \textbf{2015 -- 2017}\\ [4pt]
+
+  \multicolumn{3}{p{0.99\textwidth}}{Engineered ultrasound (US) sensitive drug delivery systems to enhance breast cancer treatment efficacy.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Designed and synthesized targeted liposomal drug carriers} by functionalizing phospholipids with estrone ligands, improving tumor-specific drug delivery.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Formulated and optimized self-assembling liposomal chemotherapy systems} with enhanced stability and controlled drug release using the dry film method.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Validated drug encapsulation and nanoparticle integrity} through NMR and DLS assays.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Characterized drug release kinetics}, optimizing US frequency \& intensity for future clinical application.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Standardized lab protocols} to improve reproducibility, collaboration, and data integrity across teams.}\\
+    \multicolumn{3}{p{0.99\textwidth}}{\hangindent=1.5em\hspace{1mm}$\bullet$\hspace{1mm}\textbf{Published findings in a peer-reviewed journal} and presented at three conferences.}\\
+\end{longtable}
+
+%%\vspace{-1.5\baselineskip}
+%\section*{Education}% \& Training}
+%\begin{tabular}{@{}p{0.46\textwidth} p{0.38\textwidth} r@{}}
+%%     University of South Florida                                                                  & Postdoctoral Scholarship                 & 2022 -- 2025 \\
+%%     \multicolumn{1}{l}{\emph{Advisor: David S. Simmons}}                                         & \multicolumn{1}{l}{}                     &              \\ [4pt]
+%%
+%     Brigham Young University (BYU)                                                               & Ph.D. Chemical Engineering               & 2017 -- 2022 \\
+%     \multicolumn{1}{l}{\emph{Advisor: Douglas R. Tree}}                                          & \emph{Funded Assistantship; 3.81 GPA}    &              \\ [4pt]
+%%     \multicolumn{3}{l}{Dissertation: Simulation of Crystal Nucleation in a Polymer Melt}                                                                   \\ [4pt]
+%
+%     American University of Sharjah (AUS)                                                         & M.S. Chemical Engineering                & 2015 -- 2017 \\
+%     \multicolumn{1}{l}{\emph{Advisor: Ghaleb A. Husseini}}                                       & \emph{Full Scholarship; 4.0 GPA}         &              \\ [4pt]
+%%     \multicolumn{3}{l}{Dissertation: Ultrasound Triggered Release of Estrone-Targeted Liposomes}                                                           \\ [4pt]
+%
+%     American University of Sharjah (AUS)                                                         & B.S. Chemical Engineering                & 2010 -- 2015 \\
+%     \multicolumn{1}{l}{Minor Economics}                                                          & \emph{Partial Scholarship}               &              \\
+%\end{tabular}
+%%\vspace{1ex}
+
+\section*{Selected Synergistic Activities}
+\vspace{-0.6\baselineskip}
+\begin{longtable}{@{}p{0.86\textwidth}r@{}}
+  \multicolumn{2}{l}{\hspace{-3mm} \bf{Honors \& Awards}} 	                                                                                                                                                                                              \\ [5pt]
+  \hspace{3mm} National Postdoctoral Association (NPA) \href{https://www.nationalpostdoc.org/general/custom.asp?page=IMPACTProgram}{IMPACT Fellowship}                                                                                            & 2023 -- 2024 \\ [4pt]
+%  \hspace{3mm} Outstanding Poster Award at Gordon Research Conference on Polymer Physics                                                                                                                                                          & July 2024    \\ [4pt]
+  \hspace{3mm} National Science Foundation (NSF) Discover \href{https://access-ci.org/}{ACCESS} Compute Resource Grant                                                                                                                            & Nov. 2023    \\ [4pt]
+  \hspace{3mm} AUS \href{https://www.aus.edu/cen/community-hub/alumni-hall-of-fame#:~:text=Dr.\%20Pierre-,Kawak,-BS\%27\%2015\%20\%2D\%20Chemical}{College of Engineering Hall of Fame Inductee}                                                  & 2023         \\ [4pt]
+  \hspace{3mm} American Physical Society (APS) \href{https://www.aps.org/careers/guidance/mentoring.cfm}{Career Mentor Fellowship}                                                                                                                & 2023         \\ [4pt]
+  \hspace{3mm} USF Annual Postdoctoral Research Symposium \href{https://www.usf.edu/postdoctoral-affairs/postdoc-services/postdoc-spotlight.aspx#:~:text=BEST\%20POSTERS\%3A-,Pierre\%20Kawak,-Exploring\%20Mechanisms\%20of}{Best Poster Award}  & Mar. 2023    \\ [4pt]
+  \hspace{3mm} APS Forum on International Physics \href{https://engage.aps.org/fip/honors/prizes-awards/ds-program}{Distinguished Student Award}                                                                                                  & Fall 2022    \\ [4pt] %300
+%  \hspace{3mm} BYU Chemical Engineering Department Graduate Student of the Month                                                                                                                                                                  & Sept. 2022   \\ [4pt]
+  \hspace{3mm} BYU University Accessibility Center Banquet Scholarship Award                                                                                                                                                                      & Fall 2021    \\ [4pt] %1500
+%  \hspace{3mm} BYU Graduate Student Society Professional Presentation Award                                                                                                                                                                       & Fall 2021    \\ [4pt] %500
+%  \hspace{3mm} BYU Chemical Engineering Department Travel Award                                                                                                                                                                                   & Fall 2021    \\ [4pt] %500
+  \hspace{3mm} Delta Alpha Pi (DAPi) International Honor Society Inductee                                                                                                                                                                         & 2021         \\ [4pt]
+  \hspace{3mm} \href{https://ostem.org/page/professional-development-summit}{oSTEM Professional Development Summit} Participant                                                                                                                   & Mar. 2021    \\ [10pt]
+%  \hspace{3mm} AUS Biomedical Engineering Symposium Best Overall Talk Award                                                                                                                                                                       & Fall 2016    \\ [4pt]
+  \multicolumn{2}{l}{\hspace{-3mm} \bf{Volunteer Work}} 	                                                                                                                                                                                              \\ [5pt]
+  \hspace{3mm} Elected to American Physical Society Committee on International Freedom of Scientists                                                                                                                                              & 2025 -- 2026 \\ [4pt]
+  \hspace{3mm} Founded USF Postdoctoral Scholar Association \& chaired executive committee                                                                                                                                                        & 2023 -- \\ [4pt]
+  \hspace{3mm} Organized 2023 Virtual Polymer Physics Symposium (150 attendees)                                                                                                                                                                   & Aug. 2023 \\ [4pt]
+  \hspace{3mm} Peer-reviewed 15 manuscript and proposal submissions                                                                                                                                                                               & 2021 -- \\ [4pt]
+  \hspace{3mm} Facilitated 550-member \href{https://sites.google.com/view/polymerphysics/}{Early Career Researchers in Polymer Physics} online community                                                                                          & 2021 -- \\ [4pt]
+  \hspace{3mm} Served oSTEM as scholarship coordinator, conference volunteer, representative, and mentor                                                                                                                                          & 2021 -- 2023 \\ [4pt]
+  \hspace{3mm} Frequent service to K-12 schools (science fair judge, visiting scholar, teacher mentorship)                                                                                                                                        & 2019 -- \\ [4pt]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Research Mentorship Experience %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Research Mentorship Experience}
+%\begin{longtable}{@{}p{0.25\textwidth} p{0.25\textwidth} p{0.25\textwidth} p{0.25\textwidth}}
+\begin{longtable}{ c c c c c }
+  Tianna Virgo          & Alyna Williams        & Amanda Sharrer       & Luiz Zepeda           \\
+  USF Undergraduate                & USF Undergraduate                & USF Ph.D. Candidate            & USF Ph.D. Candidate             \\[4pt]
+  Harshad Bhapkar       & Peijing Yue           & Makayla Branham      & William F. Drayer     \\
+  USF Ph.D. Candidate             & USF Ph.D. Candidate             & USF Ph.D. Candidate            & USF Ph.D. Candidate             \\[4pt]
+  Bao Ma                & Annelise Curtin       & Austin Hartley       & Dakota S. Banks       \\
+  USF Ph.D. Candidate             & USF M.S. Student              & USF Undergraduate               & BYU Undergraduate                \\[4pt]
+  Christopher Akiki     & Beverly S. Delgado    & Andrew S. Gibson     & Paul Kawak            \\
+  BYU Undergraduate                & BYU Undergraduate                & BYU Undergraduate               & AUS Undergraduate                \\[4pt]
+\end{longtable}
+
+
+%%%%%%%%%%%%%%%%
+%% Teaching Experience %%
+%%%%%%%%%%%%%%%%
+\section*{Teaching Experience}
+\begin{longtable}{@{}p{0.47\textwidth}p{0.33\textwidth}r@{}}
+     Graduate Teaching Assistant                                    & Thermodynamics                                      & Winter 2021       \\ [3pt]
+     \textit{Brigham Young University}                              & Separations Engineering                             & Fall 2021         \\ [3pt]
+                                                                    & Heat \& Mass Transfer                               & 2018 -- 2021 (3x) \\ [3pt]
+                                                                    & Process Dynamics \& Control                         & Fall 2018         \\ [8pt]
+     Volunteer Course Instructor; \textit{University of the People} & College Algebra                                     & Spring 2018       \\ [8pt]
+     Graduate Instructor; \textit{American University of Sharjah}   & Principles of ChemE                                 & 2016 -- 2017 (3x) \\ [8pt]
+     Graduate Teaching Assistant                                    & Corrosion Lab                                       & 2016 -- 2017 (2x) \\ [3pt]
+     \textit{American University of Sharjah}                        & ChemE Lab I                                         & 2015 -- 2016 (2x) \\ [3pt]
+                                                                    & Graduate Desalination                               & Spring 2015       \\ [3pt]
+                                                                    & Wastewater Treatment                                & Spring 2015       \\ [8pt]
+     Undergraduate Teaching Assistant                               & Mass Transfer                                       & 2014 -- 2015 (3x) \\ [3pt]
+     \textit{American University of Sharjah}                        & Kinetics                                            & Fall 2014         \\ [3pt]
+                                                                    & Thermodynamics                                      & Spring 2014       \\ [8pt]
+     Private Tutor                                                  & Maths, Engineering, Business, etc.                  & 2008 -- now
+\end{longtable}
+%\vspace{3ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Community and Service %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Community \& Service}
+%\setlength\extrarowheight{-6pt}
+\vspace{-0.4\baselineskip}
+\begin{longtable}{@{}p{0.81\textwidth}r@{}}
+  \multicolumn{2}{l}{\hspace{-3mm} \bf{Peer Review}} 			                                                                                                                                                                                                                        \\ [4pt]
+  \hspace{3mm} American Chemical Society \href{https://pubs.acs.org/journal/mamobx}{Macromolecules}                                                                                                               & $9\times$ Reviews                                                           \\ [3pt]
+  \hspace{3mm} American Chemical Society \href{https://pubs.acs.org/journal/jcisd8}{Journal of Chemical Information and Modeling}                                                                                 & $2\times$ Reviews                                                           \\ [3pt]
+  \hspace{3mm} American Chemical Society \href{https://www.acs.org/funding/grants/petroleum-research-fund.html}{Petroleum Research Fund (PRF)}                                                                    & $2\times$ Review                                                            \\ [3pt]
+  \hspace{3mm} Freiburg Institute for Advanced Studies \href{https://www.frias.uni-freiburg.de/en/funding-programmes/frias-fellowships}{Early Career Fellowship Programme}                                        & $1\times$ Review                                                            \\ [3pt]
+  \hspace{3mm} Wiley \href{https://onlinelibrary.wiley.com/journal/26424169}{Journal of Polymer Science}                                                                                                          & $1\times$ Review                                                            \\ [8pt]
+
+  \multicolumn{2}{l}{\hspace{-3mm} \bf{Professional Society \& Conference Leadership}} 			                                                                                                                                                                                        \\ [4pt]
+  \multicolumn{2}{l}{\hspace{1mm} \textit{American Physical Society (APS)}}                                                                                                                                                                                                                     \\ [3pt]
+  \hspace{7mm} Member of \href{https://www.aps.org/about/governance/committees/cifs}{Committee on International Freedom of Scientists}                                                                            & 2025-2026                                                                   \\ [3pt]
+  \hspace{7mm} Member of Division of Polymer Physics (DPOLY) Membership Committee                                                                                                                                 & 2024-2025                                                                   \\ [3pt]
+  \hspace{7mm} Session Chair ``Polymer Structure \& Dynamics across Lengths \& Timescales''                                                                                                               & Mar \href{https://meetings.aps.org/Meeting/MAR24/Session/Y32}{2024}, 2025   \\ [3pt]
+  \hspace{7mm} Session Organizer ``Polymer Structure \& Dynamics across Lengths \& Timescales''                                                                                                           & Mar \href{https://meetings.aps.org/Meeting/MAR24/Session/Y32}{2024}, 2025   \\ [3pt]
+  \hspace{7mm} Organizer \& Winner of Inaugural DPOLY T-Shirt Design Competition                                                                                                                                  & Mar 2024                                                                    \\ [3pt]
+  \hspace{7mm} Ranked Undergraduate Talks \& Posters as \href{https://www.aps.org/careers/guidance/mentoring.cfm}{Career Mentoring Fellow}                                                                        & 2022 -- 2023                                                                \\ [3pt]
+%  \hspace{7mm} \small DPOLY Executive Committee Early Career Member-at-Large Nomination \& Candidacy                                                                                                                     & 2022, 2023, 2024                                                            \\   
+%  \hspace{7mm} \small Forum on Diversity and Inclusion (FDI) Executive Committee Candidacy                                                                                                                               & 2022                                                                        \\ [3pt]
+%  \hspace{7mm} \small Forum of Graduate Student (FGSA) Affairs Executive Committee Candidacy                                                                                                                             & 2021                                                                        \\ [3pt]
+  \hspace{7mm} Session Chair ``\href{https://meetings.aps.org/Meeting/MAR23/Session/Y15}{Polymers \& Composites for Energy Storage \& Conversion I}''                                                & Mar 2023                                                                    \\ [4pt]
+  \multicolumn{2}{l}{\hspace{1mm} \textit{\href{https://sites.google.com/view/polymerphysics/}{Early Career Researchers in Polymer Physics}}}                                                                                                                                                   \\ [3pt]
+  \hspace{7mm} Administrator of 550 member Slack channel for collaboration \& networking                                                                                                                 & 2022 -- present                                                             \\ [3pt]
+  \hspace{7mm} Organizer of 2023 \href{https://sites.google.com/view/polymerphysics/vpps-2023-schedule}{Virtual Polymer Physics Symposium} with 150 Global Attendees                                              & Aug 2023                                                                    \\ [3pt]
+  \hspace{7mm} Cofounder \& Organizer of \href{https://sites.google.com/view/polymerphysics/self-dev-seminars}{Self-Development Seminar} series                                                                   & 2022 -- present                                                             \\ [4pt]
+  \multicolumn{2}{l}{\hspace{1mm} \textit{Out in Science Technology Engineering \& Mathematics (oSTEM), Inc.}}                                                                                                                                                                                  \\ [3pt]
+  \hspace{7mm} Table Representative at MAA MathFest 2023                                                                                                                                                          & Aug 2023                                                                    \\ [3pt]
+  \hspace{7mm} Annual Conference Volunteer \& Organizer                                                                                                                                                           & Nov. 2022                                                                   \\ [3pt]
+  \hspace{7mm} Annual Conference Merchandise Team Organizer                                                                                                                                                       & Nov. 2022                                                                   \\ [8pt]
+
+  \multicolumn{2}{l}{\hspace{-3mm} \bf{Departmental \& Institutional Service}}                                                                                                                                                                                                                  \\ [4pt]
+  \multicolumn{2}{l}{\hspace{1mm} \textit{University of South Florida (USF) Postdoctoral Scholar Association (PSA)}}                                                                                                                                                                            \\ [3pt]
+  \hspace{7mm} Founded \& Chaired PSA Executive Committee at USF serving 200 postdocs                                                                                                                             & 2023 -- present                                                             \\ [3pt]
+  \hspace{7mm} Organized Inaugural ELEVATE Talk Series                                                                                                                                                            & 2024 -- 2025                                                                \\ [3pt]
+  \hspace{7mm} Led Postdoc Highlight Interviews, Socials, \& Orientations                                                                                                                                         & 2023 -- present                                                             \\ [4pt]
+  \multicolumn{2}{l}{\hspace{1mm} \textit{BYU Chemical Engineering Graduate Student Council (GSC)}}                                                                                                                                                                                             \\ [3pt]
+  \hspace{7mm} President \& Cofounder                                                                                                                                                                             & 2018 -- 2021                                                                \\ [3pt]
+  \hspace{7mm} Organizer of Department Recruitment Poster Event                                                                                                                                                   & 2019, 2020, 2021                                                            \\ [3pt]
+  \hspace{7mm} Department BBQ Social Organizer                                                                                                                                                                    & 2018 -- 2021                                                                \\ [3pt]
+  \hspace{7mm} Department-Wide Survey Administrator on Graduate Student Financial Health                                                                                                                          & Fall 2021                                                                   \\ [3pt]
+  \hspace{7mm} Social Media Accounts Manager                                                                                                                                                                      & Fall 2021                                                                   \\ [8pt]
+
+  \multicolumn{2}{l}{\hspace{-3mm} \bf{Outreach, Inclusion \& Public Engagement}}                                                                                                                                                                                                               \\ [4pt]
+  \multicolumn{2}{l}{\hspace{1mm} \textit{Out in Science Technology Engineering \& Mathematics (oSTEM), Inc.}}                                                                                                                                                                                  \\ [3pt]
+  \hspace{7mm} Scholarship Coordinator (Lead review of $>$ 200 applicants for 20 scholarships)                                                                                                           & 2022 -- present                                                             \\ [3pt]
+  \hspace{7mm} Mentorship Program Volunteer                                                                                                                                                                       & 2021 -- present                                                             \\ [4pt]
+  \multicolumn{2}{l}{\hspace{1mm} \textit{American Chemical Society (ACS)}}                                                                                                                                                                                                                     \\ [3pt]
+  \hspace{7mm} \href{https://www.acs.org/education/outreach/science-coaches.html}{Science Coach} (Education Outreach Initiative)                                                                                  & 2023 -- 2024                                                                \\ [3pt]
+  \hspace{7mm} Lecture series facilitator for high school students at Bradenton Christian School                                                                                                                  & 2023 -- 2024                                                                \\ [4pt]
+  \multicolumn{2}{l}{\hspace{1mm} \textit{American Physical Society (APS)}}                                                                                                                                                                                                                     \\ [3pt]
+  \hspace{7mm} \href{https://www.aps.org/programs/outreach/physiciststogo.cfm}{Physicists To-Go} Public Engagement Program Participant                                                                            & 2022 -- present                                                             \\ [3pt]
+  \hspace{7mm} Josephine C. Locke Elementary School visiting scholar talk                                                                                                                                         & 2022                                                                        \\ [3pt]
+  \hspace{7mm} Member of \href{https://www.aps.org/initiatives/physics-education/national-mentoring-community}{National Mentoring Community}                                                                      & 2022 -- present                                                             \\ [4pt]
+  \multicolumn{2}{l}{\hspace{1mm} \textit{State Science \& Engineering Fair of Florida (SSEF Florida)}}                                                                                                                                                                                         \\ [3pt]
+  \hspace{7mm} Volunteer SSEF Judge                                                                                                                                                                               & 2023, 2024                                                                  \\ [4pt]
+  \multicolumn{2}{l}{\hspace{1mm} \textit{American Society for Engineering Education (ASEE)}}                                                                                                                                                                                                   \\ [3pt]
+  \hspace{7mm} Member of ASEE LGBTQ+ Advocacy in STEM \href{https://lgbtq.asee.org/our-community/}{Virtual Community of Practice}                                                                                 & 2022 -- present                                                             \\ [3pt]
+  \hspace{7mm} Facilitator of \href{https://lgbtq.asee.org/ally-training/online-workshops/#:~:text=Safe\%20Zone\%20Ally\%20Training\%3A\%20Tans\%20Allyship}{Trans Allyship Safe Zone Ally Training Workshop}     & Mar. 2023                                                                   \\ [4pt]
+  \multicolumn{2}{l}{\hspace{1mm} \textit{University of South Florida (USF)}}                                                                                                                                                                                                                   \\ [3pt]
+  \hspace{7mm} Great American Teach In Martinez Middle School Visit 			                                                                                                                          & June 2023                                                                   \\
+  \hspace{7mm} Highschoolers Programming \& Scientific Computing Summer Workshop Facilitator                                                                                                                      & June 2023                                                                   \\
+%  \multicolumn{2}{l}{\hspace{-3mm} \bf{AUS IEEE Engineering in Medicine \& Biology Society (EMBS) chapter}}                                                                                                                                                                                            \\
+%  \hspace{3mm} \small Chemical Engineering Research Coordinator                                                                                                                                                          & 2016 -- 2017                                                                \\
+%  \hspace{3mm} \small Biomedical Engineering Symposium Organizer \& Poster Session Lead                                                                                                                                  & 2016, 2017                                                                  \\
+%  \hspace{7mm} \small Frequent science/engineering fair judge at local elementary schools                                                                                             & 2021 -- present \\
+%  \multicolumn{2}{l}{\hspace{-3mm} \bf{Diversity \& Inclusion Initiatives}}                                                                                                                                                                                                                                \\ [4pt]
+\end{longtable}
+
