@@ -29,7 +29,7 @@
 % Page Setup
 %\usepackage[left=0.4in, right=0.4in, top=0.5in, bottom=0.5in,headsep=.2in]{geometry}
 %\usepackage[margin=0.75in, headsep=20pt, top=0.54in, bottom=0.5in]{geometry}
-\usepackage[margin=1.00in, top=0.7in, bottom=0.7in, headsep=20pt]{geometry}
+\usepackage[margin=1.00in, top=0.7in, bottom=1.00in, headsep=20pt]{geometry}
 %\usepackage[margin=0.6in]{geometry}
 
 % Font
@@ -202,7 +202,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%
 % Professional Summary          %%
 %%%%%%%%%%%%%%%%%%%%%%%
-\vspace{-0.5cm}
+%\vspace{-0.5cm}
 %\section*{Key Skills \& Achievements}
 \begin{tabitemize}
   \item 7 years of computational expertise in molecular modeling, material characterization, free energy analysis, computational chemistry, crystallization, \& material mechanics.
@@ -214,6 +214,23 @@
   \item Passionate about using computation to solve challenges in materials \& pharma.
 \end{tabitemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%
+% Technical Skills    %
+%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-1.5\baselineskip}
+\section*{Technical Skills}
+\begin{tabitemize}
+%  \item \textbf{Computational Chemistry \& Modeling}: Molecular dynamics, Atomistic simulations, Statistical mechanics, Phase behavior, Free energy calculations \& analysis
+%  \item \textbf{Polymer Physics}: Viscoelasticity, Copolymers, Vitrification, Rouse Modes Analysis, Nucleation Theory
+%  \item \textbf{Drug Delivery}: Liposomes, Chemotherapy, Surface functionalization, Breast cancer, Ultrasound
+  \item \textbf{Programming \& Automation}: Python, C++, C, CUDA, MATLAB, Bash, R
+  \item \textbf{Simulation \& Modeling}: LAMMPS, GROMACS, Gaussian, AMBER, OPLS, Monte Carlo methods, Molecular Dynamics, Atomistic, Coarse-Graining
+  \item \textbf{Data Analysis \& Visualization}: VMD, OVITO, NumPy, Pandas, Matplotlib, Free Energy Calculations
+  \item \textbf{HPC \& Workflow Optimization}: Slurm, Open MPI, Cluster Management, Parallelization, Large-Scale Data Processing (50TB+)
+  \item \textbf{Experimental Techniques}: Drug Encapsulation, DLS, NMR, Liposomal Formulations, Nanoparticle Synthesis
+  \item \textbf{Communication \& Leadership}: Public Speaking (27+ conferences), Scientific Writing (5 publications), Mentoring, DEI Advocacy, Event Coordination
+    % IDEAS: Sci. Communication, 
+\end{tabitemize}
 %Strong background in \textbf{material modeling \& characterization, free energy simulations, \& computational chemistry}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -223,113 +240,115 @@
 \section*{Research Experience}
 %  \setlength\extrarowheight{-3pt}
 %\def\arraystretch{1.5}%  1 is the default, change whatever you need
-\vspace{-0.5\baselineskip}
+\vspace{-0.4\baselineskip}
 \begin{longtable}{@{\extracolsep{\fill}}p{0.09\textwidth} p{0.37\textwidth} p{0.30\textwidth} r }
   \textbf{Postdoc} & \textbf{University of South Florida} & \textbf{Prof. David Simmons} & \textbf{2022 -- Present}\\
 \end{longtable}
-\vspace{-1.4\baselineskip}
+\vspace{-0.6\baselineskip}
 
 \begin{tabitemize}
-  \item Developed \& implemented large-scale molecular dynamics simulations using LAMMPS, GROMACS, Gaussian, AMBER, \& OPLS, achieving high-throughput insights into nanoscale deformation, relaxation, \& stress distribution in polymer composites.
-  \item Created novel molecular simulation analysis techniques for nonlinear rheology, identifying nanoscale toughening factors that favor enhanced rubber performance.
-
-%  \item Designed \& simulated atomistic copolymers with controlled sequences at constant composition, identifying novel sequences with enhanced glass transition temperatures ($\bm{T_{g}}$), thereby improving stability with minimal process or feedstock change.
-%  \item Developed guidance to enhance copolymer thermal stability of copolymers at constant composition via chemical sequence control.
-  \item Optimized copolymer thermal stability by simulating coarse-grained \& atomistic sequences, identifying novel sequences with enhanced glass transition temperatures $\bm{T_{g}}$ without changing feedstock or processing conditions.
-%  \item Leveraged HPC \& parallel computing to perform multi-terabyte simulations, securing an NSF Discover ACCESS Compute Resource Grant (2023).
-  \item Optimized HPC workflows to process 50TB+ datasets, accelerating computational studies by 90\% \& securing an NSF Discover ACCESS Compute Resource Grant (2023).
-%  \item Researched nanoscale material behavior to enhance durability \& performance of polymer composites.
-%  \item Designed \& implemented molecular dynamics simulations to model nanoscale deformation, relaxation, \& stress distribution, improving understanding of material toughening mechanisms.
-%  \item Developed novel analysis methods to analyze nonlinear rheology, identifying key nanoscale factors that enhance material resilience.
-%  \item Applied advanced simulation techniques to quantify stress response \& reinforcement behavior in nanocomposites, informing strategies for improved material design.
-%  \item Developed Python, C++, bash, Slurm, Open MPI, \& R automation tools for molecular modeling of polymer dynamics \& mechanics, accelerating team-wide computational workflows, streamlining multi-terabyte data analysis, \& improving research efficiency.
-%  \item Automated multi-terabyte data production \& analysis via Python \& bash scripting, decreasing processing times by 90\%+ \& accelerating team-wide simulation analysis.
-
-%  \item Analyzed molecular dynamics \& phase behavior, determining sequences with superior thermal stability.
-  \item Mentored \& trained 11 researchers in HPC, version control, \& molecular simulations, boosting collaboration, productivity, \& earning APS Career Mentor Fellowship (2023).
-
-  \item Presented findings at 17 industrial \& academic conferences, highlighting advancements in rubber \& copolymer technology, as well as polymer theory, \& earning poster awards at the Gordon Research Conference (2024) \& USF Postdoc Symposium (2023).
+  %\item Developed \& implemented large-scale molecular dynamics simulations using LAMMPS, GROMACS, Gaussian, AMBER, \& OPLS, achieving high-throughput insights into nanoscale deformation, relaxation, \& stress distribution in polymer composites.
+  %\item Created novel molecular simulation analysis techniques for nonlinear rheology, identifying nanoscale toughening factors that favor enhanced rubber performance.
+  %\item Optimized copolymer thermal stability by simulating coarse-grained \& atomistic sequences, identifying novel sequences with enhanced glass transition temperatures $\bm{T_{g}}$ without changing feedstock or processing conditions.
+  %\item Optimized HPC workflows to process 50TB+ datasets, accelerating computational studies by 90\% \& securing an NSF Discover ACCESS Compute Resource Grant (2023).
+  %\item Mentored \& trained 11 researchers in HPC, version control, \& molecular simulations, boosting collaboration, productivity, \& earning APS Career Mentor Fellowship (2023).
+  %\item Presented findings at 17 industrial \& academic conferences, highlighting advancements in rubber \& copolymer technology, as well as polymer theory, \& earning poster awards at the Gordon Research Conference (2024) \& USF Postdoc Symposium (2023).
+  \item Simulate polymer deformation \& stress, generating high-throughput nanoscale insights for composite design.
+  \item Improve copolymer $T_{g}$ by simulating specific sequences, optimizing stability without altering feedstock or process.
+  \item Develop custom polymer rheology \& dynamics analysis tools \& extend in-house codebase, streamlining group workflows \& accelerating junior researchers' productivity.
+  \item Streamline HPC workflows to process 50+ TB datasets, accelerating studies by 90\% \& earning an NSF ACCESS grant.
+  \item Mentor 11 researchers in HPC, Git, \& simulation methods, fostering collaboration \& earning APS Career Mentor Fellowship.
+  \item Present at 17 conferences, winning awards at GRC (2024) \& USF Symposium (2023) for research on rubber \& copolymer design.
 \end{tabitemize}
 
-\vspace{-2.0\baselineskip}
+\vspace{-0.7\baselineskip}
 \begin{longtable}{@{\extracolsep{\fill}}p{0.09\textwidth} p{0.37\textwidth} p{0.30\textwidth} r }
   \textbf{Ph.D.} & \textbf{Brigham Young University} & \textbf{Prof. Douglas Tree} & \textbf{2017 -- 2022}\\
 \end{longtable}
-\vspace{-1.4\baselineskip}
+\vspace{-1.2\baselineskip}
 
 \begin{tabitemize}
-  \item Developed, optimized, \& deployed GPU-accelerated Monte Carlo simulations in C/CUDA, achieving $100\times$ speedup in property computes, enabling experimental comparison.
-%  \item Developed computational models to predict polymer crystallization behavior, improving material characterization, accelerating simulation workflows, \& resolving long-standing scientific debate.
-%  \item Implemented high-performance Monte Carlo simulations in C++/CUDA to model polymer crystallization, achieving 100$\times$ speedup in property computation \& enabling experimental comparison.
-  \item Automated high-throughput simulations using Python, C++, bash, MATLAB, \& R, reducing paramter-sweep runtimes \& enabling large-scale polymer crystal studies.%sweeping multi-dimensional parameters \& accelerating studies of polymer crystals.
-%  \item Automated molecular simulation workflows by developing Python/C++ tools, significantly increasing efficiency in large-scale molecular studies sweeping large multi-dimensional parameter spaces.
-  \item Constructed the first-ever 3D free energy landscapes for polymer crystallization, differentiating order-formation pathways inaccessible to classical simulations.% \& resolving a long-standing theoretical controversy on polymer crystallization pathways.
-%  \item Mapped multi-dimensional phase transitions using \textbf{first-of-their-kind} 3D free energy landscapes, enabling differentiation of order-formation pathways that are inaccessible to classical simulation.
-%  \item Resolved a long-standing theoretical controversy on polymer crystallization pathways, providing insights that shaped ongoing research in the field.
-%  \item Resolved long-standing debates in polymer crystallization theory by distinguishing competing mechanisms of phase transitions, advancing scientific understanding.
-  \item Developed advanced phase diagrams \& applied order parameters for crystalline \& orientational order, quantifying phase transitions in complex molecular landscapes.
-%  \item Applied advanced molecular characterization techniques to distinguish complex phase transitions, enabling insights into controlling parameters.
-  \item Visualized \& analyzed large datasets of 3D molecular configurations using VMD \& OVITO, extracting key structural \& kinetic insights.
-  \item Mentored 4 undergraduate researchers, co-authoring 2 journal articles \& 6 conference abstracts, thereby supporting their transition to graduate-level careers.
-  \item Secured research awards, e.g., APS Forum on Intl.~Physics Distinguished Student Award (2022) \& BYU Grad.~Student Society Professional Presentation Award (2021).
-  \item Contributed critical preliminary findings that supported the successful NSF CAREER Award (\$500,000) proposal for continued crystallization research.
+%  \item Developed, optimized, \& deployed GPU-accelerated Monte Carlo simulations in C/CUDA, achieving $100\times$ speedup in property computes, enabling experimental comparison.
+%  \item Automated high-throughput simulations using Python, C++, bash, MATLAB, \& R, reducing paramter-sweep runtimes \& enabling large-scale polymer crystal studies.%sweeping multi-dimensional parameters \& accelerating studies of polymer crystals.
+%  \item Constructed the first-ever 3D free energy landscapes for polymer crystallization, differentiating order-formation pathways inaccessible to classical simulations.% \& resolving a long-standing theoretical controversy on polymer crystallization pathways.
+%  \item Developed advanced phase diagrams \& applied order parameters for crystalline \& orientational order, quantifying phase transitions in complex molecular landscapes.
+%  \item Visualized \& analyzed large datasets of 3D molecular configurations using VMD \& OVITO, extracting key structural \& kinetic insights.
+%  \item Mentored 4 undergraduate researchers, co-authoring 2 journal articles \& 6 conference abstracts, thereby supporting their transition to graduate-level careers.
+%  \item Secured research awards, e.g., APS Forum on Intl.~Physics Distinguished Student Award (2022) \& BYU Grad.~Student Society Professional Presentation Award (2021).
+%  \item Contributed critical preliminary findings that supported the successful NSF CAREER Award (\$500,000) proposal for continued crystallization research.
+  \item Wrote two Monte Carlo simulation codes in C++/CUDA from scratch, accelerating crystallization studies 100$\times$ \& enabling published 3D free energy landscapes.
+%  \item Automated high-throughput simulations using Python, MATLAB, \& R, streamlining large-scale polymer analysis \& parameter sweeps.
+  \item Constructed advanced phase diagrams using custom crystalline \& orientational order parameters, quantifying key molecular transitions.
+  \item Analyzed large 3D datasets via VMD \& OVITO, extracting structural \& kinetic insights across crystallization pathways.
+  \item Mentored 4 undergraduates, co-authoring 2 papers \& 6 conference abstracts, \& supporting their admission to graduate programs.
+  \item Earned APS Distinguished Student Award (2022) \& BYU Presentation Award (2021) for scientific communication \& research excellence.
+  \item Directly contributed preliminary data \& conceptual foundations for a successful \$500K NSF CAREER proposal.
 \end{tabitemize}
 
 \vspace{-0.7\baselineskip}
 \begin{longtable}{@{\extracolsep{\fill}}p{0.09\textwidth} p{0.37\textwidth} p{0.30\textwidth} r }
   \textbf{M.S.} & \textbf{American University of Sharjah} & \textbf{Prof. Ghaleb Husseini} & \textbf{2015 -- 2017}\\
 \end{longtable}
-\vspace{-1.2\baselineskip}
+\vspace{-0.7\baselineskip}
 
 \begin{tabitemize}
-  \item Designed ultrasound-sensitive drug delivery systems to improve chemotherapy efficiency, winning the AUS Biomedical Engineering Symposium Best Talk Award (2016).
-  \item Engineered estrone-functionalized phospholipid liposomal drug carriers, enhancing breast cancer drug delivery precision.
-  \item Formulated \& optimized self-assembling chemotherapy nanoparticles using the dry film method, enhancing drug stability \& controlled release kinetics.
-  \item Validated encapsulation efficiency \& nanoparticle integrity through NMR \& DLS assays, ensuring high drug-loading capacity \& structural robustness.
-  \item Quantified ultrasound-triggered drug release across frequency \& intensity gradients, identifying optimal acoustic parameters for clinical performance \& stability.
+%  \item Designed ultrasound-sensitive drug delivery systems to improve chemotherapy efficiency, winning the AUS Biomedical Engineering Symposium Best Talk Award (2016).
+%  \item Engineered estrone-functionalized phospholipid liposomal drug carriers, enhancing breast cancer drug delivery precision.
+%  \item Formulated \& optimized self-assembling chemotherapy nanoparticles using the dry film method, enhancing drug stability \& controlled release kinetics.
+%  \item Validated encapsulation efficiency \& nanoparticle integrity through NMR \& DLS assays, ensuring high drug-loading capacity \& structural robustness.
+%  \item Quantified ultrasound-triggered drug release across frequency \& intensity gradients, identifying optimal acoustic parameters for clinical performance \& stability.
+%  \item Published findings in a peer-reviewed journal \& presented at 3 conferences, disseminating contributions to biomedical engineering \& drug delivery research.
+  \item Designed \& synthesized estrone-functionalized ultrasound-sensitive drug carriers, improving drug stability \& controlled release in breast cancer chemotherapy.
+%  \item Synthesized estrone-functionalized nanoparticles with enhanced stability \& controlled release.
+  \item Validated \& characterized encapsulation \& release kinetics using DLS \& NMR, ensuring structural integrity \& efficiency \& optimizing ideal acoustic frequencies.
   \item Standardized lab protocols to improve reproducibility, collaboration, \& data integrity, increasing research efficiency across teams.
-  \item Published findings in a peer-reviewed journal \& presented at 3 conferences, disseminating contributions to biomedical engineering \& drug delivery research.
+  \item Presented at 3 conferences, earning Best Talk Award at AUS Biomed.~Eng.~Symposium.% \& presented findings at 3 conferences to advance drug delivery innovation.
 \end{tabitemize}
 
-\vspace{-1.5\baselineskip}
+%\vspace{-1.5\baselineskip}
 \section*{Leadership \& Community Engagement}
-
-\vspace{-0.5\baselineskip}
-\begin{longtable}{@{\extracolsep{\fill}}p{0.20\textwidth} p{0.585\textwidth} r }
-  \textbf{President} & \textbf{Early Career Researchers in Polymer Physics} & \textbf{2022 -- Present}\\
-\end{longtable}
-\vspace{-1.2\baselineskip}
 \begin{tabitemize}
-  \item Led a 550-member global Slack community, organizing networking, technical, self-development, \& conference prep events, improving belonging of polymer researchers.
-  \item Organized the 2023 Virtual Polymer Physics Symposium, a 2-day intl.~event with 150+ attendees, 4 technical sessions, a DEI discussion, \& a diverse career panel.% Prioritized financially constrained \& intl.~speakers, ensuring equitable research exposure.
+  \item \textbf{President, Early Career Researchers in Polymer Physics (2022–):} Led a global 550-member community \& organized the 2023 Virtual Symposium with 150+ attendees.
+  \item \textbf{President \& Founder, USF Postdoctoral Scholar Association (2023–):} Served 200+ postdocs via career events, DEI initiatives, \& the NPA-funded ELEVATE Talk Series.
+  \item \textbf{President \& Founder, BYU Chem.~Eng.~Grad.~Student Council (2019–2022):} Directed recruitment, outreach, \& well-being programs impacting department policy.
 \end{tabitemize}
 
-\vspace{-0.7\baselineskip}
-\begin{longtable}{@{\extracolsep{\fill}}p{0.28\textwidth} p{0.505\textwidth} r }
-  \textbf{President and Founder} & \textbf{USF Postdoctoral Scholar Association} & \textbf{2023 -- Present}\\
-\end{longtable}
-\vspace{-1.2\baselineskip}
-\begin{tabitemize}
-  \item Served 200+ postdocs through career programming, networking events, \& advocacy, e.g., ELEVATE Talk Series, funded by NPA IMPACT Fellowship (2023, 6\% acc.~rate).
-\end{tabitemize}
-
-\vspace{-0.7\baselineskip}
-\begin{longtable}{@{\extracolsep{\fill}}p{0.28\textwidth} p{0.538\textwidth} r }
-  \textbf{President and Founder} & \textbf{BYU Chem.~Eng.~Graduate Student Council} & \textbf{2019 -- 2022}\\
-\end{longtable}
-\vspace{-1.2\baselineskip}
-
-\begin{tabitemize}
-  \item Organized dept. recruitment, social \& outreach events, social content, \& financial well-being initiatives, e.g., Recruitment Poster Event (2019–2021) \& BBQ Socials (2018–2021).
-  \item Administered a financial health survey to assess graduate student well-being, influencing department policy discussions (2021).
-\end{tabitemize}
+%\vspace{-0.5\baselineskip}
+%\begin{longtable}{@{\extracolsep{\fill}}p{0.20\textwidth} p{0.585\textwidth} r }
+%  \textbf{President} & \textbf{Early Career Researchers in Polymer Physics} & \textbf{2022 -- Present}\\
+%\end{longtable}
+%\vspace{-1.2\baselineskip}
+%\begin{tabitemize}
+%  \item Led a 550-member global Slack community, organizing networking, technical, self-development, \& conference prep events, improving belonging of polymer researchers.
+%  \item Organized the 2023 Virtual Polymer Physics Symposium, a 2-day intl.~event with 150+ attendees, 4 technical sessions, a DEI discussion, \& a diverse career panel.% Prioritized financially constrained \& intl.~speakers, ensuring equitable research exposure.
+%\end{tabitemize}
+%
+%\vspace{-0.7\baselineskip}
+%\begin{longtable}{@{\extracolsep{\fill}}p{0.28\textwidth} p{0.505\textwidth} r }
+%  \textbf{President \& Founder} & \textbf{USF Postdoctoral Scholar Association} & \textbf{2023 -- Present}\\
+%\end{longtable}
+%\vspace{-1.2\baselineskip}
+%\begin{tabitemize}
+%  \item Served 200+ postdocs through career programming, networking events, \& advocacy, e.g., ELEVATE Talk Series, funded by NPA IMPACT Fellowship (2023, 6\% acc.~rate).
+%\end{tabitemize}
+%
+%\vspace{-0.7\baselineskip}
+%\begin{longtable}{@{\extracolsep{\fill}}p{0.28\textwidth} p{0.538\textwidth} r }
+%  \textbf{President \& Founder} & \textbf{BYU Chem.~Eng.~Graduate Student Council} & \textbf{2019 -- 2022}\\
+%\end{longtable}
+%\vspace{-1.2\baselineskip}
+%
+%\begin{tabitemize}
+%  \item Organized dept. recruitment, social \& outreach events, social content, \& financial well-being initiatives, e.g., Recruitment Poster Event (2019–2021) \& BBQ Socials (2018–2021).
+%  \item Administered a financial health survey to assess graduate student well-being, influencing department policy discussions (2021).
+%\end{tabitemize}
 
 %%%%%%%%%%%%%%%
 %% Education %%
 %%%%%%%%%%%%%%%
-\vspace{-1.5\baselineskip}
+\vspace{-0.7\baselineskip}
 \section*{Education}% \& Training}
-\vspace{-0.3\baselineskip}
+%\vspace{-0.3\baselineskip}
 \begin{tabular}{@{}p{0.08\textwidth} p{0.42\textwidth} p{0.37\textwidth} r@{}}
   Ph.D.   & Chemical Engineering        & Brigham Young University       & 2022 \\ %2017 -- 2022 \\
   M.S.    &  Chemical Engineering       & American University of Sharjah & 2017 \\ %2015 -- 2017 \\
@@ -346,7 +365,7 @@
 %%%%%%%%%%%%
 \begin{center}
   \begin{footnotesize}
-    Comprehensive and updated list of publications and presentations available online at \href{https://linktr.ee/pkawak}{\tt linktr.ee/pkawak}\\
+    Comprehensive \& updated list of publications \& presentations available online at \href{https://linktr.ee/pkawak}{\tt linktr.ee/pkawak}\\
 %    Last updated: \today \\
   \end{footnotesize}
 \end{center}
