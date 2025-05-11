@@ -1,0 +1,296 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TAILORING GUIDE FOR FUTURE CHATGPT CLIENTS
+%
+% Purpose:
+% This master CV provides modular content with multiple specialization options.
+% Follow the instructions below to generate a position-specific CV.
+%
+% Tailoring Rules:
+% 1. Review the tailoring configurations below to select relevant content.
+% 2. After selection, REMOVE the corresponding subsection titles such as:
+%       \textbf{Material Simulation and Analysis}
+%       \textbf{Software Development and Automation}
+%    Retain only the higher-level section titles, such as:
+%       \textbf{Postdoctoral Researcher}, University of South Florida \hfill \textit{2022 – Present} \\
+%
+% Suggested Tailoring Configurations:
+%
+% 1. Software R&D / Scientific Computing Positions
+%    - Keep:
+%      * Professional Summary
+%      * Technical Skills
+%      * Software Development and Automation (Postdoc)
+%      * High-Performance Computing Optimization (Postdoc)
+%      * Debugging, Profiling, and Performance Tuning (Postdoc)
+%      * Software Development and GPU Acceleration (PhD)
+%      * HPC and Workflow Optimization (PhD)
+%    - Optional:
+%      * Scientific Communication and Collaboration (PhD)
+%    - Remove:
+%      * Materials Simulation and Analysis (Postdoc)
+%      * Structure–Property Analysis (PhD)
+%
+% 2. Materials Scientist / Simulation Researcher Positions
+%    - Keep:
+%      * Professional Summary
+%      * Technical Skills
+%      * Material Simulation and Analysis (Postdoc)
+%      * Structure–Property Analysis (PhD)
+%      * HPC Optimization and Workflow Acceleration (Postdoc)
+%      * Scientific Communication and Collaboration (PhD)
+%    - Optional:
+%      * Software Development and Automation (Postdoc)
+%    - Remove:
+%      * Debugging, Profiling, and Performance Tuning (Postdoc)
+%      * Software Development and GPU Acceleration (PhD)
+%
+% 3. Multidisciplinary Leadership / Team Management Roles
+%    - Keep:
+%      * Professional Summary
+%      * Technical Skills
+%      * Leadership, Mentorship, and Community Engagement (Postdoc)
+%      * Scientific Communication and Collaboration (PhD)
+%      * Software and HPC sections (if leadership is technical)
+%    - Optional:
+%      * All technical sections based on role expectations
+%    - Remove:
+%      * None, unless character limit requires further trimming
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[letterpaper,12pt]{article}
+\usepackage[margin=1.00in, top=0.7in, headsep=20pt]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{fontawesome}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=blue,
+}
+
+% Font
+\usepackage[T1]{fontenc}
+\usepackage[sc]{mathpazo}
+
+\usepackage[backend=biber,sorting=mysort,style=numeric-comp,defernumbers,maxbibnames=20]{biblatex}
+\addbibresource[label=articles]{articles.bib}
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+ % fix header
+ \defbibheading{fix}[\refname]{\section*{#1}}
+ 
+
+\AtBeginBibliography{\small}
+
+  % This is the sorting scheme for the CV
+  \DeclareSortingScheme{mysort}{
+    \sort[direction=descending]{
+      \field{year}
+    }
+    \sort[direction=descending]{
+      \field[padside=left,padwidth=2,padchar=0]{month}
+      \literal{00}
+    }
+  }
+
+  % Use this for reversing the numbers (count down) in the bibliography
+  % Count total number of entries in each refsection
+  \AtDataInput{%
+  \csnumgdef{entrycount:\therefsection}{%
+  \csuse{entrycount:\therefsection}+1}}
+
+  % Print the labelnumber as the total number of entries in the
+  % current refsection, minus the actual labelnumber, plus one
+  \DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}    
+  \newrobustcmd*{\mkbibdesc}[1]{%
+  \number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
+
+% Custom sections
+\usepackage[]{titlesec}
+\titleformat{\section}{
+  \rmfamily\mdseries\Large\bfseries
+  }{}{}{}[\vspace{0.1ex}\titlerule]
+\titlespacing*{\section}{0ex}{3ex}{0.8ex}
+\titlespacing*{\therefsection}{0ex}{3ex}{0.8ex}
+\titlespacing*{\refsection}{0ex}{3ex}{0.8ex}
+
+\newlist{tabitemize}{itemize}{1}
+%\setlist[tabitemize]{label=\textbullet,nosep,align=parleft,leftmargin=*,}
+\setlist[tabitemize]{label=\textbullet,itemsep=1pt,align=parleft,leftmargin=*,}
+
+%% Customize page headers
+%\pagestyle{myheadings}
+%\markright{\name}
+%\thispagestyle{empty}
+\usepackage[]{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+%\fancyhead[RO,LE]{Pierre Kawak, Ph.D.}
+\fancyfoot{}
+\fancyfoot[LO,CE]{\thepage}
+\fancyfoot[RO,LE]{Pierre Kawak, Ph.D.}
+\begin{document}
+
+\begin{center}
+  {\LARGE \textbf{Pierre Kawak, Ph.D.}}\\
+  \faPhone\ +1 (801) 762-7999 \quad \faEnvelope\ \href{mailto:pskawak@gmail.com}{pskawak@gmail.com} \quad \faLink\ \href{https://linktr.ee/pkawak}{linktr.ee/pkawak}
+\end{center}
+
+\vspace{-0.3\baselineskip}
+\section*{Professional Summary}
+Computational polymer physicist with expertise in molecular simulation, statistical mechanics, and polymer theory. Extensive experience leading collaborative projects at the intersection of materials science, chemical engineering, and polymer physics.
+\vspace{0.5em}
+\begin{tabitemize}
+    \item Expert in developing, optimizing, and deploying molecular dynamics and Monte Carlo simulations to uncover structure–property relationships in polymers and soft materials.
+    \item Experienced in leading cross-functional teams, managing up to 11 researchers, and mentoring graduate and undergraduate students on computational methods and scientific communication.
+    \item Proven ability to architect and accelerate analysis pipelines for polymer simulations, including profiling and optimizing in-house codes in Python, C++, and CUDA.
+    \item Demonstrated success translating molecular insights into design principles for tough, recyclable, and sustainable materials, including elastomeric nanocomposites and copolymer systems.
+    \item Strong record of scientific communication with multiple invited talks, publications in top journals, and community leadership in the polymer physics community.
+    \item Passionate about building inclusive scientific communities, with leadership experience organizing professional development events, symposia, and mentoring programs.
+\end{tabitemize}
+
+\vspace{-0.3\baselineskip}
+\section*{Technical Skills}
+\begin{tabitemize}
+    \item \textbf{Simulation and Modeling:} Molecular dynamics (MD), Monte Carlo (MC), coarse-grained modeling, polymer chain modeling, non-equilibrium simulations, phase behavior analysis, free energy calculations.
+    \item \textbf{Software Development:} Architecting, profiling, and deploying scientific software in Python, C++, CUDA, Bash, and FORTRAN; experience with collaborative software development using Git.
+    \item \textbf{Simulation Packages:} LAMMPS, HOOMD-blue, GROMACS, OpenMM, Lattice-based MC codes, in-house simulation and analysis tools.
+    \item \textbf{Analysis and Data Processing:} Custom analysis pipelines for molecular simulation data using Python (NumPy, SciPy, Matplotlib, Pandas), bash scripting, and parallel computation.
+    \item \textbf{High-Performance Computing:} Experience with HPC job scheduling (SLURM), running simulations on national supercomputing facilities (XSEDE, ACCESS), and GPU-accelerated computing (CUDA, Nsight, nvprof).
+    \item \textbf{Data Visualization and Reporting:} Scientific visualization with Matplotlib, Plotly, and VMD; automated report generation in LaTeX.
+    \item \textbf{Process Simulation and Thermodynamics:} Experience with process simulation tools (Aspen HYSYS) and instruction in thermodynamic modeling.
+    \item \textbf{Leadership and Project Management:} Leading cross-functional teams, mentoring junior researchers, organizing professional development workshops and symposia.
+\end{tabitemize}
+
+
+\vspace{-0.3\baselineskip}
+\section*{Research Experience}
+
+\textbf{Postdoctoral Researcher}, University of South Florida \hfill \textit{2022 – Present} \\
+\textit{Advisor: Prof. David Simmons}
+\vspace{0.5em}
+
+\textbf{Material Simulation and Analysis}
+\begin{tabitemize}
+    \item Developed molecular dynamics models (LAMMPS, GROMACS, OPLS) to investigate stress relaxation, deformation, and nanoscale reinforcement in polymer nanocomposites.
+    \item Simulated thermo-elastoplastic deformation and rheology of rubber and copolymers, identifying nanoscale toughening mechanisms.
+    \item Modeled copolymer sequences with enhanced glass transition temperatures without altering processing or feedstock chemistry.
+    \item Applied Bayesian optimization to fit relaxation dynamics and extract glass transition behavior.
+    \item Led multi-dimensional parameter sweeps (nanoparticle size, chemistry, volume fraction) to optimize nanocomposite and copolymer designs.
+    \item Collaborated with experimentalists to validate molecular predictions against thermal and mechanical performance targets.
+    \item Designed statistical models and applied machine learning to extract insights from large molecular datasets.
+\end{tabitemize}
+
+\vspace{0.5em}
+\textbf{Software Development and Automation}
+\begin{tabitemize}
+    \item Architected Python/C++/CUDA simulation and analysis tools to enable high-throughput, physics-informed property prediction.
+    \item Developed modular, reusable rheology and stress analysis toolkits integrated into team-wide simulation workflows.
+    \item Automated data analysis pipelines handling 50+ TB datasets, reducing turnaround time by 90\%.
+    \item Built bash, Slurm, and MPI automation for large-scale HPC job orchestration, checkpointing, and storage.
+    \item Documented group codebases and created tutorials for reproducible scientific computing.
+    \item Integrated local stress analysis tools to study mechanical response under deformation.
+\end{tabitemize}
+
+\vspace{0.5em}
+\textbf{High-Performance Computing Optimization and Workflow Acceleration}
+\begin{tabitemize}
+    \item Led optimization of 50+ TB data pipelines across HPC clusters, improving data throughput by 90\%.
+    \item Streamlined multi-node CPU and GPU workflows for molecular simulations.
+    \item Reduced simulation runtime by 90\% through parallelization and high-performance computing resource optimization.
+    \item Awarded NSF ACCESS Compute Resource Grant for advancing scalable HPC-enabled molecular simulations.
+\end{tabitemize}
+
+\vspace{0.5em}
+\textbf{Debugging, Profiling, and Performance Tuning}
+\begin{tabitemize}
+    \item Debugged and profiled C++/Python group codebases using GDB, valgrind, and profiling tools (nsight, nvprof), resolving memory leaks and runtime bottlenecks.
+    \item Improved software modularity, runtime, and scalability for multi-month, high-dimensional simulations.
+    \item Led efforts to standardize code maintainability and scientific reproducibility through internal documentation and technical presentations.
+\end{tabitemize}
+
+\vspace{0.5em}
+\textbf{Leadership, Mentorship, and Community Engagement}
+\begin{tabitemize}
+    \item Led and mentored 11+ researchers in HPC, molecular simulation, version control, and scientific computing practices.
+    \item Designed structured onboarding programs, documentation, and tutorials to train new users.
+    \item Organized professional development workshops, DEI programs, and research symposia for 200+ researchers across multiple organizations.
+    \item Presented research at 17+ institutional, industrial, and academic conferences, earning multiple awards (GRC 2024, USF 2023).
+    \item Recognized with the APS Career Mentor Fellowship for leadership in mentoring and community building.
+\end{tabitemize}
+
+\textbf{Ph.D. Researcher}, Brigham Young University \hfill \textit{2017 – 2022} \\
+\textit{Advisor: Prof. Douglas Tree}
+
+\vspace{0.5em}
+\textbf{Software Development and GPU Acceleration}
+\begin{tabitemize}
+    \item Built two GPU-accelerated Monte Carlo engines in C++/CUDA to simulate polymer crystallization and free energy landscapes.
+    \item Developed advanced sampling algorithms (Configurational Bias Monte Carlo, Wang-Landau) to efficiently explore high-dimensional molecular states.
+    \item Designed GPU-optimized data structures (cell lists) and pairwise interaction search algorithms, achieving significant performance improvements.
+    \item Utilized NVIDIA profiling tools (nsight, nvprof) to debug, optimize, and scale GPU-accelerated codes.
+\end{tabitemize}
+
+\vspace{0.5em}
+\textbf{Structure–Property Analysis and Data Processing}
+\begin{tabitemize}
+    \item Developed numerical algorithms to quantify nanoscale crystalline and orientational order from 3D simulation trajectories.
+    \item Processed large-scale simulation data to generate thermodynamic observables, including free energy derivatives and heat capacity profiles.
+    \item Extracted phase diagrams and structure–property relationships through systematic parameter sweeps and automated analysis pipelines.
+\end{tabitemize}
+
+\vspace{0.5em}
+\textbf{High-Performance Computing and Workflow Optimization}
+\begin{tabitemize}
+    \item Leveraged HPC resources to perform long-timescale, high-throughput Monte Carlo simulations using GPU acceleration.
+    \item Automated simulation and data analysis workflows to enable reproducible exploration of high-dimensional parameter spaces.
+\end{tabitemize}
+
+\vspace{0.5em}
+\textbf{Scientific Communication and Collaboration}
+\begin{tabitemize}
+    \item Collaborated with interdisciplinary teams to apply simulation methods to polymer crystallization and glass transition problems.
+    \item Presented research findings at academic conferences, advancing understanding of nanoscale phenomena in polymer materials.
+\end{tabitemize}
+
+\textbf{Graduate Researcher}, American University of Sharjah \hfill \textit{2015 – 2017} \\
+\textit{Advisor: Prof. Ghaleb Husseini}
+\begin{tabitemize}[leftmargin=*]
+  \item Synthesized estrone-functionalized drug nanocarriers; enhanced release control for chemotherapy applications.
+  \item Validated drug stability \& kinetics with DLS/NMR; optimized ultrasonic parameters.
+  \item Standardized lab protocols; boosted reproducibility and cross-lab collaboration.
+  \item Presented at 3 conferences; awarded Best Talk at AUS Biomedical Symposium.
+\end{tabitemize}
+
+\vspace{-0.3\baselineskip}
+\section*{Leadership \& Community Engagement}
+\begin{tabitemize}[leftmargin=*]
+  \item \textbf{President}, Early Career Researchers in Polymer Physics (2022–Present): Led 550+ member global network, organized 150+ attendee virtual symposium.
+  \item \textbf{Founder \& President}, USF Postdoctoral Scholar Association (2023–Present): Launched NPA-funded ELEVATE Talk Series and DEI programs for 200+ postdocs.
+  \item \textbf{Founder \& President}, BYU Chem.~Eng.~Graduate Council (2019–2022): Shaped department policies and spearheaded outreach and recruitment.
+\end{tabitemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Articles and Presentations %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace{-1.5\baselineskip}
+\vspace{-0.3\baselineskip}
+%recompile from start if numbers aren't right
+\begin{refsection}[articles]
+  \nocite{*}
+  \setlength\bibitemsep{0pt}
+  \printbibliography[resetnumbers=true,type=article,title={Selected Peer-Reviewed Publications},heading=fix]
+\end{refsection}
+
+\vspace{-0.3\baselineskip}
+\section*{Education}
+\textbf{Ph.D.} in Chemical Engineering, Brigham Young University \hfill \textit{2022} \\
+\textbf{M.S.} in Chemical Engineering, American University of Sharjah \hfill \textit{2017} \\
+\textbf{B.S.} in Chemical Engineering (Econ. Minor), American University of Sharjah \hfill \textit{2015}
+
+%\vspace{-0.3\baselineskip}
+\vspace{0.5em}
+\noindent\textit{Full list of publications and presentations available at \href{https://linktr.ee/pkawak}{linktr.ee/pkawak}}
+
+\end{document}
