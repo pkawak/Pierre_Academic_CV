@@ -17,10 +17,20 @@
 
 \usepackage[backend=biber,sorting=mysort,style=numeric-comp,defernumbers,maxbibnames=20]{biblatex}
 \addbibresource[label=articles]{articles.bib}
-\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+% Custom sections
+\titleformat{\section}{
+  \large\bfseries
+  }{}{0em}{}[\titlerule]
+% Custom sections
+\titleformat{\section}{
+  \rmfamily\mdseries\Large\bfseries
+  }{}{}{}[\vspace{0.1ex}\titlerule]
+\titlespacing*{\section}{0ex}{3ex}{0.8ex}
+\titlespacing*{\therefsection}{0ex}{3ex}{0.8ex}
+\titlespacing*{\refsection}{0ex}{3ex}{0.8ex}
  % fix header
  \defbibheading{fix}[\refname]{\section*{#1}}
- 
+
 
 \AtBeginBibliography{\small}
 
@@ -43,18 +53,10 @@
 
   % Print the labelnumber as the total number of entries in the
   % current refsection, minus the actual labelnumber, plus one
-  \DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}    
+  \DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}
   \newrobustcmd*{\mkbibdesc}[1]{%
   \number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
 
-% Custom sections
-\usepackage[]{titlesec}
-\titleformat{\section}{
-  \rmfamily\mdseries\Large\bfseries
-  }{}{}{}[\vspace{0.1ex}\titlerule]
-\titlespacing*{\section}{0ex}{3ex}{0.8ex}
-\titlespacing*{\therefsection}{0ex}{3ex}{0.8ex}
-\titlespacing*{\refsection}{0ex}{3ex}{0.8ex}
 
 \newlist{tabitemize}{itemize}{1}
 %\setlist[tabitemize]{label=\textbullet,nosep,align=parleft,leftmargin=*,}
@@ -75,14 +77,20 @@
 \begin{document}
 
 \begin{center}
-  {\LARGE \textbf{Pierre Kawak, Ph.D.}}\\
-  \faPhone\ +1 (801) 762-7999 \quad \faEnvelope\ \href{mailto:pskawak@gmail.com}{pskawak@gmail.com} \quad \faLink\ \href{https://linktr.ee/pkawak}{linktr.ee/pkawak}
+  {\LARGE \textbf{Pierre Kawak, Ph.D.}}\\[1ex]
+  \faPhone\ +1 (801) 762-7999 \quad \faEnvelope\ \href{mailto:pskawak@gmail.com}{\tt pskawak@gmail.com} \quad \faLink\ \href{https://linktr.ee/pkawak}{\tt linktr.ee/pkawak}
 \end{center}
 
+%%%%%%%%%%%%%%%%%%%%%%%
+% Professional Summary          %%
+%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{-0.3\baselineskip}
 \section*{Professional Summary}
 Computational polymer scientist with 11+ years advancing materials and drug delivery through high-impact modeling, simulation, and cross-functional collaboration — delivering scalable tools, 50+ TB HPC workflows, and award-winning insights across academia and industry. Passionate about accelerating discovery at the intersection of polymers, computation, and applied research.
 
+%%%%%%%%%%%%%%%%%%%%%%%
+% Technical Skills    %
+%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{-0.3\baselineskip}
 \section*{Technical Skills}
 \begin{tabitemize}[leftmargin=*]
@@ -94,6 +102,9 @@ Computational polymer scientist with 11+ years advancing materials and drug deli
   \item \textbf{Communication \& Leadership:} Scientific Writing, Mentorship, Advocacy, 27+ Conference Talks, 5 Publications
 \end{tabitemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Research Experience %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{-0.3\baselineskip}
 \section*{Research Experience}
 
@@ -139,7 +150,6 @@ Computational polymer scientist with 11+ years advancing materials and drug deli
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Articles and Presentations %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\vspace{-1.5\baselineskip}
 \vspace{-0.3\baselineskip}
 %recompile from start if numbers aren't right
 \begin{refsection}[articles]
