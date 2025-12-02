@@ -1,99 +1,60 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% MASTER CV – TAILORING GUIDE (INTERNAL, DO NOT COMPILE)
+% TAILORING GUIDE FOR FUTURE CHATGPT CLIENTS
 %
 % Purpose:
-%   This file is a modular "master CV" used to generate
-%   position-specific CVs and resumes with the help of ChatGPT.
-%   It is NOT intended to be submitted as-is.
+% This master CV provides modular content with multiple specialization options.
+% Follow the instructions below to generate a position-specific CV.
 %
-% How to use with ChatGPT:
-%   1. Provide THIS file (master.tex) and the job ad to ChatGPT.
-%   2. Ask ChatGPT to:
-%        - Select and edit bullets that best match the job ad.
-%        - Remove irrelevant subsections and bullets.
-%        - Output a final LaTeX file with only the tailored content.
+% Tailoring Rules:
+% 1. Review the tailoring configurations below to select relevant content.
+% 2. After selection, REMOVE the corresponding subsection titles such as:
+%       \textbf{Material Simulation and Analysis}
+%       \textbf{Software Development and Automation}
+%    Retain only the higher-level section titles, such as:
+%       \textbf{Postdoctoral Researcher}, University of South Florida \hfill \textit{2022 – Present} \\
 %
-% Role structure:
-%   • Under each role, bullets are grouped into focus subsections
-%     (e.g., "Material Simulation and Analysis",
-%            "Software Development and Automation",
-%            "High-Performance Computing and Workflow Acceleration",
-%            "Leadership, Mentorship, and Community Engagement").
-%   • These are MENU CATEGORIES for tailoring and MUST NOT appear
-%     in the final submitted CV.
+% Suggested Tailoring Configurations:
 %
-%   In the FINAL CV:
-%     - KEEP only the main role lines, e.g.
-%         \textbf{Postdoctoral Researcher}, University of South Florida
-%     - REMOVE all focus subsection headings such as:
-%         \textbf{Material Simulation and Analysis}
-%         \textbf{Software Development and Automation}
+% 1. Software R&D / Scientific Computing Positions
+%    - Keep:
+%      * Professional Summary
+%      * Technical Skills
+%      * Software Development and Automation (Postdoc)
+%      * High-Performance Computing Optimization (Postdoc)
+%      * Debugging, Profiling, and Performance Tuning (Postdoc)
+%      * Software Development and GPU Acceleration (PhD)
+%      * HPC and Workflow Optimization (PhD)
+%    - Optional:
+%      * Scientific Communication and Collaboration (PhD)
+%    - Remove:
+%      * Materials Simulation and Analysis (Postdoc)
+%      * Structure–Property Analysis (PhD)
 %
-% Length targets (FINAL CV):
-%   • Industry / national lab roles: 1–2 pages max.
-%   • Academic research/teaching roles: 3–4 pages max (only if needed).
+% 2. Materials Scientist / Simulation Researcher Positions
+%    - Keep:
+%      * Professional Summary
+%      * Technical Skills
+%      * Material Simulation and Analysis (Postdoc)
+%      * Structure–Property Analysis (PhD)
+%      * HPC Optimization and Workflow Acceleration (Postdoc)
+%      * Scientific Communication and Collaboration (PhD)
+%    - Optional:
+%      * Software Development and Automation (Postdoc)
+%    - Remove:
+%      * Debugging, Profiling, and Performance Tuning (Postdoc)
+%      * Software Development and GPU Acceleration (PhD)
 %
-% Bullet COUNT per role (FINAL CV):
-%   • Postdoc + PhD roles: 4–7 bullets each.
-%   • Earlier roles (e.g., Graduate Researcher, American University of Sharjah;
-%     Undergraduate Research Assistant): 2–3 bullets each AT MOST, and may be
-%     dropped entirely if not clearly relevant to the job ad.
-%      Prioritize bullets that directly match REQUIRED or PREFERRED
-%      qualifications in the job ad.
-%
-% Bullet LENGTH rules (IMPORTANT):
-%   • ALL bullets in the final PDF must be concise, refined, and
-%     easy to scan. NO wall-of-text bullets.
-%   • For the first 3 bullets under the Postdoc and PhD roles:
-%       - Allow up to ~2 lines (max) in the compiled PDF.
-%       - Each bullet should still express ONE clear idea
-%         (Action → Method → Impact), not a paragraph.
-%   • For ALL other bullets (including AUS Masters, leadership section, and
-%     later bullets in each role):
-%       - STRICT limit: 1 line in the compiled PDF.
-%       - If needed, REMOVE clauses instead of wrapping to a 2nd line.
-%
-%   • When compressing:
-%       - Prefer merging or removing secondary details rather than
-%         stacking multiple clauses.
-%       - Drop redundant context if the same idea appears elsewhere.
-%
-% Numbers and notation:
-%   • In the FINAL CV, prefer DIGITS over spelled-out numbers to
-%     improve scanability, e.g.:
-%       - "10+ TB", "5–7 bullets", "3+ years", "500+ members".
-%   • Keep units tight and standard (TB, GB, GPU, node, %, etc.).
-%
-% Keyword and audience adaptation:
-%   • Rephrase bullets to inject key terms from the job ad
-%     (skills, tools, responsibilities, impact) while keeping
-%     factual accuracy.
-%   • For industry/HPC/software roles, prioritize bullets that
-%     emphasize:
-%       - Software Development
-%       - HPC / GPU / profiling / performance
-%       - Automation, pipelines, tooling
-%       - Cross-functional collaboration / enabling others
-%   • For more academic-facing applications, prioritize:
-%       - Molecular Simulation / Polymer Physics
-%       - Structure–property relationships
-%       - Publications, invited talks, mentoring
-%
-% General editing guidance for the FINAL CV:
-%   • Do NOT invent new experiences; only recombine and lightly
-%     rephrase what exists in this master.
-%   • Remove entire bullets or subsections if they are not clearly
-%     relevant to the target job ad.
-%   • Prefer fewer, sharper bullets over many repetitive ones.
-%   • ALWAYS check that the resulting bullets obey:
-%       - Page limit
-%       - Bullet count per role
-%       - Bullet length rules above.
-%
-% Output:
-%   • Respond in LaTeX.
-%   • Ensure this Tailoring Guide remains commented out and does
-%     NOT appear in the compiled PDF.
+% 3. Multidisciplinary Leadership / Team Management Roles
+%    - Keep:
+%      * Professional Summary
+%      * Technical Skills
+%      * Leadership, Mentorship, and Community Engagement (Postdoc)
+%      * Scientific Communication and Collaboration (PhD)
+%      * Software and HPC sections (if leadership is technical)
+%    - Optional:
+%      * All technical sections based on role expectations
+%    - Remove:
+%      * None, unless character limit requires further trimming
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[letterpaper,12pt]{article}
 \usepackage[margin=1.00in, top=0.7in, headsep=20pt]{geometry}
@@ -177,32 +138,35 @@
   \faPhone\ (801) 762-7999 \quad \faEnvelope\ \href{mailto:pskawak@gmail.com}{pskawak@gmail.com} \quad \faLink\ \href{https://linktr.ee/pkawak}{linktr.ee/pkawak}
 \end{center}
 
+\vspace{-0.3\baselineskip}
 \section*{Professional Summary}
-
-Computational polymer physicist specializing in molecular simulation, polymer physics, and statistical mechanics, with extensive experience leading collaborative projects across materials science, chemical engineering, and soft matter.
+Computational polymer physicist with expertise in molecular simulation, statistical mechanics, and polymer theory. Extensive experience leading collaborative projects at the intersection of materials science, chemical engineering, and polymer physics.
 \vspace{0.5em}
-
 \begin{tabitemize}[leftmargin=*]
-    \item Design, optimize, and deploy large-scale molecular dynamics and Monte Carlo workflows (LAMMPS, GROMACS, HOOMD-blue; C++/Python/CUDA) to uncover structure–property relationships in polymers and soft materials.
-    \item Lead cross-functional research teams, mentoring graduate and undergraduate researchers in molecular simulation, HPC workflows, software practices, and scientific communication.
-    \item Architect and accelerate high-throughput analysis pipelines for polymer simulations, including profiling and optimizing in-house codes in Python, C++, and CUDA for multi-node CPU/GPU environments.
-    \item Translate nanoscale insights into design rules for tough, recyclable, and sustainable materials, including elastomeric nanocomposites and sequence-defined copolymers.
-    \item Maintain a strong record of technical communication and leadership through peer-reviewed publications, invited talks, and organization of professional development events, research symposia, and training sessions and workshops.
+    \item Expert in developing, optimizing, and deploying molecular dynamics and Monte Carlo simulations to uncover structure–property relationships in polymers and soft materials.
+    \item Experienced in leading cross-functional teams, managing up to 11 researchers, and mentoring graduate and undergraduate students on computational methods and scientific communication.
+    \item Proven ability to architect and accelerate analysis pipelines for polymer simulations, including profiling and optimizing in-house codes in Python, C++, and CUDA.
+    \item Demonstrated success translating molecular insights into design principles for tough, recyclable, and sustainable materials, including elastomeric nanocomposites and copolymer systems.
+    \item Strong record of scientific communication with multiple invited talks, publications in top journals, and community leadership in the polymer physics community.
+    \item Passionate about building inclusive scientific communities, with leadership experience organizing professional development events, symposia, and mentoring programs.
 \end{tabitemize}
 
+\vspace{-0.3\baselineskip}
 \section*{Technical Skills}
-
 \begin{tabitemize}[leftmargin=*]
-    \item \textbf{Simulation and Modeling:} Molecular dynamics (MD), Monte Carlo (MC), advanced sampling algorithms (e.g., Wang–Landau, configurational bias), coarse-grained and atomistic modeling, non-equilibrium simulations, phase behavior analysis, and free energy calculations; experience with LAMMPS, GROMACS, HOOMD-blue, and custom C++/CUDA engines.
-    \item \textbf{Software Development:} Architecting, profiling, and maintaining scientific software in Python, C, C++, CUDA, Bash, Julia, R, Matlab, and FORTRAN; collaborative development with Git (branching, pull requests, code review), unit testing, and continuous integration / continuous deployment (CI/CD).
-    \item \textbf{Analysis and Data Processing:} Custom analysis pipelines for molecular simulation data using Python (NumPy, SciPy, Matplotlib, Pandas, scikit-learn), Bayesian optimization, statistical modeling, bash scripting, and parallel computation (MPI, CUDA, SLURM).
-    \item \textbf{High-Performance Computing:} Experience with HPC job scheduling (SLURM), distributed computing with MPI, GPU-accelerated computing (CUDA, Nsight, nvprof, nvidia-smi), and large-scale runs on university and national supercomputing resources.
-    \item \textbf{Debugging and Profiling:} GDB, valgrind, callgrind, perf, Nsight, nvprof, nvidia-smi; diagnosing memory leaks, race conditions, and performance bottlenecks in C++/Python/CUDA codebases.
-    \item \textbf{Data Management and Visualization:} Terabyte-scale data handling, automated backups and compression; visualization with Matplotlib, VMD, OVITO, and Inkscape for publication-quality figures.
-    \item \textbf{Process Simulation and Thermodynamics:} Experience with process simulation tools (Aspen HYSYS) and thermodynamic modeling in chemical engineering contexts.
-    \item \textbf{Leadership and Communication:} Leading research teams, mentoring junior researchers, organizing training sessions, professional development workshops and symposia; scientific writing (8 peer-reviewed publications) and technical presentations (28 talks).
+    \item \textbf{Simulation and Modeling:} Molecular dynamics (MD), LAMMPS, GROMACS, HOOMD-blue, Monte Carlo (MC), advanced sampling algorithms, coarse-grained modeling, atomistic modeling, OPLS, non-equilibrium simulations, phase behavior analysis, free energy calculations.
+    \item \textbf{Software Development:} Architecting, profiling, and deploying scientific software in Python, C, C++, CUDA, Bash, Julia, R, Matlab, and FORTRAN; experience with collaborative version control, software development, unit testing, and continuous integration and development using Git.
+    \item \textbf{Analysis and Data Processing:} Custom analysis pipelines for molecular simulation data using Python (NumPy, SciPy, Matplotlib, Pandas, scikit-learn), Bayesian optimization, statistical modeling, bash scripting, and parallel computation (CUDA, MPI, SLURM).
+    \item \textbf{High-Performance Computing:} Experience with HPC job scheduling (SLURM), distributed computing (MPI), running simulations on national supercomputing facilities (XSEDE, ACCESS), and GPU-accelerated computing (CUDA, Nsight, nvprof, nvidia-smi).
+    \item \textbf{Debugging and Profiling:} GDB, Nvprof, nvidia-smi, Nsight, perf, valgrind, callgrind.
+    \item \textbf{File Management:} Automated backups, compression, terabyte-scale datasets.
+    \item \textbf{Data Visualization:} Scientific visualization with Matplotlib, Inkscape, VMD, and OVITO.
+    \item \textbf{Process Simulation and Thermodynamics:} Experience with process simulation tools (Aspen HYSYS) and instruction in thermodynamic modeling.
+    \item \textbf{Leadership and Project Management:} Leading cross-functional teams, mentoring junior researchers, organizing professional development workshops and symposia.
+    \item \textbf{Scientific Communication:} LaTeX, Scientific writing (6 publications), Technical presentations (27+ Talks), Mentorship
 \end{tabitemize}
 
+\vspace{-0.3\baselineskip}
 \section*{Research Experience}
 
 \textbf{Postdoctoral Researcher}, University of South Florida \hfill \textit{2022 – Present} \\
@@ -211,55 +175,59 @@ Computational polymer physicist specializing in molecular simulation, polymer ph
 
 \textbf{Material Simulation and Analysis}
 \begin{tabitemize}[leftmargin=*]
-    \item Developed large-scale molecular dynamics simulations to investigate void formation, failure, and nanoscale reinforcement mechanisms in elastomeric nanocomposites.
-    \item Simulated thermo-elastoplastic deformation and rheology of filled rubber systems, linking nanoscale structure and interfacial physics to macroscopic stress–strain response.
-    \item Automated selection, generation, and testing of atomistic models for sequence-designed copolymers to probe glass transition behavior and thermal stability.
-    \item Identified copolymer sequences with enhanced glass transition temperatures without altering processing or feedstock chemistry, informing experimental design.
-    \item Applied Bayesian optimization and statistical modeling to fit relaxation dynamics and extract glass transition behavior from noisy, high-dimensional simulation data.
+    \item Developed molecular dynamics simulations to investigate stress relaxation, deformation, and nanoscale reinforcement in polymer nanocomposites.
+    \item Simulated thermo-elastoplastic deformation and rheology of filled rubber, identifying nanoscale toughening mechanisms.
+    \item Automated selection, generation, and testing of atomistic sequence-designed macromolecules for enhanced thermal properties.
+    \item Identified copolymer sequences with enhanced glass transition temperatures without altering processing or feedstock chemistry.
+    \item Applied Bayesian optimization to fit relaxation dynamics and extract glass transition behavior.
     \item Led multi-dimensional parameter sweeps (nanoparticle size, chemistry, volume fraction) to optimize nanocomposite designs.
-    \item Collaborated with experimentalists to validate molecular predictions against thermal and mechanical performance targets, closing the loop between simulation and experiment.
-    \item Conceived and led multiple projects from idea to peer-reviewed manuscripts within 2–6 months each, driving rapid cycles of hypothesis generation, replication, and analysis.
+    \item Collaborated with experimentalists to validate molecular predictions against thermal and mechanical performance targets.
+    \item Designed statistical models and applied machine learning to extract insights from large molecular datasets.
     \item Developed methods to extract stress hotspots from 3D trajectories for identifying mechanisms of reinforcement.
 \end{tabitemize}
 
 \vspace{0.5em}
 \textbf{Software Development and Automation}
 \begin{tabitemize}[leftmargin=*]
-    \item Architected Python/C++/CUDA simulation and analysis toolchains to enable high-throughput, physics-informed property prediction across diverse polymer systems.
-    \item Developed modular rheology, thermal, and structural analysis toolkits integrated into lab-wide workflows, improving reproducibility and reusability of analysis code.
-    \item Automated data analysis pipelines handling 100+ TB of simulation data, reducing turnaround time by \textasciitilde 90\% through batching, caching, and parallel execution.
-    \item Built Bash, SLURM, and MPI automation scripts for large-scale HPC job orchestration, checkpointing, restart logic, and robust recovery from node and queue failures.
-    \item Modernized a 50k+ line legacy C++ molecular dynamics analysis toolkit (AMDAT) into a modular, version-controlled, and tested codebase, introducing Git workflows and issue tracking.
-    \item Open-sourced AMDAT on GitHub with CI/CD, unit tests, and comprehensive user/developer documentation, enabling external researchers to analyze LAMMPS and GROMACS trajectories at scale.
-    \item Designed and launched AMDAT documentation and example-driven tutorials, significantly lowering onboarding time for new users and collaborators.
+    \item Architected Python/C++ simulation and analysis tools to enable high-throughput, physics-informed property prediction.
+    \item Developed modular, reusable rheology, thermal, and stress analysis toolkits integrated into team-wide simulation workflows.
+    \item Automated data analysis pipelines handling 100+ TB datasets, reducing turnaround time by 90\%.
+    \item Built bash, Slurm, and MPI automation for large-scale HPC job orchestration, checkpointing, and storage.
+    \item Documented group codebases and created tutorials for reproducible scientific computing.
+    \item Modernized a 50k+ line C++ molecular analysis toolkit (AMDAT): consolidated fragmented local versions into a single GitHub repo, eliminated segfaults and compiler warnings, and introduced unit tests and CI for reproducible releases.
 \end{tabitemize}
 
 \vspace{0.5em}
-\textbf{High-Performance Computing and Workflow Acceleration}
+\textbf{High-Performance Computing Optimization and Workflow Acceleration}
 \begin{tabitemize}[leftmargin=*]
-    \item Led optimization of 50+ TB data pipelines across HPC clusters, improving data throughput by \textasciitilde 90\% and reducing wall-clock time for key workflows from weeks to days.
-    \item Architected scalable storage and compression pipelines for long-running simulations, improving data access patterns and long-term reproducibility across projects.
-    \item Streamlined multi-node CPU and GPU workflows for molecular simulations, including job arrays, dependency graphs, and automated resource selection.
-    \item Reduced simulation runtime by up to 90\% through parallelization, GPU acceleration, and high-performance computing resource optimization.
-    \item Secured NSF ACCESS compute resources to support scalable, HPC-enabled molecular simulation campaigns.
+    \item Led optimization of 50+ TB data pipelines across HPC clusters, improving data throughput by 90\%.
+    \item Architected scalable storage and compression pipelines for terabyte-scale datasets; improved data access and reproducibility across research projects.
+    \item Streamlined multi-node CPU and GPU workflows for molecular simulations.
+    \item Reduced simulation runtime by 90\% through parallelization and high-performance computing resource optimization.
+    \item Awarded NSF ACCESS Compute Resource Grant for advancing scalable HPC-enabled molecular simulations.
 \end{tabitemize}
 
 \vspace{0.5em}
 \textbf{Debugging, Profiling, and Performance Tuning}
 \begin{tabitemize}[leftmargin=*]
-    \item Debugged and profiled C++/Python codebases using GDB, valgrind, callgrind, perf, Nsight, nvprof, and nvidia-smi, resolving memory leaks and runtime bottlenecks.
-    \item Improved software modularity, runtime, and scalability for multi-month, high-dimensional simulations by refactoring core data structures and algorithms.
-    \item Established best practices for code maintainability and scalability through internal documentation, technical presentations, and example-driven refactors.
+    \item Debugged and profiled C++/Python group codebases using GDB, valgrind, and profiling tools (nsight, nvprof), resolving memory leaks and runtime bottlenecks.
+    \item Improved software modularity, runtime, and scalability for multi-month, high-dimensional simulations.
+    \item Led efforts to standardize code maintainability and scientific reproducibility through internal documentation and technical presentations.
 \end{tabitemize}
 
 \vspace{0.5em}
 \textbf{Leadership, Mentorship, and Community Engagement}
 \begin{tabitemize}[leftmargin=*]
-    \item Led and mentored 10+ researchers in HPC workflows, molecular simulation, version control, and scientific computing practices, serving as a go-to technical resource in the group.
-    \item Designed structured onboarding programs, documentation, and tutorials to train new users on simulation workflows, AMDAT, and lab software standards.
-    \item Drove the group-wide transition to modern software practices around AMDAT and related toolchains, including Git-based workflows, code review, and documentation culture.
-    \item Organized and contributed to training sessions and internal workshops on simulation methods, HPC usage, and reproducible research practices.
-    \item Delivered 20+ technical presentations at internal, academic, and industrial venues, including award-winning talks at major conferences.
+    \item Led and mentored 11+ researchers in HPC, molecular simulation, version control, and scientific computing practices.
+    \item Designed structured onboarding programs, documentation, and tutorials to train new users.
+    \item Organized professional development workshops, DEI programs, and research symposia for 200+ researchers across multiple organizations.
+    \item Presented research at 17+ institutional, industrial, and academic conferences, earning multiple awards (GRC 2024, USF 2023).
+    \item Delivered 17 conference talks; earned awards at GRC (2024) and USF Symp.~(2023).
+    \item Recognized with the APS Career Mentor Fellowship for leadership in mentoring and community building.
+  \item Refactored two legacy C++ toolkits into modular, open-source frameworks, enhancing community adoption and productivity across simulation \& analysis workflows.
+  \item Transformed two legacy simulation and analysis codebases—initially underused and fragmented—into robust, modular Python/C++ frameworks, significantly improving lab-wide productivity and enabling their open-source release to support the broader polymer simulation community.
+  \item Open-sourced AMDAT (Amorphous Molecular Dynamics Analysis Toolkit) on GitHub, adding user and developer docs, contribution guidelines, and examples that enabled adoption by external soft-matter simulation groups.
+  \item Led authorship of an AMDAT software manuscript and coordinated invited talks to drive uptake, framing the toolkit as standard infrastructure for amorphous/polymer MD analysis.
 \end{tabitemize}
 
 \textbf{Ph.D.~Researcher}, Brigham Young University \hfill \textit{2017 – 2022} \\
@@ -268,64 +236,62 @@ Computational polymer physicist specializing in molecular simulation, polymer ph
 \vspace{0.5em}
 \textbf{Software Development and GPU Acceleration}
 \begin{tabitemize}[leftmargin=*]
-    \item Built two GPU-accelerated Monte Carlo engines in C++/CUDA ($\sim$ 80,000 lines) to simulate polymer crystallization and free-energy landscapes, with modular data structures and reusable kernels.
-    \item Implemented advanced sampling algorithms (e.g., configurational bias, Wang–Landau) to efficiently explore high-dimensional molecular states and rare events.
+  \item Built two GPU-accelerated Monte Carlo engines in C++/CUDA ($\sim$ 80,000 lines) to simulate polymer crystallization and free energy landscapes.
+    \item Developed advanced sampling algorithms (Configurational Bias Monte Carlo, Wang-Landau) to efficiently explore high-dimensional molecular states.
     \item Solved critical convergence failures in polymer crystallization simulations by architecting a scalable, GPU-accelerated multi-window Monte Carlo framework — cutting runtimes from weeks to hours and enabling previously impossible sampling.
-    \item Designed a multi-window, multi-walker sampling framework with checkpointing and automatic load balancing across GPUs/CPUs, enabling tractable modeling of metastable and glassy states.
-    \item Optimized GPU kernels (e.g., cell lists, neighbor search, reductions) for occupancy and memory coalescing, achieving 100$\times$ speedups over CPU-only implementations.
-    \item Used NVIDIA profiling tools (Nsight, nvprof, nvidia-smi) and standard debuggers (GDB, valgrind) to diagnose performance bottlenecks and numerical issues in GPU-accelerated codes.
+    \item Designed multi-window, multi-walker sampling algorithms to enhance convergence in high-dimensional MC simulations of polymer melts, enabling tractable modeling of metastable and glassy states.
+    \item Designed GPU-optimized data structures (cell lists) and pairwise interaction search algorithms, achieving significant performance improvements.
+    \item Utilized NVIDIA profiling tools (nsight, nvprof, nvidia-smi) to debug, optimize, and scale GPU-accelerated codes.
 \end{tabitemize}
 
 \vspace{0.5em}
 \textbf{Structure–Property Analysis and Data Processing}
 \begin{tabitemize}[leftmargin=*]
-    \item Developed numerical algorithms to quantify nanoscale crystalline and orientational order from 3D simulation trajectories, supporting automated detection of polymorphs and defects.
-    \item Built Python-based analysis pipelines (NumPy, SciPy, Pandas, Matplotlib) to process large simulation datasets into free-energy profiles, phase diagrams, and thermodynamic response functions.
-    \item Automated parameter sweeps and post-processing to extract structure–property relationships, reducing manual analysis time and standardizing data products across projects.
+    \item Developed numerical algorithms to quantify nanoscale crystalline and orientational order from 3D simulation trajectories.
+    \item Processed large-scale simulation data to generate thermodynamic observables, including free energy derivatives and heat capacity profiles.
+    \item Extracted phase diagrams and structure–property relationships through systematic parameter sweeps and automated analysis pipelines.
 \end{tabitemize}
 
 \vspace{0.5em}
 \textbf{High-Performance Computing and Workflow Optimization}
 \begin{tabitemize}[leftmargin=*]
-    \item Leveraged university and national HPC clusters (SLURM, MPI) to perform long-timescale, high-throughput Monte Carlo simulations over large parameter spaces.
-    \item Automated multi-parameter simulation campaigns with job arrays, dependency graphs, and robust restart logic, reducing wall-clock time for full phase-diagram calculations from weeks to days.
-    \item Implemented systematic logging, data organization, and compression workflows to ensure reproducibility and efficient reuse of multi-terabyte simulation datasets.
+    \item Leveraged HPC resources to perform long-timescale, high-throughput Monte Carlo simulations using GPU acceleration.
+    \item Automated simulation and data analysis workflows to enable reproducible exploration of high-dimensional parameter spaces.
+    \item Developed a parallel sampling engine with 320+ concurrent jobs using multi-walker coordination across CPUs and GPUs — dramatically improving ergodicity and supporting multiple publications and an NSF CAREER award.
     \item Led development of a multi-walker, multi-window parallel sampling architecture deployed across 320+ concurrent jobs, integrating CPU/GPU scheduling and inter-process communication to boost sampling ergodicity and simulation throughput.
     \item Implemented fail-safe heartbeat system for resilient simulation orchestration and dynamic restart logic in long-timescale jobs.
     \item Built an automated, robust, and modular Python workflow system with JSON-based simulation state tracking, adaptive resource allocation, and dynamic error handling across SLURM-managed HPC jobs.
+    \item Executed large multidimensional parameter sweeps for coarse-grained polymers.
 \end{tabitemize}
 
 \vspace{0.5em}
 \textbf{Scientific Communication and Collaboration}
 \begin{tabitemize}[leftmargin=*]
-    \item Co-authored peer-reviewed publications and multiple conference presentations on polymer crystallization and nanoscale structure.
-    \item Mentored 4 undergraduate researchers in C++/Python programming, HPC workflows, and scientific analysis, with several mentees progressing to graduate research roles.
-    \item Provided key simulation results and software infrastructure that contributed to a successful \$500,000 NSF CAREER proposal on polymer crystallization.
+  \item Presented research findings at academic conferences, advancing understanding of nanoscale phenomena in polymer materials.
+  \item Mentored 4 undergraduates; co-authored 2 papers and 6 conference abstracts.%; supported grad school admissions.
   \item Won APS Distinguished Student Award and BYU Research Presentation Award.
+  \item Contributed key data to a successful \$500K NSF CAREER proposal.
+  \item Simulation framework became foundational infrastructure for lab-wide research and supported a successful NSF CAREER proposal on polymer crystallization.
+  \item Conceived and drove 3 first-author manuscripts from idea to submission in 2–6 months, coordinating simulation campaigns, replication, and iteration with collaborators.
 \end{tabitemize}
 
 \textbf{Graduate Researcher}, American University of Sharjah \hfill \textit{2015 – 2017} \\
 \textit{Advisor: Prof.~Ghaleb Husseini}
 \begin{tabitemize}[leftmargin=*]
-  \item Developed estrone-functionalized drug nanocarriers for targeted breast cancer chemotherapy, coordinating synthesis, characterization, and in vitro testing.
-  \item Optimized ultrasound-triggered drug release by systematically varying acoustic parameters to tune release profiles for chemotherapy applications.
-  \item Characterized nanocarrier size, stability, and drug loading using NMR and dynamic light scattering to ensure reproducible and therapeutically relevant formulations.
-  \item Standardized experimental protocols and data-recording workflows, improving reproducibility and enabling consistent results across collaborators.
-  \item Presented findings at 3 conferences, including a Best Talk award at the AUS Biomedical Symposium.
+  \item Synthesized estrone-functionalized drug nanocarriers for breast cancer treatment
+  \item Optimized ultrasonic parameters for enhanced release control for chemotherapy applications.
+  \item Validated drug stability and kinetics with NMR and dynamic light scattering.
+  \item Standardized lab protocols; boosted reproducibility and cross-lab collaboration.
+  \item Presented at 3 conferences; awarded Best Talk at AUS Biomedical Symposium.
 \end{tabitemize}
 
 \section*{Leadership and Community Engagement}
 \begin{tabitemize}[leftmargin=*]
-  \item \textbf{Founder \& Chair}, USF Postdoctoral Scholar Association Executive Committee (2023–Present) \\
-        Established and lead an organization representing \textasciitilde 200 postdocs; coordinate professional development programming, social events, and communication with university leadership, including the NPA-funded ELEVATE Talk Series.
-  \item \textbf{Co-founder \& President}, BYU Chemical Engineering Graduate Student Council (2018–2021) \\
-        Launched a graduate council to improve communication, recruitment, and community; organized department-wide events and conducted surveys on financial well-being to inform departmental decisions.
-  \item \textbf{Administrator}, Early Career Researchers in Polymer Physics Network (2021–Present) \\
-        Manage an international Slack community of 500+ early-career researchers; coordinate virtual events such as a 150+ attendee Virtual Polymer Physics Symposium and ongoing peer networking.
-  \item \textbf{Scholarship Coordinator \& Mentor}, oSTEM (2022–Present) \\
-        Lead review of 200+ scholarship applications per cycle and mentor early-career scientists and engineers through structured mentoring programs.
-  \item \textbf{STEM Outreach and Judging} \\
-        Contributed to outreach and talent pipeline development via classroom visits, seminar-style workshops for high school and college students, and judging at regional and state science fairs.
+  \item \textbf{President}, Early Career Researchers in Polymer Physics (2022–Present): Led 550+ member global network, organized 150+ attendee virtual symposium.
+  \item \textbf{Founder \& President}, USF Postdoctoral Scholar Association (2023–Present): Launched NPA-funded ELEVATE Talk Series and DEI programs for 200+ postdocs.
+  \item \textbf{Founder \& President}, BYU Chem.~Eng.~Graduate Council (2019–2022): Shaped department policies and spearheaded outreach and recruitment.
+  \item \textbf{Chair}, Gordon Research Seminar on Polymer Physics (2026): coordinating speaker selection, session themes, and early-career networking events.
+  \item Designed and launched the NPA-funded ELEVATE talk series (5+ events/year) on publishing, inclusive leadership, AI, and career development for 200+ postdocs and graduate researchers.
 \end{tabitemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
