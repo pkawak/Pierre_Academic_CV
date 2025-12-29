@@ -38,8 +38,8 @@
 % \usepackage[style=numeric-comp,sorting=ydnt,defernumbers,maxbibnames=20]{biblatex}
 \usepackage[backend=biber,sorting=mysort,style=numeric-comp,defernumbers,maxbibnames=20]{biblatex}
 \addbibresource[label=articles]{articles.bib}
-%\addbibresource[label=nopeer]{nopeer_articles.bib}
-%\addbibresource[label=other]{other.bib}
+\addbibresource[label=nopeer]{nopeer_articles.bib}
+\addbibresource[label=software]{software.bib}
 \addbibresource[label=talks]{talks.bib}
 
   % This is the sorting scheme for the CV
@@ -82,7 +82,7 @@
 %  }
 
  % fix header
- \defbibheading{fix}[\refname]{\section*{#1}}
+ \defbibheading{fix}[\refname]{\begin{center}\textit{\large #1}\end{center}}
  
  % supress the "in: " in articles
  \renewbibmacro{in:}{}
@@ -283,18 +283,31 @@
 %\vspace{-0.5\baselineskip}
 
 %recompile from start if numbers aren't right
+\section*{Publications}
+\vspace{0.5\baselineskip}
+
 \begin{refsection}[articles]
   \nocite{*}
   \setlength\bibitemsep{8pt}
   \printbibliography[resetnumbers=true,type=article,title={Peer-Reviewed Publications},heading=fix]
 \end{refsection}
 
-%\begin{refsection}[nopeer]
-%  \nocite{*}
-%  \setlength\bibitemsep{0pt}
-%  \printbibliography[resetnumbers=true,type=article,title={In Progress Publications},heading=fix]
-%\end{refsection}
-%
+\vspace{-\baselineskip}
+
+\begin{refsection}[nopeer]
+  \nocite{*}
+  \setlength\bibitemsep{8pt}
+  \printbibliography[resetnumbers=true,type=article,title={Preprints},heading=fix]
+\end{refsection}
+
+\vspace{-\baselineskip}
+
+\begin{refsection}[software]
+  \nocite{*}
+  \setlength\bibitemsep{8pt}
+  \printbibliography[resetnumbers=true,type=software,title={Software},heading=fix]
+\end{refsection}
+
 \vspace{-1.2\baselineskip}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -451,7 +464,7 @@
 \begin{refsection}[talks]
  \nocite{*}
  \setlength\bibitemsep{0pt}
- \printbibliography[resetnumbers=true,type=inproceedings,title={Selected Presentations},heading=fix]
+ \printbibliography[resetnumbers=true,type=inproceedings,title={Technical Presentations},heading=fix]
 \end{refsection}
 
 %%%%%%%%%%%%%%%%%
