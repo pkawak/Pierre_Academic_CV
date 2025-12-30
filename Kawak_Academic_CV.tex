@@ -83,6 +83,11 @@
 
  % fix header
  \defbibheading{fix}[\refname]{\begin{center}\textit{\large #1}\end{center}}
+
+ % older header
+ \defbibheading{old}[\refname]{%
+   \section*{#1}%
+ }
  
  % supress the "in: " in articles
  \renewbibmacro{in:}{}
@@ -289,7 +294,7 @@
 \begin{refsection}[articles]
   \nocite{*}
   \setlength\bibitemsep{8pt}
-  \printbibliography[resetnumbers=true,type=article,title={Peer-Reviewed Publications},heading=fix]
+  \printbibliography[resetnumbers=true,type=article,title={Peer-Reviewed Journal Articles},heading=fix]
 \end{refsection}
 
 \vspace{-\baselineskip}
@@ -308,13 +313,11 @@
   \printbibliography[resetnumbers=true,type=software,title={Software},heading=fix]
 \end{refsection}
 
-\vspace{-1.2\baselineskip}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %% Honors and Awards %%
 %%%%%%%%%%%%%%%%%%%%%%%
 \section*{Awards \& Fellowships}
-\vspace{-0.6\baselineskip}
 \begin{longtable}{@{}p{0.86\textwidth}r@{}}
   \multicolumn{2}{l}{\hspace{-3mm} \bf{Research Grants \& Fellowships}} 	                                                                                                                                                                                              \\ [5pt]
   \hspace{3mm} National Postdoctoral Association (NPA) \href{https://www.nationalpostdoc.org/general/custom.asp?page=IMPACTProgram}{IMPACT Fellowship}                                                                                                   & 2023 -- 2024 \\ [2pt]
@@ -344,22 +347,155 @@
   \hspace{3mm} AUS $3\times$ Dean's List for Academic Excellence                                                                                                                                                                                         & 2013 -- 2014 \\ [4pt]
 \end{longtable}
 
-\vspace{1.0\baselineskip}
+\vspace{1\baselineskip}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Research Mentorship Experience %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Research Mentorship Experience}
-%\begin{longtable}{@{}p{0.25\textwidth} p{0.25\textwidth} p{0.25\textwidth} p{0.25\textwidth}}
-\begin{longtable}{ c c c c c }
-  Tianna Virgo          & Alyna Williams        & Amanda Sharrer       & Luiz Zepeda           \\
-  USF Undergraduate                & USF Undergraduate                & USF Ph.D. Candidate            & USF Ph.D. Candidate             \\[4pt]
-  Harshad Bhapkar       & Peijing Yue           & Makayla Branham      & William F. Drayer     \\
-  USF Ph.D. Candidate             & USF Ph.D. Candidate             & USF Ph.D. Candidate            & USF Ph.D. Candidate             \\[4pt]
-  Bao Ma                & Annelise Curtin       & Austin Hartley       & Dakota S. Banks       \\
-  USF Ph.D. Candidate             & USF M.S. Student              & USF Undergraduate               & BYU Undergraduate                \\[4pt]
-  Christopher Akiki     & Beverly S. Delgado    & Andrew S. Gibson     & Paul Kawak            \\
-  BYU Undergraduate                & BYU Undergraduate                & BYU Undergraduate               & AUS Undergraduate                \\[4pt]
-\end{longtable}
+%\noindent\emph{All mentees listed below were members of the David S. Simmons Lab (University of South Florida), whom I supported continuously, with concentrated onboarding/technical ramp-up support during their first months in the group.}
+
+%\begin{longtable}{ c c c c c }
+%  Tianna Virgo          & Alyna Williams        & Amanda Sharrer       & Luiz Zepeda           \\
+%  USF Undergraduate                & USF Undergraduate                & USF Ph.D. Candidate            & USF Ph.D. Candidate             \\[4pt]
+%  Harshad Bhapkar       & Peijing Yue           & Makayla Branham      & William F. Drayer     \\
+%  USF Ph.D. Candidate             & USF Ph.D. Candidate             & USF Ph.D. Candidate            & USF Ph.D. Candidate             \\[4pt]
+%  Bao Ma                & Annelise Curtin       & Austin Hartley       & Dakota S. Banks       \\
+%  USF Ph.D. Candidate             & USF M.S. Student              & USF Undergraduate               & BYU Undergraduate                \\[4pt]
+%  Christopher Akiki     & Beverly S. Delgado    & Andrew S. Gibson     & Paul Kawak            \\
+%  BYU Undergraduate                & BYU Undergraduate                & BYU Undergraduate               & AUS Undergraduate                \\[4pt]
+%\end{longtable}
+
+\vspace{0.4em}
+
+% --- helper formatting (optional but recommended) ---
+\newcommand{\mentee}[3]{%
+  \noindent
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l c r @{}}
+    \textbf{#1} & \textit{#2} & \textit{#3} \\
+  \end{tabular*}\par\vspace{-0.55em}%
+}
+\newenvironment{menteeitems}{%
+	\begingroup
+	\small
+  \begin{itemize}
+    \setlength{\itemsep}{0.15em}
+    \setlength{\parskip}{0pt}
+    \setlength{\topsep}{0.15em}
+    \setlength{\leftmargin}{0em}
+  }{%
+  \end{itemize}
+\endgroup
+	\vspace{0.0em}
+}
+
+% =========================
+% Per-person listings
+% =========================
+
+\mentee{Amanda Sharrer}{Ph.D. Candidate, USF}{\textit{2024-2025}}
+\begin{menteeitems}
+  \item Onboarded and provided ongoing technical guidance for a project on molecular sequence selection for additive compatibilizers in mixed waste plastics.
+  \item Assisted in building molecular configurations and simulation protocols (equilibration/production, validation).
+  \item Supported analysis and visualization workflows using Python and OVITO to probe interfacial phenomena.
+\end{menteeitems}
+
+\mentee{Luis Zepeda}{Ph.D. Candidate, USF}{\textit{2024-2025}}
+\begin{menteeitems}
+  \item Provided technical guidance for simulations of thin polymer films near supported and free surfaces.
+  \item Helped establish reliable simulation protocols to study structure and dynamics near interfaces.
+  \item Supported Python post-processing and visualization to extract interfacial trends and communicate results clearly.
+\end{menteeitems}
+
+\mentee{Harshad Bhapkar}{Ph.D. Candidate, USF}{\textit{2022-2025}}
+\begin{menteeitems}
+  \item Directly supervised day-to-day research activities focused on mechanical response of polymer nanocomposites.
+  \item Provided hands-on mentorship spanning simulation planning, troubleshooting, analysis strategy, and interpretation of mechanical/structural metrics.
+  \item Served as a primary technical point-of-contact to maintain momentum, prioritize tasks, and ensure method rigor.
+\end{menteeitems}
+
+\mentee{Makayla Branham}{Ph.D. Candidate, USF}{\textit{2023-2025}}
+\begin{menteeitems}
+  \item Directly mentored and collaborated on research studying copolymer sequence effects on glass transition behavior.
+  \item Guided analysis, planning and interpretation to connect sequence-level descriptors with relaxation metrics.
+\end{menteeitems}
+
+\mentee{Bao Ma}{Ph.D. Candidate, USF}{\textit{2023-2025}}
+\begin{menteeitems}
+  \item Onboarded and provided technical guidance for thin-film polymer simulations near interfaces.
+  \item Supported development of simulation protocols and Python analysis for interfacial structure and dynamics.
+\end{menteeitems}
+
+\mentee{Alyna Williams}{Undergraduate Researcher, USF}{\textit{2024-2025}}
+\begin{menteeitems}
+  \item Mentored end-to-end research execution: scientific computing, HPC usage, simulation workflows, and polymer physics literature grounding.
+  \item Co-developed generalized relaxation characterization pipeline across diverse molecular systems.
+  \item Provided career mentorship and wrote letters of reference in support of professional opportunities.
+\end{menteeitems}
+
+\mentee{Tianna Virgo}{Undergraduate Researcher, USF}{\textit{2024}}
+\begin{menteeitems}
+  \item Onboarded into simulation-based polymer physics research with structured guidance in scientific computing workflows, high-performance computing procedures, and best practices.
+\end{menteeitems}
+
+\mentee{Dr. Peijing Yue}{Ph.D. Candidate, USF}{\textit{2022-2024}}
+\begin{menteeitems}
+  \item Provided sustained professional development/guidance during the Ph.D. to industry transition.
+  \item Helped translate research strengths into industry-ready narratives and practical application materials.
+\end{menteeitems}
+
+\mentee{Annelise Curtin}{M.S. Student, USF}{\textit{2024}}
+\begin{menteeitems}
+  \item Provided career guidance for graduate-school prep; placed as Ph.D. at the University of Minnesota.
+\end{menteeitems}
+
+\mentee{Austin Hartley}{Undergraduate Researcher, USF}{\textit{2023}}
+\begin{menteeitems}
+  \item Provided career guidance for graduate-school prep; placed as Ph.D. at the Penn State University.
+\end{menteeitems}
+
+\mentee{Dr. William F. Drayer}{Ph.D. Candidate, USF}{\textit{2022-2023}}
+\begin{menteeitems}
+  \item Provided professional development and career guidance during transition from Ph.D. to postdoc.
+\end{menteeitems}
+
+% =========================
+% Research Mentorship Experience (BYU)
+% =========================
+
+\mentee{Christopher Akiki}{Undergraduate Researcher, BYU}{\textit{2020-2022}}
+\begin{menteeitems}
+  \item Co-authored a peer-reviewed manuscript on sensitivity of polymer crystallization to force-field choices.
+  \item Collaborated on development of the Order-Parameter Wang--Landau (OPWL) simulation engine in C++, a generalized rare-event sampler for free energies and densities of states.
+  \item Provided technical guidance on literature review and methodological approaches to polyethylene crystallization.
+  \item Provided career guidance for graduate-school prep; placed as Ph.D. at University of Minnesota.
+\end{menteeitems}
+
+\mentee{Dr. Dakota S. Banks}{Undergraduate Researcher, BYU}{\textit{2018-2019}}
+\begin{menteeitems}
+  \item Co-authored a peer-reviewed manuscript on minimum free energy path for polymer crystal nucleation.
+  \item Collaborated on the design and implementation of a GPU-accelerated Monte Carlo Polymer Crystallization (MCPC) simulation engine in C++/CUDA.
+  \item Provided career guidance for graduate-school prep; placed as Ph.D. at Brigham Young University.
+\end{menteeitems}
+
+\mentee{Beverly S. Delgado}{Undergraduate Researcher, BYU}{\textit{2019}}
+\begin{menteeitems}
+  \item Supported onboarding into molecular simulations and polymer physics with literature and resources.
+\end{menteeitems}
+
+\mentee{Andrew S. Gibson}{Undergraduate Researcher, BYU}{\textit{2018}}
+\begin{menteeitems}
+  \item Collaborated on development of the Monte Carlo Polymer Crystallization (MCPC) simulation engine in C++/CUDA and provided onboarding training in simulation workflows.
+\end{menteeitems}
+
+% =========================
+% Research Mentorship Experience (AUS)
+% =========================
+
+\mentee{Paul Kawak}{M.S. Student, American University of Sharjah}{\textit{2015-2017}}
+\begin{menteeitems}
+\item Provided onboarding/mentorship on a project developing albumin-targeted smart nanocarriers for cancer treatment (synthesis, validation, and release studies probing ultrasonic-triggered response).
+\end{menteeitems}
 
 \vspace{-0.5\baselineskip}
 %%%%%%%%%%%%%%%%
@@ -367,20 +503,20 @@
 %%%%%%%%%%%%%%%%
 \section*{Teaching Experience}
 \begin{longtable}{@{}p{0.47\textwidth}p{0.33\textwidth}r@{}}
-     Graduate Teaching Assistant                                    & Thermodynamics                                      & Winter 2021       \\ [3pt]
-     \textit{Brigham Young University}                              & Separations Engineering                             & Fall 2021         \\ [3pt]
-                                                                    & Heat \& Mass Transfer                               & 2018 -- 2021 (3x) \\ [3pt]
-                                                                    & Process Dynamics \& Control                         & Fall 2018         \\ [8pt]
-     Volunteer Course Instructor; \textit{University of the People} & College Algebra                                     & Spring 2018       \\ [8pt]
-     Graduate Instructor; \textit{American University of Sharjah}   & Principles of ChemE                                 & 2016 -- 2017 (3x) \\ [8pt]
-     Graduate Teaching Assistant                                    & Corrosion Lab                                       & 2016 -- 2017 (2x) \\ [3pt]
-     \textit{American University of Sharjah}                        & ChemE Lab I                                         & 2015 -- 2016 (2x) \\ [3pt]
-                                                                    & Graduate Desalination                               & Spring 2015       \\ [3pt]
-                                                                    & Wastewater Treatment                                & Spring 2015       \\ [8pt]
-     Undergraduate Teaching Assistant                               & Mass Transfer                                       & 2014 -- 2015 (3x) \\ [3pt]
-     \textit{American University of Sharjah}                        & Kinetics                                            & Fall 2014         \\ [3pt]
-                                                                    & Thermodynamics                                      & Spring 2014       \\ [8pt]
-     Private Tutor                                                  & Maths, Engineering, Business, etc.                  & 2008 -- now
+	Graduate Teaching Assistant                                    	& \textbf{Thermodynamics}                                      & Winter 2021       \\ [3pt]
+	\textit{Brigham Young University}                              	& \textbf{Separations Engineering}                             & Fall 2021         \\ [3pt]
+									& \textbf{Heat \& Mass Transfer}                               & 2018 -- 2021 (3x) \\ [3pt]
+									& \textbf{Process Dynamics \& Control}                         & Fall 2018         \\ [8pt]
+	Volunteer Course Instructor; \textit{University of the People} 	& \textbf{College Algebra}                                     & Spring 2018       \\ [8pt]
+	Graduate Instructor; \textit{American University of Sharjah}   	& \textbf{Principles of ChemE}                                 & 2016 -- 2017 (3x) \\ [8pt]
+	Graduate Teaching Assistant                                    	& \textbf{Corrosion Lab}                                       & 2016 -- 2017 (2x) \\ [3pt]
+	\textit{American University of Sharjah}                        	& \textbf{ChemE Lab I}                                         & 2015 -- 2016 (2x) \\ [3pt]
+									& \textbf{Graduate Desalination}                               & Spring 2015       \\ [3pt]
+									& \textbf{Wastewater Treatment}                                & Spring 2015       \\ [8pt]
+	Undergraduate Teaching Assistant                               	& \textbf{Mass Transfer}                                       & 2014 -- 2015 (3x) \\ [3pt]
+	\textit{American University of Sharjah}                        	& \textbf{Kinetics}                                            & Fall 2014         \\ [3pt]
+									& \textbf{Thermodynamics}                                      & Spring 2014       \\ [8pt]
+	Private Tutor                                                  	& \textbf{Maths, Engineering, Business, etc.}                  & 2008 -- now
 \end{longtable}
 %\vspace{3ex}
 
@@ -459,12 +595,12 @@
 \end{longtable}
 
 
-\AtNextBibliography{\small}
+%\AtNextBibliography{\small}
 
 \begin{refsection}[talks]
  \nocite{*}
- \setlength\bibitemsep{0pt}
- \printbibliography[resetnumbers=true,type=inproceedings,title={Technical Presentations},heading=fix]
+ \setlength\bibitemsep{8pt}
+ \printbibliography[resetnumbers=true,type=inproceedings,title={Technical Presentations},heading=old]
 \end{refsection}
 
 %%%%%%%%%%%%%%%%%
