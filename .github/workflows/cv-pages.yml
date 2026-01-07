@@ -1,0 +1,45 @@
+name: Build CV PDF and deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "cv-pages"
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Compile LaTeX -> PDF
+      - name: Build PDF (latexmk)
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: Kawak_Academic_CV.tex
+          latexmk_use_pdflatex: true
+          args: -pdf -interaction=nonstopmode -file-line-error
+
+      # Prepare site content
+      - name: Stage site
+        run: |
+          mkdir -p _site
+          cp -r site/* _site/
+          cp Kawak_Academic_CV.pdf _site/
+
+      # Deploy to gh-pages branch
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: _site
+          force_orphan: true
