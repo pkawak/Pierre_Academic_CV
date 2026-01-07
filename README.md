@@ -1,23 +1,16 @@
 # Pierre Kawak Academic CV (LaTeX + PDF)
 
-This repository hosts my academic curriculum vitae (CV) in two forms:
+This repository contains the LaTeX source for my academic curriculum vitae (CV).
+To view my most updated CV in a PDF format, visit [CV PDF](https://pkawak.github.io/Pierre_Academic_CV/).
+It contains comprehensive listings of my work history (positions, projects, mentorship, teaching), service history, awards, peer-reviewed publications, software, and technical talks.
 
-- **PDF**: for quick viewing/downloading
-- **LaTeX source**: for transparency and for anyone who wants to adapt the template
+## LaTeX Source Files
 
-## Quick access
-
-- **`Kawak_Academic_CV.pdf`**: the compiled CV (recommended if you just want to read it)
-- **`Kawak_Academic_CV.tex`**: the LaTeX source used to generate the PDF
-
-## Supporting files (for compilation/customization)
-
-The `.tex` file pulls from several BibTeX databases:
-
-- **`articles.bib`**: peer-reviewed publications
-- **`nopeer_articles.bib`**: non-peer-reviewed articles / preprints (if applicable)
-- **`software.bib`**: published software
-- **`talks.bib`**: technical talks / presentations
+- **`Kawak_Academic_CV.tex`:** main LaTeX file
+- **`articles.bib`:** peer-reviewed publications
+- **`nopeer_articles.bib`:** non-peer-reviewed articles / preprints (if applicable)
+- **`software.bib`:** published software
+- **`talks.bib`:** technical talks / presentations
 
 ## If you want to adapt this CV
 
