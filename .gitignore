@@ -5,4 +5,8 @@
 *.log
 *.out
 *.xml
-tailored_ones
+tailored_ones/
+industry/
+master/
+v-3_page/
+v-AICHE/
