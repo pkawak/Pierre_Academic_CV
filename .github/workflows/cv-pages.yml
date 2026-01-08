@@ -3,6 +3,9 @@ name: Build CV PDF and deploy to GitHub Pages
 on:
   push:
     branches: [ "main" ]
+    # Prevent infinite loop: commits that only update the generated PDF won't trigger this workflow
+    paths-ignore:
+      - "Kawak_Academic_CV.pdf"
   workflow_dispatch:
 
 permissions:
@@ -19,6 +22,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       # Compile LaTeX -> PDF
       - name: Build PDF (latexmk)
@@ -27,6 +32,22 @@ jobs:
           root_file: Kawak_Academic_CV.tex
           latexmk_use_pdflatex: true
           args: -pdf -interaction=nonstopmode -file-line-error
+
+
+      # Commit PDF back to main if it changed
+      - name: Commit PDF if changed
+        run: |
+          if git diff --quiet -- Kawak_Academic_CV.pdf; then
+            echo "PDF unchanged; nothing to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add Kawak_Academic_CV.pdf
+          git commit -m "Update compiled CV PDF [skip ci]"
+          git push origin HEAD:main
 
       # Prepare site content
       - name: Stage site
