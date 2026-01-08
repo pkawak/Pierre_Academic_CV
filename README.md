@@ -1,4 +1,4 @@
-# Pierre Kawak Academic CV (LaTeX + PDF)
+# Pierre Kawak Academic CV
 
 This repository contains the LaTeX source for my academic curriculum vitae (CV).
 To view my most updated CV in a PDF format, visit [CV PDF](https://pkawak.github.io/Pierre_Academic_CV/).
